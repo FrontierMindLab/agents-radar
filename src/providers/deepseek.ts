@@ -3,7 +3,7 @@
  *
  * Env vars:
  *   DEEPSEEK_API_KEY  - API key
- *   DEEPSEEK_MODEL    - model name (default: deepseek-chat)
+ *   DEEPSEEK_MODEL    - model name (default: deepseek-v4-flash)
  */
 
 import { OpenAICompatibleProvider } from "./openai-compatible.ts";
@@ -17,7 +17,7 @@ export class DeepSeekProvider extends OpenAICompatibleProvider {
     super({
       apiKey: opts?.apiKey ?? process.env["DEEPSEEK_API_KEY"],
       baseURL: DEEPSEEK_BASE_URL,
-      model: opts?.model ?? process.env["DEEPSEEK_MODEL"] ?? "deepseek-chat",
+      model: opts?.model ?? process.env["DEEPSEEK_MODEL"] ?? "deepseek-v4-flash",
     });
   }
 }
