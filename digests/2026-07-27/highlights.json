@@ -55,6 +55,14 @@
       "本地RAG搭建教程：Ollama + ChromaDB + LangChain实战",
       "开发者因AI生成项目被社区拒绝，引发12条争议评论",
       "查询时实体消歧：Graph RAG中一个名字对应17个节点"
+    ],
+    "ai-weekly": [
+      "Anthropic发布Opus 5，半价性能持平旗舰，引入努力等级机制",
+      "中国Kimi K3模型评测达Fable同级，引发开源取胜讨论",
+      "AI CLI工具生态集体将稳定性作为最高优先级",
+      "AGENTS.md提案获多工具支持，Agent技能标准化起步",
+      "阿里open-code-review开源单日近千星，企业级AI代码审查",
+      "OpenAI发布Long Horizon对齐框架，挑战自主Agent安全"
     ]
   },
   "en": {
@@ -113,6 +121,14 @@
       "Local-first AI buzz (Ollama, Kokoro, Hermes Agent)",
       "Article: 'Don't Wait. Fork It.' – forking as ownership",
       "DeepSeek pauses fundraise over Huawei deficit"
+    ],
+    "ai-weekly": [
+      "Claude Opus 5: half cost, near-frontier performance",
+      "Nvidia, MS, Meta warn on open-weight regulation",
+      "Kimi K3 matches Fable benchmarks",
+      "OpenAI, Hugging Face address eval security",
+      "mattpocock/skills hits +1,740 stars in day",
+      "Terence Tao uses ChatGPT for math breakthrough"
     ]
   }
 }
