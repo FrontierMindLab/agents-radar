@@ -197,8 +197,6 @@ const LABEL_COLORS: Record<string, string> = {
   trending: "f9a825",
   hn: "ff6600",
   ph: "da552f",
-  weekly: "7c3aed",
-  monthly: "0d9488",
   "digest-en": "1d76db",
   "openclaw-en": "f472b6",
   "web-en": "6366f1",

@@ -53,19 +53,8 @@ export function buildMessage(
   highlights?: Highlights | null,
 ): string {
   const PAGES_URL = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
-  const baseReports = reports.filter((r) => !r.endsWith("-en"));
-  const isWeekly = baseReports.includes("ai-weekly");
-  const isMonthly = baseReports.includes("ai-monthly");
-
-  const icon = isMonthly ? "📆" : isWeekly ? "📅" : "📡";
-  const suffix = isMonthly ? " 月报" : isWeekly ? " 周报" : "";
-  const lines: string[] = [`${icon} <b>agents-radar${suffix} · ${date}</b>`];
-
-  // Daily reports first, then rollups
-  const ordered = [
-    ...baseReports.filter((r) => !r.includes("weekly") && !r.includes("monthly")),
-    ...baseReports.filter((r) => r.includes("weekly") || r.includes("monthly")),
-  ];
+  const ordered = reports.filter((r) => !r.endsWith("-en"));
+  const lines: string[] = [`📡 <b>agents-radar · ${date}</b>`];
 
   const zhHighlights = highlights?.zh ?? {};
   const enHighlights = highlights?.en ?? {};

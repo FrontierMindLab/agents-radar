@@ -2,7 +2,7 @@
 
 English | [中文](./README.zh.md)
 
-A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI ecosystem signals from 10 data sources, then publishes bilingual (Chinese + English) daily digests as GitHub Issues and committed Markdown files. Weekly and monthly rollup reports are also generated automatically.
+A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI ecosystem signals from 10 data sources, then publishes bilingual (Chinese + English) daily digests as GitHub Issues and committed Markdown files.
 
 ### Data Sources
 
@@ -439,39 +439,17 @@ Community sentiment signals
 Worth reading
 ```
 
-`ai-weekly.md` / `ai-weekly-en.md` structure (generated every Monday):
-```
-Coverage: YYYY-MM-DD ~ YYYY-MM-DD  (last 7 daily digests)
+Historical digests are stored in [`digests/`](./digests/). Published issues are tagged by type: [`digest`](../../issues?label=digest) · [`openclaw`](../../issues?label=openclaw) · [`web`](../../issues?label=web) · [`trending`](../../issues?label=trending) · [`hn`](../../issues?label=hn) · [`ph`](../../issues?label=ph) · [`arxiv`](../../issues?label=arxiv) · [`hf`](../../issues?label=hf) · [`community`](../../issues?label=community).
 
-Weekly highlights
-Key trends & developments
-Notable releases
-Community momentum
-Outlook
-```
-
-`ai-monthly.md` / `ai-monthly-en.md` structure (generated on the 1st of each month):
-```
-Sources: N weekly reports  (or sampled daily reports if fewer than 2 weeklies available)
-
-Month in review
-Major themes
-Ecosystem shifts
-Top projects & releases
-Looking ahead
-```
-
-Historical digests are stored in [`digests/`](./digests/). Published issues are tagged by type: [`digest`](../../issues?label=digest) · [`openclaw`](../../issues?label=openclaw) · [`web`](../../issues?label=web) · [`trending`](../../issues?label=trending) · [`hn`](../../issues?label=hn) · [`ph`](../../issues?label=ph) · [`arxiv`](../../issues?label=arxiv) · [`hf`](../../issues?label=hf) · [`community`](../../issues?label=community) · [`weekly`](../../issues?label=weekly) · [`monthly`](../../issues?label=monthly).
+Weekly and monthly rollup reports were discontinued in July 2026; past ones remain browsable under `digests/` and in the Web UI.
 
 ## Schedule
 
 | Workflow | Cron | UTC | CST |
 |----------|------|-----|-----|
 | Daily digest | `0 0 * * *` | 00:00 daily | 08:00 daily |
-| Weekly rollup | `0 1 * * 1` | 01:00 Monday | 09:00 Monday |
-| Monthly rollup | `0 2 1 * *` | 02:00 on the 1st | 10:00 on the 1st |
 
-To change the schedule, edit the cron expressions in the corresponding workflow files under `.github/workflows/`.
+To change the schedule, edit the cron expression in `.github/workflows/daily-digest.yml`.
 
 ## Star History
 

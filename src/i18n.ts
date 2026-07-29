@@ -10,7 +10,7 @@ function t(zh: string, en: string): Record<Lang, string> {
 }
 
 // ---------------------------------------------------------------------------
-// Status & error messages (used in index.ts, rollup.ts)
+// Status & error messages (used in index.ts)
 // ---------------------------------------------------------------------------
 
 export const MSG = {
@@ -25,7 +25,7 @@ export const MSG = {
 } as const;
 
 // ---------------------------------------------------------------------------
-// Report headers & labels (used in report-builders.ts, index.ts, rollup.ts)
+// Report headers & labels (used in report-builders.ts, index.ts)
 // ---------------------------------------------------------------------------
 
 export const CLI_REPORT = {
@@ -109,17 +109,6 @@ export const COMMUNITY_REPORT = {
     lang === "en" ? `💬 Tech Community AI Digest ${dateStr}` : `💬 技术社区 AI 动态日报 ${dateStr}`,
 } as const;
 
-export const WEEKLY_REPORT = {
-  title: t("AI 工具生态周报", "AI Tools Ecosystem Weekly Report"),
-  coverage: t("覆盖日期", "Coverage"),
-  issueTitle: (weekStr: string) => `📅 AI 工具生态周报 ${weekStr}`,
-} as const;
-
-export const MONTHLY_REPORT = {
-  title: t("AI 工具生态月报", "AI Tools Ecosystem Monthly Report"),
-  issueTitle: (monthStr: string) => `📆 AI 工具生态月报 ${monthStr}`,
-} as const;
-
 export const ISSUE_LABELS = {
   cli: t("digest", "digest-en"),
   openclaw: t("openclaw", "openclaw-en"),
@@ -179,6 +168,8 @@ export const REPORT_LABELS: Record<string, string> = {
   "ai-hf-en": "Hugging Face Trending Models Digest",
   "ai-community": "技术社区 AI 动态日报",
   "ai-community-en": "Tech Community AI Digest",
+  // Weekly/monthly rollups are no longer generated; kept so archived reports
+  // still render a proper title in the sidebar and RSS feed.
   "ai-weekly": "AI 工具生态周报",
   "ai-weekly-en": "AI Tools Weekly Digest",
   "ai-monthly": "AI 工具生态月报",
@@ -196,6 +187,4 @@ export const NOTIFY_LABELS: Record<string, Record<Lang, string>> = {
   "ai-arxiv": t("ArXiv 研究", "ArXiv Research"),
   "ai-hf": t("HF 模型", "HF Models"),
   "ai-community": t("技术社区", "Tech Community"),
-  "ai-weekly": t("AI 工具生态周报", "AI Tools Weekly"),
-  "ai-monthly": t("AI 工具生态月报", "AI Tools Monthly"),
 };

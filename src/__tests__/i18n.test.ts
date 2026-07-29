@@ -6,8 +6,6 @@ import {
   WEB_REPORT,
   TRENDING_REPORT,
   HN_REPORT,
-  WEEKLY_REPORT,
-  MONTHLY_REPORT,
   INFRA_REPORT,
   ISSUE_LABELS,
   CLI_ISSUE_TITLE,
@@ -42,8 +40,6 @@ describe("bilingual string maps", () => {
     { name: "WEB_REPORT.firstCrawl", obj: WEB_REPORT.firstCrawl },
     { name: "TRENDING_REPORT.title", obj: TRENDING_REPORT.title },
     { name: "HN_REPORT.title", obj: HN_REPORT.title },
-    { name: "WEEKLY_REPORT.title", obj: WEEKLY_REPORT.title },
-    { name: "MONTHLY_REPORT.title", obj: MONTHLY_REPORT.title },
     { name: "FOOTER.autoGen", obj: FOOTER.autoGen },
   ];
 
@@ -94,14 +90,6 @@ describe("issue title functions", () => {
   it("HN_REPORT.issueTitle produces zh and en", () => {
     expect(HN_REPORT.issueTitle("2026-03-12", "zh")).toContain("Hacker News");
     expect(HN_REPORT.issueTitle("2026-03-12", "en")).toContain("Hacker News");
-  });
-
-  it("WEEKLY_REPORT.issueTitle includes week string", () => {
-    expect(WEEKLY_REPORT.issueTitle("2026-W11")).toContain("2026-W11");
-  });
-
-  it("MONTHLY_REPORT.issueTitle includes month string", () => {
-    expect(MONTHLY_REPORT.issueTitle("2026-02")).toContain("2026-02");
   });
 });
 
@@ -164,16 +152,7 @@ describe("REPORT_LABELS", () => {
 
 describe("NOTIFY_LABELS", () => {
   it("covers all report types", () => {
-    const expected = [
-      "ai-cli",
-      "ai-agents",
-      "ai-infra",
-      "ai-web",
-      "ai-trending",
-      "ai-hn",
-      "ai-weekly",
-      "ai-monthly",
-    ];
+    const expected = ["ai-cli", "ai-agents", "ai-infra", "ai-web", "ai-trending", "ai-hn"];
     for (const key of expected) {
       expect(NOTIFY_LABELS[key]).toBeDefined();
       expect(NOTIFY_LABELS[key]!.zh).toBeTruthy();

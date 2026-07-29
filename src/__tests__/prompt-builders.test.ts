@@ -8,13 +8,7 @@ import {
   buildPeersComparisonPrompt,
   buildSkillsPrompt,
 } from "../prompts.ts";
-import {
-  buildTrendingPrompt,
-  buildWebReportPrompt,
-  buildWeeklyPrompt,
-  buildMonthlyPrompt,
-  buildHnPrompt,
-} from "../prompts-data.ts";
+import { buildTrendingPrompt, buildWebReportPrompt, buildHnPrompt } from "../prompts-data.ts";
 import type { RepoConfig, GitHubItem, GitHubRelease } from "../github.ts";
 import type { RepoDigest } from "../prompts.ts";
 import type { TrendingData } from "../trending.ts";
@@ -322,45 +316,6 @@ describe("buildWebReportPrompt", () => {
     const result = buildWebReportPrompt(results, "2026-03-09");
     expect(result).toContain("增量更新");
     expect(result).not.toContain("内容格局总览");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildWeeklyPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildWeeklyPrompt", () => {
-  it("includes daily digest entries", () => {
-    const digests = { "2026-03-03": "Day 1 content", "2026-03-04": "Day 2 content" };
-    const result = buildWeeklyPrompt(digests, "2026-W10");
-    expect(result).toContain("2026-03-03");
-    expect(result).toContain("Day 1 content");
-    expect(result).toContain("2026-W10");
-    expect(result).toContain("周报");
-  });
-
-  it("generates English variant", () => {
-    const result = buildWeeklyPrompt({ "2026-03-03": "content" }, "2026-W10", "en");
-    expect(result).toContain("weekly recap");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildMonthlyPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildMonthlyPrompt", () => {
-  it("includes source digests and month", () => {
-    const digests = { "2026-02-01": "Week 1", "2026-02-08": "Week 2" };
-    const result = buildMonthlyPrompt(digests, "2026-02");
-    expect(result).toContain("2026-02");
-    expect(result).toContain("2 份报告");
-    expect(result).toContain("月报");
-  });
-
-  it("generates English variant", () => {
-    const result = buildMonthlyPrompt({ "2026-02-01": "w1" }, "2026-02", "en");
-    expect(result).toContain("monthly review");
   });
 });
 
