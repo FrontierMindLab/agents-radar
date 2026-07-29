@@ -92,3 +92,32 @@ openclaw_peers:
   - id: zeroclaw
     repo: zeroclaw-labs/zeroclaw
     name: ZeroClaw
+
+# ── AI infrastructure ─────────────────────────────────────────────────────────
+# Inference engines, gateways and fine-tuning frameworks that the agent/CLI
+# layer runs on top of. Tracked in a dedicated ai-infra report.
+
+infra_repos:
+  - id: vllm
+    repo: vllm-project/vllm
+    name: vLLM
+    paginated: true
+  - id: sglang
+    repo: sgl-project/sglang
+    name: SGLang
+    paginated: true
+  - id: llama-cpp
+    repo: ggml-org/llama.cpp
+    name: llama.cpp
+    paginated: true
+  - id: ollama
+    repo: ollama/ollama
+    name: Ollama
+  - id: litellm
+    repo: BerriAI/litellm
+    name: LiteLLM
+    paginated: true
+  - id: unsloth
+    repo: unslothai/unsloth
+    name: Unsloth
+    paginated: true

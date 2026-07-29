@@ -23,13 +23,19 @@ import {
   type RepoDigest,
   buildCliPrompt,
   buildPeerPrompt,
+  buildInfraPrompt,
   buildComparisonPrompt,
+  buildInfraComparisonPrompt,
   buildPeersComparisonPrompt,
   buildSkillsPrompt,
 } from "./prompts.ts";
 import { buildTrendingPrompt, buildHighlightsPrompt, type ReportHighlights } from "./prompts-data.ts";
 import { callLlm, parseLlmJson, saveFile, autoGenFooter, LLM_TOKENS_TRENDING } from "./report.ts";
-import { buildCliReportContent, buildOpenclawReportContent } from "./report-builders.ts";
+import {
+  buildCliReportContent,
+  buildOpenclawReportContent,
+  buildInfraReportContent,
+} from "./report-builders.ts";
 import {
   saveWebReport,
   saveTrendingReport,
@@ -49,7 +55,14 @@ import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
 import { loadConfig } from "./config.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
-import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
+import {
+  type Lang,
+  MSG,
+  ISSUE_LABELS,
+  CLI_ISSUE_TITLE,
+  OPENCLAW_ISSUE_TITLE,
+  INFRA_ISSUE_TITLE,
+} from "./i18n.ts";
 
 // ---------------------------------------------------------------------------
 // Repo config — loaded from config.yml, falls back to built-in defaults
@@ -60,6 +73,7 @@ const {
   skillsRepo: CLAUDE_SKILLS_REPO,
   openclaw: OPENCLAW,
   openclawPeers: OPENCLAW_PEERS,
+  infraRepos: INFRA_REPOS,
 } = loadConfig();
 
 // ---------------------------------------------------------------------------
@@ -91,7 +105,7 @@ async function fetchAllData(
   devtoData: DevtoData;
   lobstersData: LobstersData;
 }> {
-  const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
+  const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS, ...INFRA_REPOS];
   console.log(
     `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters`,
   );
@@ -216,6 +230,7 @@ async function generateSummaries(
   fetchedOpenclaw: RepoFetch,
   skillsData: { prs: GitHubItem[]; issues: GitHubItem[] },
   fetchedPeers: RepoFetch[],
+  fetchedInfra: RepoFetch[],
   trendingData: TrendingData,
   dateStr: string,
   lang: Lang = "zh",
@@ -224,62 +239,79 @@ async function generateSummaries(
   openclawSummary: string;
   skillsSummary: string;
   peerDigests: RepoDigest[];
+  infraDigests: RepoDigest[];
   trendingSummary: string;
 }> {
   const noActivity = MSG.noActivity[lang];
   const fail = MSG.summaryFailed[lang];
 
-  const [cliDigests, openclawSummary, skillsSummary, peerDigests, trendingSummary] = await Promise.all([
-    Promise.all(
-      fetchedCli.map((f) =>
-        summarizeRepo(f, buildCliPrompt(f.cfg, f.issues, f.prs, f.releases, dateStr, lang), noActivity, fail),
-      ),
-    ),
-    summarizeRepo(
-      fetchedOpenclaw,
-      buildPeerPrompt(
-        fetchedOpenclaw.cfg,
-        fetchedOpenclaw.issues,
-        fetchedOpenclaw.prs,
-        fetchedOpenclaw.releases,
-        dateStr,
-        50,
-        30,
-        lang,
-      ),
-      noActivity,
-      fail,
-    ).then((d) => d.summary),
-    summarize(
-      "claude-code-skills",
-      buildSkillsPrompt(skillsData.prs, skillsData.issues, dateStr, lang),
-      MSG.skillsFailed[lang],
-    ),
-    Promise.all(
-      fetchedPeers.map((f) =>
-        summarizeRepo(
-          f,
-          buildPeerPrompt(f.cfg, f.issues, f.prs, f.releases, dateStr, undefined, undefined, lang),
-          noActivity,
-          fail,
+  const [cliDigests, openclawSummary, skillsSummary, peerDigests, infraDigests, trendingSummary] =
+    await Promise.all([
+      Promise.all(
+        fetchedCli.map((f) =>
+          summarizeRepo(
+            f,
+            buildCliPrompt(f.cfg, f.issues, f.prs, f.releases, dateStr, lang),
+            noActivity,
+            fail,
+          ),
         ),
       ),
-    ),
-    (async () => {
-      const hasData = trendingData.trendingRepos.length > 0 || trendingData.searchRepos.length > 0;
-      if (!hasData) {
-        return MSG.trendingNoData[lang];
-      }
-      return summarize(
-        "trending",
-        buildTrendingPrompt(trendingData, dateStr, lang),
-        MSG.trendingFailed[lang],
-        LLM_TOKENS_TRENDING,
-      );
-    })(),
-  ]);
+      summarizeRepo(
+        fetchedOpenclaw,
+        buildPeerPrompt(
+          fetchedOpenclaw.cfg,
+          fetchedOpenclaw.issues,
+          fetchedOpenclaw.prs,
+          fetchedOpenclaw.releases,
+          dateStr,
+          50,
+          30,
+          lang,
+        ),
+        noActivity,
+        fail,
+      ).then((d) => d.summary),
+      summarize(
+        "claude-code-skills",
+        buildSkillsPrompt(skillsData.prs, skillsData.issues, dateStr, lang),
+        MSG.skillsFailed[lang],
+      ),
+      Promise.all(
+        fetchedPeers.map((f) =>
+          summarizeRepo(
+            f,
+            buildPeerPrompt(f.cfg, f.issues, f.prs, f.releases, dateStr, undefined, undefined, lang),
+            noActivity,
+            fail,
+          ),
+        ),
+      ),
+      Promise.all(
+        fetchedInfra.map((f) =>
+          summarizeRepo(
+            f,
+            buildInfraPrompt(f.cfg, f.issues, f.prs, f.releases, dateStr, lang),
+            noActivity,
+            fail,
+          ),
+        ),
+      ),
+      (async () => {
+        const hasData = trendingData.trendingRepos.length > 0 || trendingData.searchRepos.length > 0;
+        if (!hasData) {
+          return MSG.trendingNoData[lang];
+        }
+        return summarize(
+          "trending",
+          buildTrendingPrompt(trendingData, dateStr, lang),
+          MSG.trendingFailed[lang],
+          LLM_TOKENS_TRENDING,
+        );
+      })(),
+    ]);
 
-  return { cliDigests, openclawSummary, skillsSummary, peerDigests, trendingSummary };
+  return { cliDigests, openclawSummary, skillsSummary, peerDigests, infraDigests, trendingSummary };
 }
 
 // ---------------------------------------------------------------------------
@@ -314,15 +346,37 @@ async function main(): Promise<void> {
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
-  const fetchedCli = fetched.filter((f) => f.cfg.id !== OPENCLAW.id && !peerIds.has(f.cfg.id));
+  const infraIds = new Set(INFRA_REPOS.map((r) => r.id));
+  const fetchedCli = fetched.filter(
+    (f) => f.cfg.id !== OPENCLAW.id && !peerIds.has(f.cfg.id) && !infraIds.has(f.cfg.id),
+  );
   const fetchedOpenclaw = fetched.find((f) => f.cfg.id === OPENCLAW.id)!;
   const fetchedPeers = fetched.filter((f) => peerIds.has(f.cfg.id));
+  const fetchedInfra = fetched.filter((f) => infraIds.has(f.cfg.id));
 
   // 2. Generate per-repo LLM summaries in parallel (zh + en simultaneously)
   console.log("  Generating summaries in ZH and EN in parallel...");
   const [zhSummaries, enSummaries] = await Promise.all([
-    generateSummaries(fetchedCli, fetchedOpenclaw, skillsData, fetchedPeers, trendingData, dateStr, "zh"),
-    generateSummaries(fetchedCli, fetchedOpenclaw, skillsData, fetchedPeers, trendingData, dateStr, "en"),
+    generateSummaries(
+      fetchedCli,
+      fetchedOpenclaw,
+      skillsData,
+      fetchedPeers,
+      fetchedInfra,
+      trendingData,
+      dateStr,
+      "zh",
+    ),
+    generateSummaries(
+      fetchedCli,
+      fetchedOpenclaw,
+      skillsData,
+      fetchedPeers,
+      fetchedInfra,
+      trendingData,
+      dateStr,
+      "en",
+    ),
   ]);
 
   // 3. Generate cross-repo comparisons in parallel (zh + en)
@@ -337,19 +391,30 @@ async function main(): Promise<void> {
     summary: summariesByLang[lang].openclawSummary,
   });
 
-  const [zhComparison, zhPeersComparison, enComparison, enPeersComparison] = await Promise.all([
+  const [
+    zhComparison,
+    zhPeersComparison,
+    zhInfraComparison,
+    enComparison,
+    enPeersComparison,
+    enInfraComparison,
+  ] = await Promise.all([
     callLlm(buildComparisonPrompt(zhSummaries.cliDigests, dateStr, "zh")),
     callLlm(buildPeersComparisonPrompt(makeOpenclawDigest("zh"), zhSummaries.peerDigests, dateStr, "zh")),
+    callLlm(buildInfraComparisonPrompt(zhSummaries.infraDigests, dateStr, "zh")),
     callLlm(buildComparisonPrompt(enSummaries.cliDigests, dateStr, "en")),
     callLlm(buildPeersComparisonPrompt(makeOpenclawDigest("en"), enSummaries.peerDigests, dateStr, "en")),
+    callLlm(buildInfraComparisonPrompt(enSummaries.infraDigests, dateStr, "en")),
   ]);
 
   const comparisonByLang = { zh: zhComparison, en: enComparison };
   const peersComparisonByLang = { zh: zhPeersComparison, en: enPeersComparison };
+  const infraComparisonByLang = { zh: zhInfraComparison, en: enInfraComparison };
 
   // 4. Build + save all reports (zh + en)
   const cliContent: Record<Lang, string> = {} as Record<Lang, string>;
   const openclawContent: Record<Lang, string> = {} as Record<Lang, string>;
+  const infraContent: Record<Lang, string> = {} as Record<Lang, string>;
 
   for (const lang of ["zh", "en"] as const) {
     const s = summariesByLang[lang];
@@ -379,8 +444,18 @@ async function main(): Promise<void> {
       lang,
     );
 
+    infraContent[lang] = buildInfraReportContent(
+      s.infraDigests,
+      infraComparisonByLang[lang],
+      utcStr,
+      dateStr,
+      ft,
+      lang,
+    );
+
     console.log(`  Saved ${saveFile(cliContent[lang], dateStr, `ai-cli${suffix}.md`)}`);
     console.log(`  Saved ${saveFile(openclawContent[lang], dateStr, `ai-agents${suffix}.md`)}`);
+    console.log(`  Saved ${saveFile(infraContent[lang], dateStr, `ai-infra${suffix}.md`)}`);
   }
 
   // Web report: zh saves state, en skips state save
@@ -425,8 +500,16 @@ async function main(): Promise<void> {
     return fs.existsSync(p) ? fs.readFileSync(p, "utf-8") : undefined;
   };
 
-  const zhReports: Record<string, string> = { "ai-cli": cliContent.zh, "ai-agents": openclawContent.zh };
-  const enReports: Record<string, string> = { "ai-cli": cliContent.en, "ai-agents": openclawContent.en };
+  const zhReports: Record<string, string> = {
+    "ai-cli": cliContent.zh,
+    "ai-agents": openclawContent.zh,
+    "ai-infra": infraContent.zh,
+  };
+  const enReports: Record<string, string> = {
+    "ai-cli": cliContent.en,
+    "ai-agents": openclawContent.en,
+    "ai-infra": infraContent.en,
+  };
   for (const [id, zhFile, enFile] of [
     ["ai-trending", "ai-trending.md", "ai-trending-en.md"],
     ["ai-web", "ai-web.md", "ai-web-en.md"],
@@ -497,6 +580,13 @@ async function main(): Promise<void> {
         ISSUE_LABELS.openclaw[lang],
       );
       console.log(`  Created OpenClaw issue (${lang}): ${ocUrl}`);
+
+      const infraUrl = await createGitHubIssue(
+        INFRA_ISSUE_TITLE(dateStr, lang),
+        infraContent[lang],
+        ISSUE_LABELS.infra[lang],
+      );
+      console.log(`  Created infra issue (${lang}): ${infraUrl}`);
     }
   }
 

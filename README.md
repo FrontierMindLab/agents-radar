@@ -155,6 +155,21 @@ OpenClaw is tracked as the primary reference project, alongside several peer pro
 | Moltis | [moltis-org/moltis](https://github.com/moltis-org/moltis) | 2.5k |
 | ZeptoClaw | [qhkm/zeptoclaw](https://github.com/qhkm/zeptoclaw) | 567 |
 
+### AI infrastructure (GitHub)
+
+The inference and serving layer the agent/CLI tools run on top of — tracked in a dedicated report with its own cross-project comparison.
+
+| Project | Repository | Layer | Stars |
+|---------|-----------|-------|-------|
+| Ollama | [ollama/ollama](https://github.com/ollama/ollama) | Local runtime | 177.2k |
+| llama.cpp | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | Inference engine | 121.9k |
+| vLLM | [vllm-project/vllm](https://github.com/vllm-project/vllm) | Serving engine | 87.5k |
+| Unsloth | [unslothai/unsloth](https://github.com/unslothai/unsloth) | Fine-tuning | 69.0k |
+| LiteLLM | [BerriAI/litellm](https://github.com/BerriAI/litellm) | LLM gateway | 55.0k |
+| SGLang | [sgl-project/sglang](https://github.com/sgl-project/sglang) | Serving engine | 30.9k |
+
+Summaries focus on new model/hardware support, performance work, breaking changes, and what each change means for developers building on top of these projects.
+
 ### GitHub AI Trending
 
 Two data sources are fetched in parallel every day:
@@ -185,6 +200,7 @@ New articles are detected by comparing sitemap `lastmod` timestamps against a pe
 - Tracks trending Claude Code Skills — sorted by community engagement, not recency
 - Generates a per-tool summary for each CLI repository and a cross-tool comparative analysis
 - Generates a deep OpenClaw project report plus a cross-ecosystem comparison against 11 peer projects
+- Tracks 6 AI infrastructure projects (inference engines, gateways, fine-tuning) with a dedicated report and cross-project comparison
 - Scrapes official Anthropic and OpenAI web content via sitemaps; detects new articles incrementally
 - Monitors GitHub Trending daily + searches 6 AI topic tags; classifies repos by dimension and extracts trend signals
 - Fetches top-30 AI stories from Hacker News (last 24h, ranked by points); generates community sentiment report
@@ -212,6 +228,13 @@ openclaw_peers:
   - id: my-agent
     repo: owner/my-agent
     name: My Agent
+
+# Add a new AI infrastructure project
+infra_repos:
+  - id: my-engine
+    repo: owner/my-engine
+    name: My Engine
+    paginated: true   # for repos with >100 daily issue/PR updates
 ```
 
 ### 3. Add Secrets
@@ -297,6 +320,7 @@ Files are written to `digests/YYYY-MM-DD/`:
 |------|---------|-------------------|
 | `ai-cli.md` | CLI digest — cross-tool comparison + per-tool details | `digest` |
 | `ai-agents.md` | OpenClaw deep report + cross-ecosystem comparison + 11 peer details | `openclaw` |
+| `ai-infra.md` | AI infrastructure digest — cross-project comparison + per-project details | `infra` |
 | `ai-web.md` | Official web content report (only written when new content exists) | `web` |
 | `ai-trending.md` | GitHub AI trending report — repos classified by dimension + trend signals (only written when data is available) | `trending` |
 | `ai-hn.md` | Hacker News AI community digest — top stories + sentiment analysis (only written when fetch succeeds) | `hn` |
@@ -353,6 +377,25 @@ Issues: N | PRs: N | Projects covered: 10
   <details> NanoClaw   — ...
   <details> IronClaw   — ...
   <details> CoPaw      — ...
+```
+
+`ai-infra.md` / `ai-infra-en.md` structure:
+```
+Projects covered: 6
+
+## Cross-Project Comparison
+  Ecosystem overview / Activity table / Model support race /
+  Performance frontier / Layer positioning / Trend signals
+
+## Per-Project Reports
+  <details> vLLM       — Today's highlights / Releases & breaking changes /
+                         New model & hardware support / Performance & optimization /
+                         Stability & regressions / What it means for app developers
+  <details> SGLang     — ...
+  <details> llama.cpp  — ...
+  <details> Ollama     — ...
+  <details> LiteLLM    — ...
+  <details> Unsloth    — ...
 ```
 
 `ai-web.md` / `ai-web-en.md` structure:

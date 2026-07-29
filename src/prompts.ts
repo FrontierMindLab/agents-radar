@@ -154,6 +154,141 @@ ${prsText}
 `;
 }
 
+const INFRA_ISSUE_LIMIT = 30;
+const INFRA_PR_LIMIT = 20;
+
+export function buildInfraPrompt(
+  cfg: RepoConfig,
+  issues: GitHubItem[],
+  prs: GitHubItem[],
+  releases: GitHubRelease[],
+  dateStr: string,
+  lang: Lang = "zh",
+): string {
+  const sampledIssues = topN(issues, INFRA_ISSUE_LIMIT);
+  const sampledPrs = topN(prs, INFRA_PR_LIMIT);
+
+  const noneStr = lang === "en" ? "None" : "无";
+  const issuesText = sampledIssues.map((i) => formatItem(i, lang)).join("\n") || noneStr;
+  const prsText = sampledPrs.map((p) => formatItem(p, lang)).join("\n") || noneStr;
+  const releasesText = releases.length
+    ? releases.map((r) => `- ${r.tag_name}: ${r.name}\n  ${(r.body ?? "").slice(0, 300)}`).join("\n")
+    : noneStr;
+
+  const issueNote = sampleNote(issues.length, sampledIssues.length, lang);
+  const prNote = sampleNote(prs.length, sampledPrs.length, lang);
+
+  if (lang === "en") {
+    return `You are a technical analyst focused on AI infrastructure — inference engines, model serving, LLM gateways and fine-tuning frameworks. Based on the following GitHub data, generate the ${cfg.name} digest for ${dateStr}.
+
+# Data source: github.com/${cfg.repo}
+
+## Latest Releases (last 24h)
+${releasesText}
+
+## Latest Issues (updated in last 24h)${issueNote}
+${issuesText}
+
+## Latest Pull Requests (updated in last 24h)${prNote}
+${prsText}
+
+---
+
+Generate a structured English digest with the following sections:
+
+1. **Today's Highlights** - 2-3 sentences summarizing the most important updates
+2. **Releases & Breaking Changes** - New versions, API/config changes, migration notes; omit if none
+3. **New Model & Hardware Support** - Newly supported models, architectures, backends (CUDA/ROCm/Metal/CPU), quantization formats
+4. **Performance & Optimization** - Throughput, latency, memory and kernel work landed or in progress, with concrete numbers when available
+5. **Stability & Regressions** - Crashes, correctness bugs, regressions reported today, ranked by severity, note if fix PRs exist
+6. **What This Means for Application Developers** - Practical takeaways for people building agents/apps on top of this project
+
+Style: concise and professional, suited for infrastructure engineers. Include GitHub links for each item.
+`;
+  }
+
+  return `你是一位专注于 AI 基础设施（推理引擎、模型服务、LLM 网关、微调框架）的技术分析师。请根据以下 GitHub 数据，生成 ${dateStr} 的 ${cfg.name} 动态日报。
+
+# 数据来源: github.com/${cfg.repo}
+
+## 最新 Releases（过去24小时）
+${releasesText}
+
+## 最新 Issues（过去24小时内更新）${issueNote}
+${issuesText}
+
+## 最新 Pull Requests（过去24小时内更新）${prNote}
+${prsText}
+
+---
+
+请生成一份结构清晰的中文日报，包含以下部分：
+
+1. **今日速览** - 用2-3句话概括今天最重要的动态
+2. **版本发布与破坏性变更** - 新版本、API/配置变更、迁移注意事项；无则省略
+3. **新模型与硬件支持** - 新增支持的模型、架构、后端（CUDA/ROCm/Metal/CPU）、量化格式
+4. **性能与优化** - 已落地或进行中的吞吐、延迟、显存、算子优化，有具体数字时请引用
+5. **稳定性与回归** - 今日报告的崩溃、正确性 Bug、回归问题，按严重程度排列，标注是否已有 fix PR
+6. **对应用开发者的意义** - 对在此项目之上构建 Agent/应用的开发者有什么实际影响
+
+语言要求：简洁专业，适合基础设施工程师阅读。每个条目附上 GitHub 链接。
+`;
+}
+
+export function buildInfraComparisonPrompt(
+  digests: RepoDigest[],
+  dateStr: string,
+  lang: Lang = "zh",
+): string {
+  const noActivityStr = lang === "en" ? "No activity in the last 24 hours." : "过去24小时无活动。";
+
+  const sections = digests
+    .map((d) => {
+      const hasData = d.issues.length || d.prs.length || d.releases.length;
+      if (!hasData) return `## ${d.config.name} (github.com/${d.config.repo})\n${noActivityStr}`;
+      return `## ${d.config.name} (github.com/${d.config.repo})\n${d.summary}`;
+    })
+    .join("\n\n---\n\n");
+
+  if (lang === "en") {
+    return `You are a senior analyst of the AI infrastructure ecosystem — inference engines, model serving, LLM gateways and fine-tuning frameworks. The following are ${dateStr} digest summaries for each project:
+
+${sections}
+
+---
+
+Generate a cross-project comparison report in English with these sections:
+
+1. **Ecosystem Overview** - 3-5 sentences on the overall AI infrastructure landscape today
+2. **Activity Comparison** - Table comparing Issues count, PR count and Release status for each project
+3. **Model Support Race** - Which projects shipped support for which new models/architectures, and who is ahead
+4. **Performance Frontier** - Where the optimization effort is concentrated (KV cache, batching, quantization, distributed serving, kernels)
+5. **Layer Positioning** - How these projects differ by layer: serving engine vs local runtime vs gateway vs training/fine-tuning
+6. **Trend Signals** - Industry trends extracted from today's activity, and what agent/application developers should watch
+
+Style: concise and professional, data-backed, suited for infrastructure engineers and technical decision-makers.
+`;
+  }
+
+  return `你是一位专注于 AI 基础设施（推理引擎、模型服务、LLM 网关、微调框架）生态的资深技术分析师。以下是 ${dateStr} 各项目的动态摘要：
+
+${sections}
+
+---
+
+请基于上述各项目的动态，生成一份横向对比分析报告，包含以下部分：
+
+1. **生态全景** - 用3-5句话概括当前 AI 基础设施整体态势
+2. **各项目活跃度对比** - 以表格形式汇总各项目今日的 Issues 数、PR 数、Release 情况
+3. **模型支持竞速** - 哪些项目支持了哪些新模型/新架构，谁跑在前面
+4. **性能优化前沿** - 优化火力集中在哪些方向（KV cache、批处理、量化、分布式推理、算子）
+5. **分层定位差异** - 这些项目在分层上的差异：推理引擎 vs 本地运行时 vs 网关 vs 训练/微调
+6. **值得关注的趋势信号** - 从今日动态中提炼行业趋势，以及 Agent/应用开发者应当关注什么
+
+语言要求：简洁专业，有数据支撑，适合基础设施工程师和技术决策者阅读。
+`;
+}
+
 const PEER_ISSUE_LIMIT = 30;
 const PEER_PR_LIMIT = 20;
 

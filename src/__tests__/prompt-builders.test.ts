@@ -2,7 +2,9 @@ import { describe, it, expect } from "vitest";
 import {
   buildCliPrompt,
   buildPeerPrompt,
+  buildInfraPrompt,
   buildComparisonPrompt,
+  buildInfraComparisonPrompt,
   buildPeersComparisonPrompt,
   buildSkillsPrompt,
 } from "../prompts.ts";
@@ -104,6 +106,64 @@ describe("buildPeerPrompt", () => {
     const result = buildPeerPrompt(cfg, [], [], [], "2026-03-09", 30, 20, "en");
     expect(result).toContain("Data Overview");
     expect(result).toContain("None");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildInfraPrompt
+// ---------------------------------------------------------------------------
+
+describe("buildInfraPrompt", () => {
+  it("generates Chinese prompt by default", () => {
+    const result = buildInfraPrompt(cfg, [makeItem()], [makeItem()], [release], "2026-03-09");
+    expect(result).toContain("AI 基础设施");
+    expect(result).toContain("新模型与硬件支持");
+    expect(result).toContain("TestTool");
+    expect(result).toContain("v1.0.0");
+  });
+
+  it("generates English prompt", () => {
+    const result = buildInfraPrompt(cfg, [makeItem()], [], [], "2026-03-09", "en");
+    expect(result).toContain("AI infrastructure");
+    expect(result).toContain("New Model & Hardware Support");
+    expect(result).toContain("None");
+  });
+
+  it("includes sample notes when items exceed limit", () => {
+    const items = Array.from({ length: 50 }, (_, i) => makeItem({ number: i, comments: i }));
+    const result = buildInfraPrompt(cfg, items, [], [], "2026-03-09");
+    expect(result).toContain("共 50 条");
+    expect(result).toContain("30 条");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildInfraComparisonPrompt
+// ---------------------------------------------------------------------------
+
+describe("buildInfraComparisonPrompt", () => {
+  it("includes all digest summaries when they have data", () => {
+    const digests = [
+      makeDigest({ config: { ...cfg, name: "vLLM" }, summary: "Summary A", issues: [makeItem()] }),
+      makeDigest({ config: { ...cfg, name: "Ollama" }, summary: "Summary B", prs: [makeItem()] }),
+    ];
+    const result = buildInfraComparisonPrompt(digests, "2026-03-09");
+    expect(result).toContain("模型支持竞速");
+    expect(result).toContain("vLLM");
+    expect(result).toContain("Summary A");
+    expect(result).toContain("Ollama");
+    expect(result).toContain("Summary B");
+  });
+
+  it("shows no-activity for empty digests", () => {
+    const result = buildInfraComparisonPrompt([makeDigest({ summary: "Summary" })], "2026-03-09");
+    expect(result).toContain("过去24小时无活动");
+  });
+
+  it("generates English prompt", () => {
+    const result = buildInfraComparisonPrompt([makeDigest()], "2026-03-09", "en");
+    expect(result).toContain("Model Support Race");
+    expect(result).toContain("No activity in the last 24 hours.");
   });
 });
 
