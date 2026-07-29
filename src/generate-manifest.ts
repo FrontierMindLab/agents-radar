@@ -13,6 +13,8 @@ const REPORT_FILES = [
   "ai-cli-en",
   "ai-agents",
   "ai-agents-en",
+  "ai-infra",
+  "ai-infra-en",
   "ai-web",
   "ai-web-en",
   "ai-trending",
@@ -27,6 +29,8 @@ const REPORT_FILES = [
   "ai-hf-en",
   "ai-community",
   "ai-community-en",
+  // Rollups are no longer generated — listed only so archived reports stay
+  // reachable from the sidebar and RSS feed.
   "ai-weekly",
   "ai-weekly-en",
   "ai-monthly",

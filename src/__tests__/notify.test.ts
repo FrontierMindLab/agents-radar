@@ -27,24 +27,6 @@ describe("buildMessage", () => {
     expect(msg).toContain("AI CLI Tools");
   });
 
-  it("shows weekly icon and suffix for weekly reports", () => {
-    const msg = buildMessage("2026-03-09", ["ai-weekly", "ai-weekly-en"], BASE_URL);
-    expect(msg).toContain("📅");
-    expect(msg).toContain("周报");
-  });
-
-  it("shows monthly icon and suffix for monthly reports", () => {
-    const msg = buildMessage("2026-03-09", ["ai-monthly", "ai-monthly-en"], BASE_URL);
-    expect(msg).toContain("📆");
-    expect(msg).toContain("月报");
-  });
-
-  it("monthly takes priority over weekly", () => {
-    const msg = buildMessage("2026-03-09", ["ai-weekly", "ai-monthly"], BASE_URL);
-    expect(msg).toContain("📆");
-    expect(msg).toContain("月报");
-  });
-
   it("renders zh-only reports without en link", () => {
     const msg = buildMessage("2026-03-09", ["ai-hn"], BASE_URL);
     expect(msg).toContain("HN 社区动态");

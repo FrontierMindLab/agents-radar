@@ -4,7 +4,7 @@
 
 import type { RepoConfig, RepoFetch } from "./github.ts";
 import type { RepoDigest } from "./prompts.ts";
-import { type Lang, CLI_REPORT, OPENCLAW_REPORT } from "./i18n.ts";
+import { type Lang, CLI_REPORT, OPENCLAW_REPORT, INFRA_REPORT } from "./i18n.ts";
 
 // ---------------------------------------------------------------------------
 // CLI Report
@@ -56,6 +56,49 @@ export function buildCliReportContent(
     `\n\n---\n\n` +
     `## ${CLI_REPORT.detail[lang]}\n\n` +
     toolSections +
+    footer
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Infra Report
+// ---------------------------------------------------------------------------
+
+export function buildInfraReportContent(
+  infraDigests: RepoDigest[],
+  comparison: string,
+  utcStr: string,
+  dateStr: string,
+  footer: string,
+  lang: Lang = "zh",
+): string {
+  const repoLinks = infraDigests
+    .map((d) => `- [${d.config.name}](https://github.com/${d.config.repo})`)
+    .join("\n");
+
+  const projectSections = infraDigests
+    .map((d) =>
+      [
+        `<details>`,
+        `<summary><strong>${d.config.name}</strong> — <a href="https://github.com/${d.config.repo}">${d.config.repo}</a></summary>`,
+        ``,
+        d.summary,
+        ``,
+        `</details>`,
+      ].join("\n"),
+    )
+    .join("\n\n");
+
+  return (
+    `# ${INFRA_REPORT.title[lang]} ${dateStr}\n\n` +
+    INFRA_REPORT.meta(utcStr, infraDigests.length, lang) +
+    `${repoLinks}\n\n` +
+    `---\n\n` +
+    `## ${INFRA_REPORT.comparison[lang]}\n\n` +
+    comparison +
+    `\n\n---\n\n` +
+    `## ${INFRA_REPORT.detail[lang]}\n\n` +
+    projectSections +
     footer
   );
 }

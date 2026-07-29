@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { buildCliReportContent, buildOpenclawReportContent } from "../report-builders.ts";
+import {
+  buildCliReportContent,
+  buildOpenclawReportContent,
+  buildInfraReportContent,
+} from "../report-builders.ts";
 import type { RepoDigest } from "../prompts.ts";
 import type { GitHubItem, GitHubRelease } from "../github.ts";
 
@@ -147,5 +151,44 @@ describe("buildOpenclawReportContent", () => {
     expect(result).toContain("# OpenClaw Ecosystem Digest 2026-03-09");
     expect(result).toContain("OpenClaw Deep Dive");
     expect(result).toContain("Cross-Ecosystem Comparison");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildInfraReportContent
+// ---------------------------------------------------------------------------
+
+describe("buildInfraReportContent", () => {
+  it("includes title, meta, and all sections (zh)", () => {
+    const digests = [
+      makeDigest({ config: { id: "vllm", repo: "vllm-project/vllm", name: "vLLM" }, summary: "vLLM 摘要" }),
+      makeDigest({ config: { id: "ollama", repo: "ollama/ollama", name: "Ollama" }, summary: "Ollama 摘要" }),
+    ];
+    const result = buildInfraReportContent(
+      digests,
+      "Comparison content",
+      "2026-03-09 00:00",
+      "2026-03-09",
+      "\n---\nfooter",
+      "zh",
+    );
+
+    expect(result).toContain("# AI 基础设施日报 2026-03-09");
+    expect(result).toContain("覆盖项目: 2 个");
+    expect(result).toContain("[vLLM](https://github.com/vllm-project/vllm)");
+    expect(result).toContain("[Ollama](https://github.com/ollama/ollama)");
+    expect(result).toContain("横向对比");
+    expect(result).toContain("Comparison content");
+    expect(result).toContain("vLLM 摘要");
+    expect(result).toContain("各项目详细报告");
+    expect(result).toContain("footer");
+  });
+
+  it("renders in English", () => {
+    const result = buildInfraReportContent([makeDigest()], "comparison", "", "2026-03-09", "", "en");
+    expect(result).toContain("# AI Infrastructure Digest 2026-03-09");
+    expect(result).toContain("Projects covered: 1");
+    expect(result).toContain("Cross-Project Comparison");
+    expect(result).toContain("Per-Project Reports");
   });
 });

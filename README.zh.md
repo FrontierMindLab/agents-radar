@@ -154,6 +154,21 @@ OpenClaw 作为重点追踪项目，同时横向对比多个同赛道项目，�
 | Moltis | [moltis-org/moltis](https://github.com/moltis-org/moltis) | 2.5k |
 | ZeptoClaw | [qhkm/zeptoclaw](https://github.com/qhkm/zeptoclaw) | 567 |
 
+### AI 基础设施（GitHub）
+
+Agent / CLI 工具赖以运行的推理与服务层，独立成报，附横向对比。
+
+| 项目 | 仓库 | 分层 | Stars |
+|------|------|------|-------|
+| Ollama | [ollama/ollama](https://github.com/ollama/ollama) | 本地运行时 | 177.2k |
+| llama.cpp | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | 推理引擎 | 121.9k |
+| vLLM | [vllm-project/vllm](https://github.com/vllm-project/vllm) | 服务引擎 | 87.5k |
+| Unsloth | [unslothai/unsloth](https://github.com/unslothai/unsloth) | 微调框架 | 69.0k |
+| LiteLLM | [BerriAI/litellm](https://github.com/BerriAI/litellm) | LLM 网关 | 55.0k |
+| SGLang | [sgl-project/sglang](https://github.com/sgl-project/sglang) | 服务引擎 | 30.9k |
+
+摘要聚焦新模型 / 硬件支持、性能优化、破坏性变更，以及这些变化对上层应用开发者的实际影响。
+
 ### GitHub AI 趋势热榜
 
 每天并行获取两个数据源：
@@ -184,6 +199,7 @@ LLM 负责过滤非 AI 项目，将结果按维度分类（AI 基础工具 / AI 
 - 追踪热门 Claude Code Skills，按社区参与度而非时间排序
 - 为每个 CLI 仓库生成单独摘要，并输出跨工具横向对比分析
 - 生成 OpenClaw 深度项目报告，并与 11 个同赛道项目进行横向对比
+- 追踪 6 个 AI 基础设施项目（推理引擎、网关、微调框架），独立成报并输出横向对比
 - 通过 Sitemap 抓取 Anthropic 和 OpenAI 官网内容，增量检测新文章
 - 每日监测 GitHub Trending + 搜索 6 个 AI 主题标签，按维度分类并提炼趋势信号
 - 抓取 Hacker News 过去 24 小时 AI 热门帖子（top 30，按分数排序），生成社区情绪报告
@@ -211,6 +227,13 @@ openclaw_peers:
   - id: my-agent
     repo: owner/my-agent
     name: My Agent
+
+# 添加新的 AI 基础设施项目
+infra_repos:
+  - id: my-engine
+    repo: owner/my-engine
+    name: My Engine
+    paginated: true   # 每日 issue/PR 更新超过 100 条时开启
 ```
 
 ### 3. 添加 Secrets
@@ -296,6 +319,7 @@ pnpm start
 |------|------|------------------|
 | `ai-cli.md` | CLI 简报 — 跨工具横向对比 + 各工具详细报告 | `digest` |
 | `ai-agents.md` | OpenClaw 深度报告 + 横向生态对比 + 11 个同赛道项目详情 | `openclaw` |
+| `ai-infra.md` | AI 基础设施日报 — 横向对比 + 各项目详细报告 | `infra` |
 | `ai-web.md` | 官网内容报告（仅在有新内容时生成） | `web` |
 | `ai-trending.md` | GitHub AI 趋势热榜 — 按维度分类 + 趋势信号分析（仅在有数据时生成） | `trending` |
 | `ai-hn.md` | Hacker News AI 社区动态 — 热门帖子分类 + 情绪分析（仅在抓取成功时生成） | `hn` |
@@ -345,6 +369,24 @@ Issues: N | PRs: N | 覆盖项目: 10 个
   <details> NanoClaw   — ...
   <details> IronClaw   — ...
   <details> CoPaw      — ...
+```
+
+`ai-infra.md` 结构：
+```
+覆盖项目: 6 个
+
+## 横向对比
+  生态全景 / 活跃度对比表 / 模型支持竞速 /
+  性能优化前沿 / 分层定位差异 / 趋势信号
+
+## 各项目详细报告
+  <details> vLLM       — 今日速览 / 版本发布与破坏性变更 / 新模型与硬件支持 /
+                         性能与优化 / 稳定性与回归 / 对应用开发者的意义
+  <details> SGLang     — ...
+  <details> llama.cpp  — ...
+  <details> Ollama     — ...
+  <details> LiteLLM    — ...
+  <details> Unsloth    — ...
 ```
 
 `ai-web.md` 结构：

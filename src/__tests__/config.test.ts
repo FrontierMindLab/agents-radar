@@ -39,6 +39,30 @@ describe("loadConfig", () => {
     expect(config.skillsRepo).toBe("anthropics/skills");
     expect(config.openclaw.id).toBe("openclaw");
     expect(config.openclawPeers.length).toBeGreaterThan(0);
+    expect(config.infraRepos.length).toBeGreaterThan(0);
+  });
+
+  it("loads infra_repos from valid YAML", () => {
+    vi.spyOn(fs, "existsSync").mockReturnValue(true);
+    vi.spyOn(fs, "readFileSync").mockReturnValue(`
+infra_repos:
+  - id: custom-engine
+    repo: org/custom-engine
+    name: Custom Engine
+    paginated: true
+`);
+    const config = loadConfig("test.yml");
+    expect(config.infraRepos).toEqual([
+      { id: "custom-engine", repo: "org/custom-engine", name: "Custom Engine", paginated: true },
+    ]);
+  });
+
+  it("falls back to defaults for empty infra_repos", () => {
+    vi.spyOn(fs, "existsSync").mockReturnValue(true);
+    vi.spyOn(fs, "readFileSync").mockReturnValue("infra_repos: []");
+    const config = loadConfig("test.yml");
+    expect(config.infraRepos.length).toBeGreaterThan(0);
+    expect(config.infraRepos[0]!.id).toBe("vllm");
   });
 
   it("loads cli_repos from valid YAML", () => {
