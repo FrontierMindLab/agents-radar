@@ -15,8 +15,6 @@
     "notify:feishu": "tsx src/feishu.ts",
     "close-stale": "tsx src/close-stale-issues.ts",
     "xiaohongshu": "tsx src/social.ts xiaohongshu",
-    "wechat": "tsx src/social.ts wechat",
-    "wechat:monthly": "tsx src/social.ts wechat:monthly",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
