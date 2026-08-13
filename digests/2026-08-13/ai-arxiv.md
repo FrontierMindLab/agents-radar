@@ -1,6 +1,6 @@
 # ArXiv AI 研究日报 2026-08-13
 
-> 数据来源: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 共 50 篇论文 | 生成时间: 2026-08-13 01:04 UTC
+> 数据来源: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 共 50 篇论文 | 生成时间: 2026-08-13 09:48 UTC
 
 ---
 
@@ -8,7 +8,7 @@
 
 ## 今日速览
 
-今日 arXiv 的 AI 投稿呈现从“静态能力”向“动态验证与安全”的明显倾斜：多篇工作关注低资源语言安全幻觉、概率声明一致性与突发失对齐的数据归因。智能体方向不再只问最终答案，而是开始分析行动轨迹、长期记忆膨胀与技能压缩，例如跨语言策略保持度和 SkillZip。方法层出现可用于 LLM 后训练的量化重建（ReRound）、混合 RL 回滚调度以及可验证金融推理基准（V-FiLLM）。多模态方面，显式视觉-语言符号对齐与长视频情景记忆成为值得关注的突破口。
+今日 50 篇论文中，智能体安全与评测、测试时/资源感知优化、以及垂直领域落地是三大主线。多篇工作挑战既有共识：长上下文训练会削弱参数化知识、LLM 排行榜随生成预算倒转、单一模拟器导致多智能体泛化失败。智能体方面，VAKRA 补齐 API+检索多跳评测，Convergent Detour Hijacking 揭示了第三方技能供应链的新攻击面。效率取向上，测试时能力迁移、多模态 RAG 缓存和 oracle 预算分配等让「资源受限」成为研究一等公民；临床 RAG、ChatGPT 企业实证和 GAMESS 现代化则展示了 AI 在医疗、组织和科学计算中的真实价值。
 
 ## 重点论文
 
@@ -16,51 +16,46 @@
 
 | 论文 | 作者 | 简要说明 |
 | :--- | :--- | :--- |
-| [The Illusion of Cross-Lingual Safety in Low-Resource Languages](http://arxiv.org/abs/2608.11146v1) | Oppong, Sahil, Belay et al. | 研究 LLM 安全对齐在低资源语言中的泛化失败，揭示英语中心安全训练的“跨语言安全”假象。对多语安全部署有直接警示意义。 |
-| [Attention-Path Fragility as an Uncertainty Signal in Large Language Models](http://arxiv.org/abs/2608.11138v1) | Kim, Ji, Moon et al. | 提出 ASMI，用注意力子网络互信息把预测的“脆弱性”作为不确定信号，补充了仅看输出分布的不确定性估计。为 LLM 的可靠决策提供低成本、训练无关的置信度线索。 |
-| [Mapping and Measuring the Behavioral Evolution of Large Language Models](http://arxiv.org/abs/2608.11027v1) | Qiao, Ding, Fan | 用共享提示库对 6 个模型家族、32 个模型的行为输出做嵌入与图谱分析，画出模型行为演化路径。把评测从排行榜分数升级为行为关系度量。 |
-| [Data Attribution of Emergent Misalignment with Persona Features](http://arxiv.org/abs/2608.11025v1) | Vetter, Kaczér, Flek et al. | 用数据归因方法验证“人格特征”对突发性越狱的因果作用，定位导致安全崩坏的训练样本。为微调前的安全筛查提供可操作信号。 |
+| [Information Abundance Paradox: Long-Context Training Undermines Parametric Knowledge](http://arxiv.org/abs/2608.12218v1) | Arda Uzunoglu, Benjamin van Durme, Daniel Khashabi et al. | 系统证明长上下文训练虽提升上下文利用能力，却会削弱模型从参数中检索知识的能力。对「上下文越长越好」的训练共识提出直接挑战，影响后续预训练与长上下文微调的数据配比。 |
+| [Who Thinks Best Depends on How Long You Let Them: Budget-Dependent Rankings in LLM Evaluation](http://arxiv.org/abs/2608.12150v1) | Rodrigo Guedes de Souza, Alison R. Panisson | 在 7 个 token 预算水平（64–4096）下评估 4 个模型、3 个推理基准，发现模型排名会随推理预算发生显著变化。提示 LLM 评测必须报告生成预算，否则排行榜可能缺乏可重复性与公平性。 |
+| [A corpus-specific clinical RAG system matches or outperforms newer frontier LLMs on HealthBench](http://arxiv.org/abs/2608.12138v1) | Praveen Reddy, Charuta Mandke, Suvrankar Datta et al. | 针对特定医学语料的 VITA 检索增强系统，在 HealthBench 上匹敌甚至超越更新的通用前沿 LLM。说明垂直领域 RAG 可在医疗等高风险场景中作为通用大模型的低成本替代方案。 |
 
 ### 🤖 智能体与推理（规划、工具使用、多智能体、思维链）
 
 | 论文 | 作者 | 简要说明 |
 | :--- | :--- | :--- |
-| [Long-Horizon AI Research for Grothendieck Constant: A Case Study in Human-AI Mathematical Collaboration](http://arxiv.org/abs/2608.11195v1) | Li, Saha, Xue et al. | 报告 AI 在数学家协作中改进 Grothendieck 常数上下界的完整过程，是 long-horizon AI research 的实证案例。对如何设计人机数学协作流程有方法论价值。 |
-| [Actions Speak Louder than Words: Measuring Cross-Lingual Policy Retention in Tool-Using Agents](http://arxiv.org/abs/2608.11110v1) | Mukherjee, Bali, Sitaram | 比较工具型智能体在不同语言下完成任务时的行动轨迹，而不只是最终答案。发现跨语言策略保持度与最终正确率可分离，能更早暴露失败模式。 |
-| [SkillZip: Evaluation-Free Skill Compression for Self-Evolving Agents by Discovering Reusable Structure](http://arxiv.org/abs/2608.11079v1) | Bai, Lin, Liu et al. | 提出免评测的技能压缩方法，从自进化智能体的冗长技能库中发现可复用结构，降低存储与推理开销。让长期积累的技能库更紧凑、可迁移。 |
+| [DreamFly: Causal Memory and Receding-Horizon Diffusion Planning for Aerial Vision-Language Navigation](http://arxiv.org/abs/2608.12308v1) | Yan Deng, Fei Xu | 提出结合因果记忆与滚动时域扩散规划的航空 VLN 方法，解决部分可观测下的长时视觉-语言导航。将 VLA 范式适配到空中机器人，是具身智能与扩散规划结合的代表性进展。 |
+| [VAKRA: Evaluating Multi-Hop Reasoning Across APIs and Retrieval Under Tool-Use Policies](http://arxiv.org/abs/2608.12282v1) | Ankita Rajaram Naik, Anupama Murthi, Benjamin Elder et al. | 新基准同时评估结构化 API、文档检索和工具使用策略约束下的多跳推理。弥补企业智能体评测中 API 与检索能力割裂的空白，更接近真实部署场景。 |
+| [SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward](http://arxiv.org/abs/2608.12220v1) | Zile Zhou, Huining Yuan, Weichen Zhang et al. | 为 VLM 空间推理提出结构化 CoT 与多目标过程奖励模型，改善 RL 中中间推理步的信用分配问题。将思维链结构与过程奖励结合，为可验证视觉空间推理提供了新思路。 |
+| [Convergent Detour Hijacking: Task-Preserving Resource Amplification in Skill-Based LLM Agents](http://arxiv.org/abs/2608.12273v1) | Junliang Liu, Ruoyu Li, Wenxin Tang et al. | 揭示恶意第三方 skill 可在不改变任务目标的情况下劫持 LLM 智能体，通过「绕路」放大资源消耗。针对 skill 生态的渐进式披露设计提出了新的攻击面与安全考量。 |
 
 ### 🔧 方法与框架（新技术、基准测试、效率优化）
 
 | 论文 | 作者 | 简要说明 |
 | :--- | :--- | :--- |
-| [How to Verify Consistency of Probabilistic Claims](http://arxiv.org/abs/2608.11181v1) | Paradise, Richardson, Bengio et al. | 研究概率预测器回答大量条件概率查询时是否能被多项式时间验证自洽。把 AI 诚实性转化为可验证的数学问题，对安全审计很重要。 |
-| [ReRound: Reconstructive Rounding to Resolve Midpoint Ambiguity in Calibration-Free LLM Quantization](http://arxiv.org/abs/2608.11045v1) | Hsieh, Kung | 提出基于条件扩散的重建式取整方法，解决权重量化时中点歧义问题。在免校准 LLM 量化中提升精度，并保持后训练效率。 |
-| [V-FiLLM: Verified Financial LLM Reasoning Benchmark](http://arxiv.org/abs/2608.11047v1) | Larsen, Laurent, Rakhamsari et al. | 基于可执行计算树生成带验证的金融推理基准，避免传统 benchmark 对 LLM 答案的不可靠评分。为结构化金融推理提供可自动校验的评测框架。 |
-| [Scheduling Mixed RL Rollouts Beyond Prefix Locality](http://arxiv.org/abs/2608.11152v1) | Hong, Yuan, Ding et al. | 提出超越前缀局部性的调度方法，让混合域 RL 回滚在缓存重用与负载均衡之外进一步优化训练吞吐。针对 LLM 后训练中多源、多反馈范式的部署瓶颈。 |
+| [AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses](http://arxiv.org/abs/2608.12307v1) | Cheng Qian, Wenting Zhao, Liangwei Yang et al. | 提出测试时「harness」机制，无需更新弱模型参数即可从强模型迁移能力。相比训练时蒸馏，成本更低且可动态配置，为模型能力提升开辟了新路径。 |
+| [Redistribution-based Cost Inference Improves Sparse Safe Offline RL](http://arxiv.org/abs/2608.12306v1) | Ebenezer Gelo, Geraud Nangue Tasse, Steven James et al. | 将轨迹级停止反馈下的安全离线 RL 建模为时间信用分配问题，提出重分配式成本推断。减少对逐时刻成本标注的依赖，使稀疏监督下的安全 RL 更实用。 |
+| [How to Spend Your Oracle Budget: Practical Guidance for Protein Structure Prediction Models](http://arxiv.org/abs/2608.12192v1) | Aleksandra Kalisz, Jack Simons, Krisztina Sinkovics et al. | 在昂贵 oracle 预算约束下，比较 FK-steering、DPO、Best K-of-N 等蛋白结构预测修正策略。为生物学场景中有限标注/验证资源的分配提供了可操作的实用指导。 |
+| [VICBench: A Multi-Language Benchmark for Code Vulnerability Detection](http://arxiv.org/abs/2608.12246v1) | Jin Lu, Xuening Han, Yang Zhong et al. | 基于漏洞引入提交（VIC）构建多语言漏洞检测基准，覆盖完整脆弱版本范围。弥补现有漏洞数据集在质量与覆盖度上的不足，为代码安全模型提供更可靠评测。 |
+| [QV-PIC: Query-Aware Visual Position-Independent Caching for Efficient RAG Serving](http://arxiv.org/abs/2608.12121v1) | Yilin Liu, Rui Meng, Wangze Ni et al. | 将位置无关 KV 缓存扩展到视觉 token，提出查询感知的视觉 PIC 缓存机制。减少多模态 RAG 中重复预填的 GPU 开销，提升图文混合查询的推理效率。 |
 
 ### 📊 应用（垂直领域、多模态、代码生成）
 
 | 论文 | 作者 | 简要说明 |
 | :--- | :--- | :--- |
-| [MultiModal Code-Switching: Interleaving Visual Objects into Language for Explicit Object-Level Alignment](http://arxiv.org/abs/2608.11167v1) | Xiang, Xing, Wu et al. | 把视觉物体作为符号插入语言序列，实现显式的 object-level 对齐，而不是靠整图描述间接对齐。缓解 MLLM 指代歧义，提升细粒度多模态理解。 |
-| [Surgical WAM: A World-Action Model for Data-Efficient Surgical Robot Learning](http://arxiv.org/abs/2608.11204v1) | Bao, Jiang, Chen et al. | 构建手术机器人的世界-动作模型，用更少标注轨迹学习可靠操作策略。针对手术中 contact handling 和 long-horizon reasoning 数据稀缺问题。 |
-| [R4DSG: Relative 4D Scene Graph Memory for Object-Centric Question Answering in Long Egocentric Video](http://arxiv.org/abs/2608.11017v1) | Ma, Mao, Li et al. | 提出相对 4D 场景图记忆，在长时程第一人称视频中维护物体身份与状态变化，支撑物体中心问答。解决标题/字幕记忆难以保持持久物体身份的问题。 |
-| [On the Limitations of Cross-Lingual Consistency in Multilingual Text-to-image Generation](http://arxiv.org/abs/2608.11002v1) | Zhang, Yan, Xie et al. | 发布 LingT2I 基准，系统测评多语言文生图中的跨语言一致性与语言特有偏差。填补 T2I 研究集中于英语的空白，为多语生成提供评测基准。 |
+| [Earth observation embeddings are effective sub-grid descriptors for probabilistic weather downscaling](http://arxiv.org/abs/2608.12271v1) | Pedro Sousa, Will Tebbutt, Sadiq Jaffer et al. | 用地球观测 embedding 作为亚网格描述符，改进概率天气降尺度模型。将卫星/再分析数据与概率机器学习结合，为站点级气象预测提供了新思路。 |
+| [An Agentic Workflow for Legacy HPC Modernization: Converting the Two-Electron-Integral Core of GAMESS](http://arxiv.org/abs/2608.12249v1) | Yuzhong Shen, Masha Sosonkina, Peng Xu et al. | 提出生产级 agentic workflow，将 GAMESS 两电子积分核心从 Fortran 现代化转换。展示 AI agent 在大型科学代码重构中的实际可行性，解决「量大但常规」的现代化停滞问题。 |
+| [How Organizations Use AI: Evidence from ChatGPT](http://arxiv.org/abs/2608.12236v1) | Aaron Chatterji, David Holtz, Neel Rakholia et al. | 将 ChatGPT Enterprise 账户记录与岗位、任务分类和企业财务数据关联，首次大规模观察企业 AI 使用行为。为 AI 生产率影响研究提供隐私保护下的消息级证据，具有标杆意义。 |
 
 ## 研究趋势信号
 
-本次投稿的新兴信号包括：安全评估从英语/静态基准扩展到低资源语言、行为轨迹和可验证概率一致性；智能体研究从一次性任务转向长期记忆维护与技能压缩，CLAUDE.md 式记忆膨胀成为工程问题；LLM 后训练基础设施（RL 回滚调度、量化重建）和可自动校验的领域基准（V-FiLLM）开始成为独立方向；多模态继续走向显式物体级对齐与长视频持久记忆。
+今日投稿中最明显的信号是「资源感知」与「测试时」视角的兴起：从测试时能力迁移、oracle 预算分配到预算依赖的评测排名，研究者开始把推理预算当作评估与优化的核心变量。其次是智能体安全与鲁棒性评测的系统化，包括 API+检索多跳基准、第三方技能劫持攻击，以及模拟器坍塌等现象。与此同时，「长上下文 vs 参数化知识」的权衡被明确提上议程，正在挑战训练共识。垂直领域 RAG 与旧代码智能体改造则显示，AI 落地正从通用能力转向高价值存量场景。
 
 ## 值得精读
 
-1. **[How to Verify Consistency of Probabilistic Claims](http://arxiv.org/abs/2608.11181v1)**  
-   将 AI 诚实性/概率声明自洽性归约为可多项式时间验证的数学问题，作者包括 Yoshua Bengio，是安全与可信 AI 的理论基石。
-
-2. **[Data Attribution of Emergent Misalignment with Persona Features](http://arxiv.org/abs/2608.11025v1)**  
-   用数据归因揭示突发性失对齐与预训练人格特征的因果关系，对微调前安全筛查有直接指导意义。
-
-3. **[Long-Horizon AI Research for Grothendieck Constant](http://arxiv.org/abs/2608.11195v1)**  
-   少见的完整人机数学协作案例，展示 AI 如何被用于改进真实数学常数界，对 AI for Science 的 long-horizon 研究设计有借鉴价值。
+- [Information Abundance Paradox: Long-Context Training Undermines Parametric Knowledge](http://arxiv.org/abs/2608.12218v1)：直接挑战「长上下文训练只会有益」的隐含假设，用证据提示长上下文与参数记忆之间存在权衡。对预训练策略与长上下文微调的后续研究有重要影响。
+- [Who Thinks Best Depends on How Long You Let Them: Budget-Dependent Rankings in LLM Evaluation](http://arxiv.org/abs/2608.12150v1)：揭示 token 预算这一被普遍忽视的评测变量会改变模型排名。值得每个做 LLM benchmark 的研究者仔细阅读，并重新审视已有比较结论。
+- [VAKRA: Evaluating Multi-Hop Reasoning Across APIs and Retrieval Under Tool-Use Policies](http://arxiv.org/abs/2608.12282v1)：企业智能体需要在真实策略约束下同时处理 API 和文档检索，现有基准多将二者割裂。VAKRA 填补了这一评测缺口，对 Agent 研究与落地评估都很有参考价值。
 
 ---
-*本日报由 [agents-radar](https://github.com/Neare-Design/agents-radar) 自动生成。*
+*本日报由 [agents-radar](https://github.com/forever-1314/agents-radar) 自动生成。*

@@ -1,103 +1,104 @@
 # AI Open Source Trends 2026-08-13
 
-> Sources: GitHub Trending + GitHub Search API | Generated: 2026-08-13 01:04 UTC
+> Sources: GitHub Trending + GitHub Search API | Generated: 2026-08-13 09:48 UTC
 
 ---
 
 # AI Open Source Trends Report — 2026-08-13
 
-*Filtered out non-AI trending entries such as LocalSend, SpiderFoot, MediaCrawler, Julia, and general-purpose browser/file tools. Star counts show total GitHub stars and, where available, today’s star gain from the trending feed.*
-
 ## 1. Today's Highlights
 
-The hottest AI open-source activity today is around agent skills and agent-fleet orchestration: [diagram-design](https://github.com/cathrynlavery/diagram-design) (+2,855), [agency-agents](https://github.com/msitarzewski/agency-agents) (+1,873), [orca](https://github.com/stablyai/orca) (+1,235), and [paperclip](https://github.com/paperclipai/paperclip) (+571) all surged, signaling a shift from single chatbots to packaged, manageable agent teams. Context and memory infrastructure is also emerging as a core layer — [semantica](https://github.com/semantica-agi/semantica) (+845) is building graph-native context for accountable AI, while established projects like [ragflow](https://github.com/infiniflow/ragflow), [claude-mem](https://github.com/thedotmack/claude-mem), and [cognee](https://github.com/topoteretes/cognee) continue to dominate. Domain-specific open models are expanding beyond text: [Kronos](https://github.com/shiyu-coder/Kronos) targets financial markets, [LTX-2](https://github.com/Lightricks/LTX-2) opens audio-video generation, and [needle](https://github.com/cactus-compute/needle) brings a 14MB foundation model to edge devices. Overall, the trend is clear: agents are becoming production systems that need skills, memory, orchestration, and control planes.
+Today's GitHub star activity is heavily concentrated in **agent operations and agent-experience tooling**, rather than new base-model releases. The biggest single-day spike is `cathrynlavery/diagram-design` (+2,855), a Claude Code asset pack for editorial diagrams, followed by `agency-agents` (+1,873) and `orca` (+1,235) — all pointing to a new wave of pre-packaged agent teams and parallel-agent orchestration. On the infrastructure side, `semantica` (+845) pushes graph-native context and accountability, NVIDIA-NeMo's `Switchyard` (+421) brings a Rust-based entry, and `needle` (+315) shrinks foundation models to 14MB for edge devices. Vertical AI applications such as `ppt-master` (+476) and financial models like `Kronos` (+266) round out a busy, application-heavy day.
+
+---
 
 ## 2. Top Projects by Category
 
 ### 🔧 AI Infrastructure
 
-| Project | Lang | Stars | Summary |
+| Project | Lang | Stars (total / today) | Summary |
 | :--- | :--- | ---: | :--- |
-| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | Python | 144,097 | The agent engineering platform, now centered on agentic workflows and tool calling. It remains the most widely used foundation for building LLM applications. |
-| [ollama/ollama](https://github.com/ollama/ollama) | Go | 178,369 | Local LLM runtime supporting Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, Qwen, Gemma, and more. It made running open models locally a commodity. |
-| [huggingface/transformers](https://github.com/huggingface/transformers) | Python | 164,018 | The model-definition framework for state-of-the-art ML across text, vision, audio, and multimodal tasks. Still the default hub for open model weights. |
-| [pytorch/pytorch](https://github.com/pytorch/pytorch) | Python | 102,351 | Tensors and dynamic neural networks with strong GPU acceleration. The dominant training framework for open-source LLM and diffusion research. |
-| [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | Rust | 75,922 | CLI proxy that reduces LLM token consumption by 60–90% on common dev commands. Its single Rust binary and zero dependencies make it a strong cost-control layer. |
-| [semantica-agi/semantica](https://github.com/semantica-agi/semantica) | Python | 0 (+845) | Graph-native infrastructure for context and accountable AI systems. The +845-star debut today points to rising demand for traceable agent context. |
-| [NVIDIA-NeMo/Switchyard](https://github.com/NVIDIA-NeMo/Switchyard) | Rust | 0 (+421) | NVIDIA NeMo’s Rust-based repository appeared on today’s trending list. The +421-star spike shows strong developer interest in NeMo-ecosystem infrastructure, though the feed includes no description. |
-| [langchain4j/langchain4j](https://github.com/langchain4j/langchain4j) | Java | 12,852 | Idiomatic Java library for LLM-powered applications on the JVM, with unified APIs for LLMs, vector stores, tool calling, MCP, agents, and RAG. It is key for enterprise Java AI adoption. |
+| [semantica-agi/semantica](https://github.com/semantica-agi/semantica) | Python | 0 (+845) | Graph-native infrastructure for context and accountable AI systems. The +845 one-day surge shows demand for auditable, structured AI memory beyond plain vector search. |
+| [NVIDIA-NeMo/Switchyard](https://github.com/NVIDIA-NeMo/Switchyard) | Rust | 0 (+421) | A Rust-based repository appearing under NVIDIA NeMo's open-source umbrella, likely targeting LLM/agent infrastructure. Its +421 debut makes it a leading indicator for NVIDIA's lower-level AI tooling investments. |
+| [ollama/ollama](https://github.com/ollama/ollama) | Go | 178,419 | Local LLM runtime that makes open models runnable with a single command. It remains the default on-prem model layer for agent and RAG deployments. |
+| [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | Rust | 75,968 | A CLI proxy that reduces LLM token consumption by 60–90% on common developer commands. Its popularity underscores token cost/context efficiency as core infrastructure. |
+| [langchain4j/langchain4j](https://github.com/langchain4j/langchain4j) | Java | 12,860 | A Java library for building LLM applications with unified provider APIs, MCP support, and RAG. It shows the JVM ecosystem gaining first-class LLM/agent tooling. |
+| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | TypeScript | 166,674 | The "context API" for searching, scraping, and interacting with the web at scale. It is the data-access layer for many AI agents and retrieval pipelines. |
+| [embabel-agent](https://github.com/embabel/embabel-agent) | Kotlin | 0 (+40) | An agent framework for the JVM, pronounced Em-BAY-bel. Its small but visible debut signals that agent frameworks are expanding beyond Python/TypeScript into enterprise JVM stacks. |
 
 ### 🤖 AI Agents / Workflows
 
-| Project | Lang | Stars | Summary |
+| Project | Lang | Stars (total / today) | Summary |
 | :--- | :--- | ---: | :--- |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | Python | 229,581 | “The agent that grows with you” — the highest-starred dedicated AI-agent repository in this dataset. It represents the trend toward persistent, self-improving assistants. |
-| [affaan-m/ECC](https://github.com/affaan-m/ECC) | JavaScript | 239,759 | Agent-harness performance optimization with skills, instincts, memory, security, and research-first development for Claude Code, Codex, Cursor, and more. It is one of the most popular dev-tool projects in the AI agent space. |
-| [OpenHands/OpenHands](https://github.com/OpenHands/OpenHands) | TypeScript | 83,837 | AI-driven development platform for autonomous coding agents. It remains a reference implementation for open-source software engineering agents. |
-| [stablyai/orca](https://github.com/stablyai/orca) | TypeScript | 0 (+1,235) | Agent development environment for working with a fleet of parallel agents, running any coding agent with your own subscriptions on desktop, mobile, or VPS. The +1,235-star surge today signals strong demand for multi-agent orchestration. |
-| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | Shell | 0 (+1,873) | A complete “AI agency” packaged as specialized agents with personas, from frontend wizards to Reddit community ninjas. The +1,873 gain today highlights the appeal of deployable agent teams. |
-| [paperclipai/paperclip](https://github.com/paperclipai/paperclip) | TypeScript | 0 (+571) | Open-source app to manage AI agents at work. It is part of a new control-plane category for running agents in real organizations. |
-| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | HTML | 0 (+2,855) | 29 editorial diagram types for Claude Code, packaged as self-contained HTML+SVG and explicitly avoiding “Mermaid-slop.” It is today’s top star-gainer, showing that high-quality agent skills/assets are a rapidly growing category. |
-| [embabel/embabel-agent](https://github.com/embabel/embabel-agent) | Kotlin | 0 (+40) | Agent framework for the JVM, pronounced Em-BAY-bel. Its Kotlin implementation broadens agent development beyond Python, TypeScript, and Rust. |
+| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | HTML | 0 (+2,855) | Self-contained HTML/SVG templates for 29 editorial diagram types, designed to improve Claude Code's diagram output. The largest single-day gain today shows strong demand for higher-quality agent-generated visuals. |
+| [stablyai/orca](https://github.com/stablyai/orca) | TypeScript | 0 (+1,235) | An Agent Development Environment for running fleets of parallel coding agents with your own subscriptions. +1,235 today signals the shift from single-assistant UIs to multi-agent orchestration. |
+| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | Shell | 0 (+1,873) | A shell-based package of specialized agent personas, from frontend wizards to Reddit community ninjas. It received +1,873 stars today because pre-packaged agent teams are becoming a distributable product. |
+| [paperclipai/paperclip](https://github.com/paperclipai/paperclip) | TypeScript | 0 (+571) | An open-source app for managing agents at work, focused on control and visibility across multiple agents. +571 today indicates "agent management" is emerging as a separate platform layer. |
+| [OpenHands/OpenHands](https://github.com/OpenHands/OpenHands) | TypeScript | 83,887 | Open-source AI-driven development platform for autonomous coding agents. It remains a reference architecture for AI software engineering workflows. |
+| [browser-use/browser-use](https://github.com/browser-use/browser-use) | Python | 109,041 | Makes websites accessible to AI agents by automating browser interaction at scale. It is the essential plumbing for web-enabled agents. |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | Python | 229,835 | Nous Research's personal agent that "grows with you," pairing open model ecosystem with an agent harness. Its 229k stars reflect huge community appetite for self-improving agents. |
+| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | Python | 186,578 | The project that popularized autonomous GPT agents and now provides tools to build and run agents. It remains a foundational reference for agent workflows. |
 
 ### 📦 AI Applications
 
-| Project | Lang | Stars | Summary |
+| Project | Lang | Stars (total / today) | Summary |
 | :--- | :--- | ---: | :--- |
-| [macro-inc/macro](https://github.com/macro-inc/macro) | Rust | 0 (+227) | Unified workspace for teams combining email, chat, docs, tasks, agents, calls, and CRM, all @-linked with shared AI memory. It is a strong example of AI-native productivity software. |
-| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | Python | 45,583 (+476) | AI turns documents or topics into real native PowerPoint decks with shapes, transitions, charts, narration, and custom templates. Its appearance on both today’s trending list and the AI-agent topic search shows vertical document generation is a hot use case. |
-| [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | TypeScript | 50,355 | AI productivity studio with smart chat, autonomous agents, and 300+ assistants, unified across frontier LLMs. It is becoming a main desktop hub for power users. |
-| [open-webui/open-webui](https://github.com/open-webui/open-webui) | Python | 148,613 | Self-hosted AI interface supporting Ollama and OpenAI-compatible APIs. It remains the default open-source UI layer for local LLM deployments. |
-| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Python | 102,814 | Generates HD short videos from a topic or keyword using AI models and automated workflows. It remains a leading example of automated content creation. |
-| [xixihhhh/clipforge](https://github.com/xixihhhh/clipforge) | TypeScript | 533 | Open-source AI short-video generator for e-commerce: product image to selling points, script, visuals, subtitles, and platform-ready output. It shows vertical AI video tools gaining momentum. |
-| [Anil-matcha/Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI) | JavaScript | 26,194 | Unrestricted, self-hosted AI image/video generation studio with 500+ models, including Flux, Kling, Sora, and Veo. It signals demand for uncensored local generative media. |
-| [santifer/career-ops](https://github.com/santifer/career-ops) | JavaScript | 63,640 | Open-source AI job search that scans portals, scores listings with an A–F rubric, tailors CVs, and tracks applications inside Claude Code, Codex, and other AI CLIs. It demonstrates agents entering everyday professional workflows. |
+| [macro-inc/macro](https://github.com/macro-inc/macro) | Rust | 0 (+227) | A unified workspace combining email, chat, docs, tasks, agents, calls, and CRM with shared AI memory. +227 today is a signal that agents are being embedded into horizontal collaboration products. |
+| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | Python | 46,245 (+476) | AI converts documents or topics into native PowerPoint decks with real shapes, animations, charts, and narration. The +476 jump shows continued demand for AI that produces usable artifacts, not just text. |
+| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Python | 102,920 | Generates short videos from a topic or keyword via AI models and automated workflows. It remains one of the most popular vertical AI content automation projects. |
+| [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | TypeScript | 50,390 | AI productivity studio with smart chat, autonomous agents, and 300+ assistants, unified access to frontier LLMs. It is a leading open-source desktop client for everyday AI use. |
+| [siyuan-note/siyuan](https://github.com/siyuan-note/siyuan) | TypeScript | 45,787 | A privacy-first, self-hosted knowledge workspace where humans and AI agents collaborate. It shows personal knowledge management merging with agent memory. |
+| [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | Python | 62,667 | An LLM-powered multi-market stock analysis system with real-time news, dashboards, and automated alerts. It is a popular example of AI agents applied to financial decision support. |
+| [santifer/career-ops](https://github.com/santifer/career-ops) | JavaScript | 63,682 | Open-source AI job search that scans portals, scores listings, tailors CVs, and tracks applications. Its presence shows agents moving into personal career workflow automation. |
 
 ### 🧠 LLMs / Training
 
-| Project | Lang | Stars | Summary |
+| Project | Lang | Stars (total / today) | Summary |
 | :--- | :--- | ---: | :--- |
-| [Lightricks/LTX-2](https://github.com/Lightricks/LTX-2) | Python | 0 (+65) | Official Python inference and LoRA trainer for the LTX-2 audio–video generative model. Open-weight audio-video generation with custom fine-tuning is a frontier area. |
-| [shiyu-coder/Kronos](https://github.com/shiyu-coder/Kronos) | Python | 0 (+266) | A foundation model for the language of financial markets, gaining +266 stars today. Domain-specific foundation models are still rare, making this a standout release. |
-| [cactus-compute/needle](https://github.com/cactus-compute/needle) | Python | 0 (+315) | A 14MB foundation model for tiny devices — phones, wearables, smart home, and robots. The extremely small footprint signals a new edge-AI direction. |
-| [NVlabs/Sana](https://github.com/NVlabs/Sana) | Python | 8,751 | Efficient high-resolution image synthesis with a linear diffusion transformer, from NVIDIA Labs. It remains an important architecture reference for fast generation. |
-| [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | Jupyter Notebook | 102,532 | Step-by-step implementation of a ChatGPT-like LLM in PyTorch. It continues to be the most popular educational resource for understanding LLM internals. |
-| [open-compass/opencompass](https://github.com/open-compass/opencompass) | Python | 7,297 | LLM evaluation platform supporting 100+ datasets and many open/closed models. Evaluation infrastructure is becoming increasingly important as open models ship faster. |
-| [skyzh/tiny-llm](https://github.com/skyzh/tiny-llm) | Python | 4,480 | Learn LLM inference on Apple Silicon by building a tiny vLLM + Qwen. It reflects growing interest in systems-level LLM engineering. |
-| [kandinskylab/kandinsky-5](https://github.com/kandinskylab/kandinsky-5) | Python | 808 | Family of diffusion models for video and image generation. It shows the open model ecosystem continuing to expand beyond text-to-image. |
+| [shiyu-coder/Kronos](https://github.com/shiyu-coder/Kronos) | Python | 0 (+266) | A foundation model for the language of financial markets. It is a notable example of domain-specific model development beyond general chatbots. |
+| [cactus-compute/needle](https://github.com/cactus-compute/needle) | Python | 0 (+315) | A 14MB foundation model for tiny devices such as phones, wearables, smart home, and robots. The +315 stars today highlight growing interest in ultra-efficient edge AI. |
+| [Lightricks/LTX-2](https://github.com/Lightricks/LTX-2) | Python | 0 (+65) | Official Python inference and LoRA trainer package for the LTX-2 audio-video generative model. Open weights plus fine-tuning tooling make it a reference for community multimodal generation. |
+| [NVlabs/Sana](https://github.com/NVlabs/Sana) | Python | 8,753 | Efficient high-resolution image synthesis with a linear diffusion transformer. It remains a strong open-source option for fast, high-quality image generation. |
+| [kandinskylab/kandinsky-5](https://github.com/kandinskylab/kandinsky-5) | Python | 808 | A family of diffusion models for video and image generation. It represents the ongoing cadence of fully open diffusion releases. |
+| [huggingface/transformers](https://github.com/huggingface/transformers) | Python | 164,050 | The standard open-source framework for state-of-the-art models in text, vision, audio, and multimodality. It continues to anchor the open model ecosystem. |
+| [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | Jupyter Notebook | 102,556 | A step-by-step implementation of a ChatGPT-like LLM in PyTorch. Its popularity shows sustained developer demand for understanding models from first principles. |
 
 ### 🔍 RAG / Knowledge
 
-| Project | Lang | Stars | Summary |
+| Project | Lang | Stars (total / today) | Summary |
 | :--- | :--- | ---: | :--- |
-| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | Go | 87,550 (+139) | Leading open-source RAG engine that fuses retrieval-augmented generation with agent capabilities. It remains a core context layer for LLMs. |
-| [langgenius/dify](https://github.com/langgenius/dify) | TypeScript | 152,249 | Build agentic workflows and RAG pipelines with rich model and tool support, deployable to cloud, VPC, or self-hosted. It is one of the most adopted LLMOps platforms. |
-| [run-llama/llama_index](https://github.com/run-llama/llama_index) | Python | 51,600 | The leading document agent and OCR platform, evolved well beyond a data framework. It is central to connecting LLMs with enterprise documents. |
-| [milvus-io/milvus](https://github.com/milvus-io/milvus) | Go | 45,615 | High-performance, cloud-native vector database built for scalable vector ANN search. It remains standard infrastructure for large-scale RAG. |
-| [qdrant/qdrant](https://github.com/qdrant/qdrant) | Rust | 33,941 | High-performance vector database and search engine for next-generation AI. Its Rust core makes it a natural fit for performance-sensitive agent stacks. |
-| [topoteretes/cognee](https://github.com/topoteretes/cognee) | Python | 29,980 | Open-source AI memory platform for agents, providing persistent long-term memory through a self-hosted knowledge graph engine. Memory is becoming the new hot layer. |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | JavaScript | 90,553 | Captures agent sessions, compresses them with AI, and injects relevant context into future sessions for Claude Code, Codex, Gemini, and more. It directly addresses cross-session memory gaps. |
-| [VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex) | Python | 35,156 | Document index for vectorless, reasoning-based RAG. It is a notable new direction beyond embeddings-only retrieval. |
+| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | Go | 87,781 (+139) | A leading open-source RAG engine fusing retrieval with agent capabilities. It remains a core context layer for LLM applications and is still gaining daily stars. |
+| [langgenius/dify](https://github.com/langgenius/dify) | TypeScript | 152,312 | A collaborative workspace for building agentic workflows and RAG pipelines. Its scale makes it one of the most important open-source LLM application platforms. |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | Python | 144,149 | The agent engineering platform, with a large ecosystem of integrations, chains, and agent primitives. It continues to be the default framework for many RAG/agent builds. |
+| [run-llama/llama_index](https://github.com/run-llama/llama_index) | Python | 51,613 | A leading document agent and OCR platform for connecting enterprise data to LLMs. It is widely used for retrieval-heavy production systems. |
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Python | 105,835 | Turns any codebase, docs, SQL schemas, configs, and PDFs into a queryable knowledge graph using deterministic AST parsing and no vector store. It demonstrates the growing graph-based alternative to embeddings-only RAG. |
+| [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | JavaScript | 64,673 | A local-first AI workspace for RAG and agent experiences with full ownership of data. It remains a go-to self-hosted alternative to hosted AI productivity tools. |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | Python | 63,178 | A universal memory layer for AI agents. It solves the cross-session memory problem, making it central to long-running agents. |
+| [milvus-io/milvus](https://github.com/milvus-io/milvus) | Go | 45,623 | A high-performance, cloud-native vector database for scalable ANN search. It remains a core piece of production RAG infrastructure. |
+
+---
 
 ## 3. Trend Signal Analysis
 
-The clearest signal from today’s data is that the center of gravity has shifted from single chatbots to fleets of agents and the tooling around them. The top star-gaining repositories — [diagram-design](https://github.com/cathrynlavery/diagram-design) (+2,855), [agency-agents](https://github.com/msitarzewski/agency-agents) (+1,873), [orca](https://github.com/stablyai/orca) (+1,235), and [paperclip](https://github.com/paperclipai/paperclip) (+571) — are all about packaging agent abilities, running parallel agents, or managing agents at work. In parallel, context and memory infrastructure is emerging as a must-have layer: [semantica](https://github.com/semantica-agi/semantica) is building graph-native context for accountable AI, while established projects like [ragflow](https://github.com/infiniflow/ragflow), [claude-mem](https://github.com/thedotmack/claude-mem), [cognee](https://github.com/topoteretes/cognee), and [rtk](https://github.com/rtk-ai/rtk) are attacking retrieval, cross-session memory, and token cost.
+Today's star flow tells a clear story: the community is no longer focused on a single agent chat box; it wants **fleet operations, memory, and usable artifacts**. The biggest momentum is in agent-team assets and management layers — `Agency-Agents`, `Orca`, `Paperclip`, and even `diagram-design` for Claude Code. This connects to recent LLM release cycles: as base models become more interchangeable, value is shifting to orchestration, control, and output quality.
 
-New tech stacks are appearing. Rust is increasingly visible in agent infrastructure ([Switchyard](https://github.com/NVIDIA-NeMo/Switchyard), [macro](https://github.com/macro-inc/macro), [rtk](https://github.com/rtk-ai/rtk)), Kotlin/JVM is represented by [embabel-agent](https://github.com/embabel/embabel-agent), and graph-native/vectorless RAG ([semantica](https://github.com/semantica-agi/semantica), [PageIndex](https://github.com/VectifyAI/PageIndex), [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify)) suggests a post-embedding retrieval direction. Edge AI is also becoming practical: [needle](https://github.com/cactus-compute/needle) is only 14MB, while [tiny-llm](https://github.com/skyzh/tiny-llm) and [picollm](https://github.com/Picovoice/picollm) cater to on-device inference. Domain-specific open models are expanding beyond text: [Kronos](https://github.com/shiyu-coder/Kronos) targets financial markets, and [LTX-2](https://github.com/Lightricks/LTX-2) opens audio-video generation.
+The rise of graph-native infrastructure — `Semantica`, `Graphify`, and `Cognee` — and token-compression tools like `rtk` and `headroom` suggests **context is the new bottleneck**. Graph-based RAG is challenging the dominant vector-only approach, and "accountable" AI context is becoming a design goal rather than an afterthought.
 
-The connection to recent LLM releases is visible through model-agnostic tooling: [Ollama](https://github.com/ollama/ollama) highlights Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, Qwen, and gpt-oss, while many agent repos are explicitly optimized for Claude Code, Codex, and Gemini CLI. Finally, open video generation is verticalizing — [MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo), [clipforge](https://github.com/xixihhhh/clipforge), [ArcReel](https://github.com/ArcReel/ArcReel), and [dramaclaw](https://github.com/dramaclaw/dramaclaw) are turning frontier model capability into turnkey production tools.
+At the same time, the model frontier is splitting in two directions: domain-specific and multimodal releases (`Kronos`, `LTX-2`, `Sana`, `Kandinsky`) continue to expand, but ultra-efficient models like `needle` are pulling AI toward phones and robots. The spread of Rust and Kotlin/JVM projects — `Switchyard`, `Macro`, `embabel-agent`, `rig` — also indicates that AI infrastructure is becoming genuinely polyglot. The strongest follow-up signal to watch is whether today's early spikes in agent management and edge foundation models convert into sustained ecosystems.
+
+---
 
 ## 4. Community Hot Spots
 
-- **Claude Code skill packs are the new app store.** [diagram-design](https://github.com/cathrynlavery/diagram-design) was the single biggest AI gainer today, and [awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) plus [learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) show that reusable skills are becoming the dominant distribution mechanism for coding-agent capabilities.
+- **Multi-agent fleet management** — [stablyai/orca](https://github.com/stablyai/orca), [paperclipai/paperclip](https://github.com/paperclipai/paperclip), [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents): parallel agents and workforce management are now a distinct software category.
 
-- **Fleet orchestration and agent management platforms.** [orca](https://github.com/stablyai/orca) and [paperclip](https://github.com/paperclipai/paperclip) are early examples of a new layer for running, observing, and managing many agents at once — a clear step beyond running a single assistant.
+- **Claude Code skill/template economy** — [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design), [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills): agent skill packs and prompt/template collections are becoming a distribution format, and `diagram-design` had the single biggest star spike today.
 
-- **Context, memory, and token-cost engineering.** [semantica](https://github.com/semantica-agi/semantica), [cognee](https://github.com/topoteretes/cognee), [claude-mem](https://github.com/thedotmack/claude-mem), and [rtk](https://github.com/rtk-ai/rtk) are attacking the same core problem: long-running agents need persistent context, efficient retrieval, and lower token spend.
+- **Graph-native RAG and context** — [semantica-agi/semantica](https://github.com/semantica-agi/semantica), [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify), [topoteretes/cognee](https://github.com/topoteretes/cognee): vector-only retrieval is being challenged by knowledge graphs, explicit reasoning, and accountable context.
 
-- **Small and edge AI models.** [needle](https://github.com/cactus-compute/needle) at 14MB, [tiny-llm](https://github.com/skyzh/tiny-llm), and [picollm](https://github.com/Picovoice/picollm) point toward private, low-cost inference on user devices — a likely next battleground.
+- **Edge/on-device AI** — [cactus-compute/needle](https://github.com/cactus-compute/needle), [Picovoice/picollm](https://github.com/Picovoice/picollm): a 14MB foundation model could unlock private, low-latency AI on consumer devices and robots.
 
-- **Vertical AI video pipelines.** [LTX-2](https://github.com/Lightricks/LTX-2), [clipforge](https://github.com/xixihhhh/clipforge), [ArcReel](https://github.com/ArcReel/ArcReel), and [dramaclaw](https://github.com/dramaclaw/dramaclaw) show the shift from raw generative models to domain-specific production workflows.
+- **Generative video automation** — [Lightricks/LTX-2](https://github.com/Lightricks/LTX-2), [ArcReel/ArcReel](https://github.com/ArcReel/ArcReel), [dramaclaw/dramaclaw](https://github.com/dramaclaw/dramaclaw): open model weights plus agent-driven pipelines are making AI video creation more production-ready.
 
 ---
-*This digest is auto-generated by [agents-radar](https://github.com/Neare-Design/agents-radar).*
+*This digest is auto-generated by [agents-radar](https://github.com/forever-1314/agents-radar).*
