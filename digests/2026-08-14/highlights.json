@@ -1,0 +1,150 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.231 修复 OAuth 重定向问题",
+      "OpenAI Codex 0.148.0 连发三个 alpha，PR 密集",
+      "Gemini CLI v0.56.0-nightly 现 P1 稳定性问题",
+      "GitHub Copilot CLI v1.0.80-0 新增 issue 三成涉 MCP",
+      "Kimi Code CLI 出现失控生成 88k token 严重问题",
+      "Pi auto-compaction 失效成热题，维护者亲自提 issue"
+    ],
+    "ai-agents": [
+      "OpenClaw 单日各 500 条 Issue/PR，极速迭代",
+      "#121058 获 92 条评论，消息投递可靠性未真正解决",
+      "维护者合并关闭 83 条 PR，修复持续推进",
+      "#123333 修复隐身会话重置后客户端残留删除窗格",
+      "#122475 让聊天侧栏变为全高可调整列",
+      "#121850+#121690 修复 --version 误显示 Canceled"
+    ],
+    "ai-infra": [
+      "DeepSeek-V4 与 Kimi-K3 成基础设施内核适配焦点",
+      "vLLM 0.27.0 升级现回归，投机解码崩溃频发",
+      "llama.cpp 连续发 b10411-b10423 共 13 版",
+      "Ollama 修复 MLX 结构化输出与 VRAM 检测",
+      "LiteLLM v1.98.0-dev.2 聚焦权限与 MCP OAuth",
+      "Unsloth v0.1.702-beta 桌面版首发但 Bug 集中"
+    ],
+    "ai-trending": [
+      "Agent Skills 生态霸榜，diagram-design 日增 4504 星",
+      "NVIDIA Switchyard 开源模型路由，日增 408 星",
+      "semantica 图原生基础设施日增 727 星",
+      "ragflow 领跑 RAG，日增 473 星",
+      "Ollama 以 178,476 星成本地 LLM 首选",
+      "needle 用 14MB 打入手机与穿戴设备"
+    ],
+    "ai-web": [
+      "OpenAI 新增两页面：高管变更与 Ultrafast 预览",
+      "Dali Rajic 出任首席营收官页面发布",
+      "Previewing Ultrafast 或为新产品预览",
+      "Anthropic 官网当日零新增，处于静默期",
+      "两页面发布于 08-13，均归类为 index",
+      "本次仅元数据，正文缺失无法深入分析"
+    ],
+    "ai-hn": [
+      "DeepSeek V4 Pro 0813 登顶 HN，1016 分 439 评论",
+      "Grok 4.6 获 621 分 598 评论，争议基准与定价",
+      "Gemini 3.7 Flash 发布，527 分聚焦性价比",
+      "Codex 登录 Linux 桌面，441 分 298 评论",
+      "Cerebras 将 GPT-5.6 Sol 推理推到超快档",
+      "文本水印可去除、AI 3D 模型滞销引发冷思考"
+    ],
+    "ai-arxiv": [
+      "长上下文训练反削弱参数化知识，挑战越长越好",
+      "token 预算可翻转 LLM 排名，评测需控制",
+      "混合线性注意力 LLM 现“尖峰—平台”激活",
+      "相似性信号可诱导 LLM 在博弈中合作",
+      "DreamFly 将因果记忆与扩散规划用于空中导航",
+      "VAKRA 新基准评估企业 API 多跳推理"
+    ],
+    "ai-hf": [
+      "MiniMax-H3 适配版下载突破千万成生态爆款",
+      "Kimi-K3 以 10,620 赞登顶本周 Hugging Face",
+      "DeepSeek-V4-Flash-0731 下载超 143 万",
+      "Qwen3.8-2.4T-A95B 稀疏 MoE 总参数 2.4T",
+      "DeepSeek-V4-Pro-0813 发布即获 267 赞",
+      "NVIDIA Nemotron 3.5 Lightning 30B-A3B 开源"
+    ],
+    "ai-community": [
+      "今日社区聚焦 Agent 安全、权限与 MCP 坑",
+      "开发者开源 agent-tooltrust 给工具调用加门卫",
+      "文章警告：测试全绿的 AI 代码最危险",
+      "社区提出 Agent 记忆系统公平评测基准",
+      "企业 AI 访问控制走向运行时策略执行",
+      "《24 Cups, 36 Seats》高赞折射职业焦虑"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "MCP integration is the top cross-tool investment area",
+      "False success signals top CLI complaint",
+      "Session-state corruption plagues AI CLIs",
+      "Windows-specific breakage still widespread",
+      "Documentation drift hits mature Claude Code",
+      "Eval race: Gemini CLI nightly, Qwen SWE-bench"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 issues and 500 PRs updated in 24h",
+      "No new OpenClaw releases in last 24 hours",
+      "83 PRs merged/closed in OpenClaw window",
+      "Silent reply failures top OpenClaw discussion",
+      "Subagent completion loss under community spotlight",
+      "Multi-agent orchestration instability debated"
+    ],
+    "ai-infra": [
+      "llama.cpp ships 13 releases in 24 hours",
+      "vLLM and SGLang focus on speculative decoding",
+      "Unsloth releases first stable Desktop",
+      "MLX gains structured-output support on Apple Silicon",
+      "LiteLLM targets MCP session reliability",
+      "Agentic workloads now shape inference roadmaps"
+    ],
+    "ai-trending": [
+      "Anthropic publishes official skills repo",
+      "diagram-design skill pack adds 4,504 stars today",
+      "macro-inc/macro gains 1,180 stars",
+      "Needle: 14MB foundation model for edge AI",
+      "FluidVoice: on-device macOS dictation app",
+      "LTX-2 expands generative video"
+    ],
+    "ai-web": [
+      "OpenAI posts 2 new articles, lightest crawl yet",
+      "OpenAI references Dali Rajic as CRO",
+      "OpenAI previews 'Ultrafast' product",
+      "Anthropic official feed silent",
+      "Both OpenAI items are metadata-only",
+      "No article text captured for analysis"
+    ],
+    "ai-hn": [
+      "DeepSeek V4 Pro tops HN with 1,016 points",
+      "Grok 4.6 sparks benchmark gaming debate",
+      "Gemini 3.7 Flash targets low-latency agentic use",
+      "Cerebras accelerates GPT-5.6 Sol",
+      "Codex on Linux draws developer interest",
+      "Prompt injection in legal filings discussed"
+    ],
+    "ai-arxiv": [
+      "Long-context training may degrade parametric knowledge",
+      "LLM rankings shift with token budgets",
+      "New benchmark for enterprise API+retrieval agents",
+      "Attacks on third-party skill ecosystems detailed",
+      "Hybrid linear-attention LLM efficiency work",
+      "Clinical RAG matches frontier models"
+    ],
+    "ai-hf": [
+      "MiniMax-H3 Comfy build tops 10.3M downloads",
+      "DeepSeek-V4-Flash hits 1.4M downloads",
+      "Kimi-K3 leads Hugging Face likes with 10,620",
+      "Qwen3.8-2.4T-A95B: 2.4T sparse MoE",
+      "NVIDIA Nemotron Lightning targets efficient inference",
+      "Muse-Glimmer-30B extends image-text-to-text trend"
+    ],
+    "ai-community": [
+      "Developer builds agent-tooltrust gatekeeper for AI tools",
+      "AI code can pass tests yet be dangerously wrong",
+      "Agent trackers are self-report systems, post argues",
+      "Lobste.rs: AI firms destroying rare books in digitization",
+      "OpenAI–Hugging Face incident draws comments",
+      "Verification and logging become core engineering"
+    ]
+  }
+}
