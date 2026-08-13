@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-13T01:20:21.075Z",
+  "generated": "2026-08-13T01:23:48.933Z",
   "dates": [
     {
       "date": "2026-08-13",
@@ -16,8 +16,6 @@
         "ai-trending-en",
         "ai-hn",
         "ai-hn-en",
-        "ai-ph",
-        "ai-ph-en",
         "ai-arxiv",
         "ai-arxiv-en",
         "ai-hf",
@@ -41,33 +39,8 @@
         "ai-trending-en",
         "ai-hn",
         "ai-hn-en",
-        "ai-ph",
-        "ai-ph-en",
         "ai-arxiv",
         "ai-arxiv-en",
-        "ai-hf",
-        "ai-hf-en",
-        "ai-community",
-        "ai-community-en"
-      ]
-    },
-    {
-      "date": "2026-08-11",
-      "reports": [
-        "ai-cli",
-        "ai-cli-en",
-        "ai-agents",
-        "ai-agents-en",
-        "ai-infra",
-        "ai-infra-en",
-        "ai-web",
-        "ai-web-en",
-        "ai-trending",
-        "ai-trending-en",
-        "ai-hn",
-        "ai-hn-en",
-        "ai-ph",
-        "ai-ph-en",
         "ai-hf",
         "ai-hf-en",
         "ai-community",
@@ -87,29 +60,8 @@
         "ai-trending-en",
         "ai-hn",
         "ai-hn-en",
-        "ai-ph",
-        "ai-ph-en",
         "ai-hf",
         "ai-hf-en",
-        "ai-community",
-        "ai-community-en"
-      ]
-    },
-    {
-      "date": "2026-08-09",
-      "reports": [
-        "ai-cli",
-        "ai-cli-en",
-        "ai-agents",
-        "ai-agents-en",
-        "ai-infra",
-        "ai-infra-en",
-        "ai-trending",
-        "ai-trending-en",
-        "ai-hn",
-        "ai-hn-en",
-        "ai-ph",
-        "ai-ph-en",
         "ai-community",
         "ai-community-en"
       ]
@@ -129,8 +81,6 @@
         "ai-trending-en",
         "ai-hn",
         "ai-hn-en",
-        "ai-ph",
-        "ai-ph-en",
         "ai-arxiv",
         "ai-arxiv-en",
         "ai-hf",

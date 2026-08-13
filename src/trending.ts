@@ -43,6 +43,8 @@ const SEARCH_QUERIES = [
   { q: "topic:vector-database", label: "vector-db" },
   { q: "topic:large-language-model", label: "llm-model" },
   { q: "topic:machine-learning", label: "ml" },
+  { q: "topic:developer-tools", label: "dev-tools" },
+  { q: "topic:text-to-video", label: "video-gen" },
 ];
 
 // ---------------------------------------------------------------------------

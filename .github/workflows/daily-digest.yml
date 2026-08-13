@@ -2,8 +2,12 @@ name: Daily Agents Radar
 
 on:
   schedule:
-    # 每天 00:00 UTC = 08:00 CST (UTC+8)
-    - cron: "0 0 * * *"
+    # NOTE (2026-08-12):
+    # Scheduled events are unreliable in this fork: schedule/push events did not trigger
+    # despite active workflow state. Production trigger is local launchd -> workflow_dispatch.
+    # Keep this cron only as a fallback/reference; do not rely on it.
+    # 每天 23:00 UTC = 07:00 CST (UTC+8)
+    - cron: "0 23 * * *"
   workflow_dispatch:
 
 permissions:

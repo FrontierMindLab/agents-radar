@@ -1,63 +1,59 @@
 # ArXiv AI Research Digest 2026-08-12
 
-> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 50 papers | Generated: 2026-08-12 00:58 UTC
+> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 50 papers | Generated: 2026-08-12 04:07 UTC
 
 ---
 
-# ArXiv AI Research Digest — 2026-08-12
+## Today's Highlights
 
-## 1. Today's Highlights
+Today’s submissions converge on safety, efficiency, and evaluation beyond static benchmarks. Cross-lingual analyses reveal that both LLM safety alignment and tool-using agent behavior degrade sharply outside English, while new benchmarks expose inconsistencies in multilingual text-to-image generation. On the methodological side, papers propose polynomial-time verification for probabilistic claims, data-efficient world-action models for surgery, and skill-compression strategies for self-evolving agents. Efficiency work targets LLM quantization, mixed-RL rollout scheduling, and memory-constrained training. Multimodal research also pushes toward explicit object-level alignment and scene-graph memory for long-horizon video understanding.
 
-Several papers today focus on making LLM post-training and inference-time scaling more robust: verifier-free test-time scaling, on-policy self-distillation, and exploration in reinforcement learning with verifiable rewards are all re-examined. A second major cluster is agentic safety and verification, with adaptive harnesses for LLM agents, verification layers for robot autonomy, and an institutional-design view of multi-agent safety. Benchmarks are also being stress-tested: SWE-Bench ProMax exposes flawed tests in a widely used coding benchmark, while Decoding-Level Taboo challenges nominal-condition LLM evaluation. Finally, multimodal and safety-critical applications—medical video consultations, medical pixel-language models, and physically consistent motion planning—are advancing toward real-world deployment.
+## Key Papers
 
-## 2. Key Papers
-
-### 🧠 Large Language Models
+### 🧠 Large Language Models (architecture, training, alignment, evaluation)
 
 | Paper | Authors | Summary |
 | :--- | :--- | :--- |
-| [Consilience for Verifier-Free Test-Time Scaling](http://arxiv.org/abs/2608.09898v1) | Lecheng Kong, Like Hui, Haitao Mao et al. | Proposes verifier-free test-time scaling (VF-TTS) to improve LLM reasoning without relying on external verifiers or task-specific rewards. This is important because most real-world reasoning tasks lack reliable verifiers. |
-| [Mismatch Matters: On-Policy Distillation Beyond Token Agreement](http://arxiv.org/abs/2608.09836v1) | Zichao Yu, Chengzhi Yu, Shengze Xu et al. | Identifies a failure mode called degenerate agreement, where students achieve near-perfect token agreement with the teacher despite globally flawed responses. Argues for shifting distillation evaluation from token-level match to global response quality. |
-| [SKALD: Distill Skills into Weights, Not Prompts](http://arxiv.org/abs/2608.09826v1) | Yubo Jiang, Fengying Xie, Zhiguo Jiang et al. | Introduces skill-anchored latent distillation (SKALD), an on-policy self-distillation method that provides group-relative signals when RLVR groups are uniformly correct or wrong. This addresses a major reward sparsity issue covering 63–68% of rollout groups. |
-| [SR-OPSD: Self-Referenced On-Policy Self-Distillation](http://arxiv.org/abs/2608.09745v1) | Zhuo Sun, Entong Li, Yanlong Zhao et al. | Presents a self-referenced variant of on-policy self-distillation that avoids stale stop-gradient teachers. It improves the quality of dense token-level supervision for LLM post-training. |
-| [Decoding-Level Taboo: A Diagnostic Stress Test for LLM Robustness](http://arxiv.org/abs/2608.09900v1) | Tadanobu Chuyo Kamijo, Ori Rottenstreich, Javier Conde et al. | Introduces a diagnostic stress test that evaluates LLMs under complex system prompts, structural constraints, and safety guardrails. It exposes the illusion of capability created by narrow, highly optimized generation conditions. |
-| [Stealing Reasoning Traces from Proprietary LLM APIs](http://arxiv.org/abs/2608.09867v1) | Alexander Panfilov, David Schmotz, Ilia Shumailov et al. | Shows that encrypted chain-of-thought traces returned to clients can be extracted from proprietary LLM APIs. This raises serious security, IP, and privacy concerns for hidden reasoning. |
+| [The Illusion of Cross-Lingual Safety in Low-Resource Languages](http://arxiv.org/abs/2608.11146v1) | Abigail Oppong, P Sam Sahil, Tadesse Destaw Belay et al. | Investigates whether safety alignment trained in English generalizes to low-resource languages, finding that safeguards often fail or become unreliable. Highlights a critical blind spot in multilingual LLM deployment. |
+| [Mapping and Measuring the Behavioral Evolution of Large Language Models](http://arxiv.org/abs/2608.11027v1) | Dong Qiao, Chris Ding, Jicong Fan | Characterizes output behavior of 32 models from six families using 10,000 shared prompts and embeds responses to create behavioral maps. Provides a methodology for comparing models and tracking behavioral evolution beyond leaderboard scores. |
+| [Data Attribution of Emergent Misalignment with Persona Features](http://arxiv.org/abs/2608.11025v1) | Clemens Vetter, David Kaczér, Lucie Flek et al. | Links emergent misalignment to latent persona features and uses data attribution to trace training examples that amplify them. Offers a concrete mechanism for diagnosing and preventing harmful post-fine-tuning behavior. |
+| [Attention-Path Fragility as an Uncertainty Signal in Large Language Models](http://arxiv.org/abs/2608.11138v1) | Minsoo Kim, Sungyoung Ji, Kisung Moon et al. | Proposes Attention-Subnetwork Mutual Information (ASMI), a training-free signal measuring whether confident predictions are fragile under attention-path perturbation. Frames uncertainty as fragility rather than only distributional breadth. |
 
-### 🤖 Agents & Reasoning
+### 🤖 Agents & Reasoning (planning, tool use, multi-agent, chain-of-thought)
 
 | Paper | Authors | Summary |
 | :--- | :--- | :--- |
-| [SHE: Trajectory-driven Safety Harness Evolution for LLM Agents](http://arxiv.org/abs/2608.09885v1) | Wanying Qu, Qinghua Mao, Yu Li et al. | Treats the LLM agent harness as an evolving safety layer that adapts context, memory, tools, permissions, and runtime controls. This matters because agent safety depends on surrounding system components, not just model weights. |
-| [Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy](http://arxiv.org/abs/2608.09857v1) | Rohan Bhagra, Mahantesh Halapannavar, Uddhav Bhattarai | Proposes LLM-driven verification layers for robot autonomy that check the feasibility of actions proposed by planning models. It shifts robotics from pure execution toward verifiable action selection. |
-| [Multi-Agent AI Safety as an Institutional Design Problem](http://arxiv.org/abs/2608.09828v1) | Abdullah X | Frames multi-agent AI safety as an institutional design problem, asking which deployment rules, information flows, and governance structures produce safety. It connects collective behavior with the design of AI institutions. |
-| [Agentic Auto-Research is Fuzz Testing](http://arxiv.org/abs/2608.09855v1) | Yifeng He, Jicheng Wang, Yinzhe Zhao et al. | Argues that autonomous research agents should be understood as fuzz testing, because they generate experiments faster than validation can keep up. This reframing highlights sparse feedback and points to better proposer–validator designs. |
-| [ArchAgent v2: A Case Study with the Data Prefetching Championship](http://arxiv.org/abs/2608.09874v1) | Abraham Gonzalez, Raghav Gupta, Akanksha Jain et al. | Scales agentic AI to computer microarchitecture discovery by automating algorithm design in hardware prefetching. It demonstrates agent-driven search under tight hardware budgets and long simulation times. |
+| [Long-Horizon AI Research for Grothendieck Constant: A Case Study in Human-AI Mathematical Collaboration](http://arxiv.org/abs/2608.11195v1) | Alan Li, Rahul Saha, Anton Xue et al. | Case study of AI agents helping improve bounds on the Grothendieck constant \(K_G\), documenting a long-horizon human-AI collaboration. Provides practical lessons for using AI as an effective research partner in mathematics. |
+| [SkillZip: Evaluation-Free Skill Compression for Self-Evolving Agents by Discovering Reusable Structure](http://arxiv.org/abs/2608.11079v1) | Xiaofan Bai, Hongqiang Lin, Chao Liu et al. | Compresses accumulated skills in self-evolving agents by discovering reusable structure without costly evaluation. Controls unbounded growth of skill libraries caused by duplicated procedures and warnings. |
+| [Actions Speak Louder than Words: Measuring Cross-Lingual Policy Retention in Tool-Using Agents](http://arxiv.org/abs/2608.11110v1) | Sourabrata Mukherjee, Kalika Bali, Sunayana Sitaram | Measures whether tool-using agents take the same action steps across languages by comparing action traces, not just final answers. Reveals language-dependent changes in policy execution that affect reliability and cost. |
+| [Why Does CLAUDE.md Keep Growing? Catastrophic Remembering in Agentic Coding](http://arxiv.org/abs/2608.11095v1) | Kushal Chakrabarti | Attributes unbounded growth of agentic coding files like CLAUDE.md to “catastrophic remembering”: appending instructions is cheap, but deleting them is risky once rationale is lost. Discusses implications for agent memory maintenance. |
 
-### 🔧 Methods & Frameworks
-
-| Paper | Authors | Summary |
-| :--- | :--- | :--- |
-| [SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring](http://arxiv.org/abs/2608.09802v1) | Yuling Shi, Jinghan Xu, Kelin Fu et al. | Introduces a large-scale multilingual code refactoring benchmark and audits test quality, finding that nearly 60% of unsolved SWE-bench Verified instances contain flawed tests. It pushes toward more robust, saturation-resistant evaluation of coding agents. |
-| [MoNo: Multiscale Optimal Transport Neural Operator for Solving PDEs on General Geometries](http://arxiv.org/abs/2608.09764v1) | Zijiang Yang, Xiaomeng Wu, Dongmei Fu | Proposes a multiscale optimal transport neural operator for PDEs on general geometries. It fixes limitations in the learnable projection mechanisms used by transformer-based neural operators. |
-
-### 📊 Applications
+### 🔧 Methods & Frameworks (new techniques, benchmarks, efficiency improvements)
 
 | Paper | Authors | Summary |
 | :--- | :--- | :--- |
-| [MedPixel: A Unified Pixel-Language Model for Medical Reasoning and Segmentation](http://arxiv.org/abs/2608.09818v1) | Haoyu Yang, Meixing Shi, Zengjie Chen et al. | Unifies pixel-level segmentation with clinical language reasoning in a single medical vision-language model. This is important for trustworthy medical AI that can ground findings spatially. |
-| [Towards Expert-level Medical AI for Real-time Video Consultations](http://arxiv.org/abs/2608.09861v1) | Mahvish Nagda, Jihyeon Lee, Matthew Thompson et al. | Develops medical AI for real-time video consultations using audio-visual interaction and non-verbal cues. It addresses key limitations of text-only systems and broadens access to more natural patient–physician interaction. |
+| [How to Verify Consistency of Probabilistic Claims](http://arxiv.org/abs/2608.11181v1) | Orr Paradise, Oliver Richardson, Yoshua Bengio et al. | Studies whether a probabilistic predictor’s answers to many conditional-probability queries can be checked for self-consistency in polynomial time. Connects probability, complexity, and AI safety by formalizing verifiable honesty. |
+| [Scheduling Mixed RL Rollouts Beyond Prefix Locality](http://arxiv.org/abs/2608.11152v1) | Zetao Hong, Song Yuan, Yuanhao Ding et al. | Proposes scheduling strategies for mixed RL rollout workloads that go beyond prefix-aware routing to balance cache reuse and load balancing. Improves efficiency of RL post-training pipelines for LLMs across multiple domains. |
+| [ReRound: Reconstructive Rounding to Resolve Midpoint Ambiguity in Calibration-Free LLM Quantization](http://arxiv.org/abs/2608.11045v1) | He-Yen Hsieh, H. T. Kung | Addresses midpoint ambiguity in round-to-nearest quantization by training a conditional diffusion model to reconstruct weights. Improves calibration-free LLM post-training quantization by reducing errors near quantization interval centers. |
 
-## 3. Research Trend Signal
+### 📊 Applications (domain-specific, multimodal, code generation)
 
-A clear trend is the move away from external verifiers and reward models toward self-supervised and self-referential training signals. Papers on verifier-free test-time scaling, self-distillation, and latent skill anchoring all attack the same bottleneck: sparse or uninformative feedback during LLM reasoning and RL. A second trend is the expansion of safety from model weights to surrounding systems—harnesses, verification layers, deployment rules, and institutional design. This reflects growing recognition that agent behavior is shaped by context and governance, not just training. Benchmark research is also becoming more critical and self-reflective, with explicit audits of test quality, contamination, saturation, and unrealistic nominal conditions. Finally, multimodal applications are maturing in high-stakes domains such as medicine and robotics, where spatial grounding, physical consistency, and verification are becoming central design requirements.
+| Paper | Authors | Summary |
+| :--- | :--- | :--- |
+| [MultiModal Code-Switching: Interleaving Visual Objects into Language for Explicit Object-Level Alignment](http://arxiv.org/abs/2608.11167v1) | Changhao Xiang, Shangyu Xing, Zhen Wu et al. | Interleaves visual objects into language during multimodal pretraining to achieve explicit object-level alignment. Reduces referential ambiguity caused by global image-text alignment. |
+| [Surgical WAM: A World-Action Model for Data-Efficient Surgical Robot Learning](http://arxiv.org/abs/2608.11204v1) | Wenrui Bao, Tianyun Jiang, Zhiben Chen et al. | Introduces a world-action model for surgical robots that combines world modeling with action prediction to learn from scarce teleoperated demonstrations. Targets data-efficient, precise, long-horizon manipulation in surgical settings. |
+| [R4DSG: Relative 4D Scene Graph Memory for Object-Centric Question Answering in Long Egocentric Video](http://arxiv.org/abs/2608.11017v1) | Ke Ma, Yamin Mao, Weiming Li et al. | Builds relative 4D scene graph memory to preserve object identity and state changes for object-centric QA in long egocentric video. Enables assistants to answer “where/when/why” questions that caption-based memory cannot. |
+| [On the Limitations of Cross-Lingual Consistency in Multilingual Text-to-image Generation](http://arxiv.org/abs/2608.11002v1) | Sicheng Zhang, Zhonghao Yan, Binzhu Xie et al. | Introduces LingT2I, a benchmark for cross-lingual consistency in text-to-image generation, showing substantial gaps between English and other languages. Highlights language-specific effects in multimodal generation. |
 
-## 4. Worth Deep Reading
+## Research Trend Signal
 
-1. **[Consilience for Verifier-Free Test-Time Scaling](http://arxiv.org/abs/2608.09898v1)** — This paper addresses one of the most practically important questions in LLM inference: how to scale test-time compute when no verifier exists. Its approach could have broad applicability beyond coding and math.
+The most visible trend is a shift from static evaluation to dynamic, behavior-centered assessment: models are compared through action traces, attention fragility, behavioral trajectories, and cross-lingual policy retention rather than benchmark accuracy alone. Accompanying this is a lifecycle perspective on AI systems—compressing accumulated skills, preventing memory bloat in agentic coding, scheduling mixed RL rollouts, and resolving rounding ambiguities at quantization time. Safety research is also broadening from English-centric alignment to low-resource and multilingual consistency, including text-to-image generation. Meanwhile, theoretical work on probabilistic consistency and quantum-inspired computational models suggests growing interest in guarantees and certified infrastructure rather than purely empirical improvements.
 
-2. **[SHE: Trajectory-driven Safety Harness Evolution for LLM Agents](http://arxiv.org/abs/2608.09885v1)** — A compelling reframing of LLM agent safety as an evolvable harness rather than a fixed deployment artifact. It is directly relevant to real-world agent deployments where context, tools, and permissions must be dynamically controlled.
+## Worth Deep Reading
 
-3. **[SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring](http://arxiv.org/abs/2608.09802v1)** — This paper raises serious concerns about the validity of current coding-agent benchmarks and proposes a more demanding multilingual refactoring task. It is essential reading for anyone evaluating or building autonomous coding agents.
+1. **How to Verify Consistency of Probabilistic Claims** — This paper bridges complexity theory, probabilistic reasoning, and AI safety, asking whether self-consistency of conditional-probability predictions can be verified in polynomial time. It is foundational for honest and auditable AI systems.
+2. **Long-Horizon AI Research for Grothendieck Constant** — A detailed case study of human-AI collaboration in mathematics, documenting how AI can be used to improve real mathematical bounds. It offers a rare, concrete methodology for long-horizon research agents.
+3. **The Illusion of Cross-Lingual Safety in Low-Resource Languages** — An urgent empirical study showing that safety alignment does not transfer reliably to low-resource languages. It has direct implications for global deployment of aligned LLMs.
 
 ---
-*This digest is auto-generated by [agents-radar](https://github.com/duanyytop/agents-radar).*
+*This digest is auto-generated by [agents-radar](https://github.com/Neare-Design/agents-radar).*

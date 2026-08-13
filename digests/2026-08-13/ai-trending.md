@@ -1,109 +1,101 @@
 # AI 开源趋势日报 2026-08-13
 
-> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-08-13 01:00 UTC
+> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-08-13 01:04 UTC
 
 ---
 
-# AI 开源趋势日报（2026-08-13）
+# AI 开源趋势日报 · 2026-08-13
 
-> 数据来源：GitHub Trending 今日榜 + AI 主题搜索近 7 天活跃仓库。已过滤与 AI/ML 无关的通用工具；Trending 仓库未标注总 stars 时以“—”表示，括号内为今日新增。
+> 筛选说明：已剔除与 AI/ML 无明显关联的 Trending 项目（如 LocalSend、SpiderFoot、MediaCrawler、everyone-can-use-english），以及主题搜索结果中的通用工具（如 Files、Bruno、Yazi、Appsmith、it-tools 等）。
 
-## 今日速览
+## 1. 今日速览
 
-今日 GitHub AI Trending 的主线是“Agent 从单点走向编队”：orca、agency-agents、paperclip 同时出现在热榜，并行 Agent 调度与 Agent 团队管理成为新热点。diagram-design 以单日 +2,855 领跑，反映出 AI 编程对高质量、结构化设计资产的需求正在爆发。RAG 领域没有降温：RAGFlow 继续增长，semantica 以 graph-native context 拿下 +845。端侧小模型与垂直模型也出现新信号：needle 用 14MB 参数模型瞄准 IoT，Kronos 专注金融市场语言建模。Rust 在 AI 基础设施层的渗透仍在加速，NVIDIA NeMo 也带来了 Switchyard。
+- **Agent 生态继续霸榜**：diagram-design 单日 +2,855 领涨，agency-agents +1,873、orca +1,235，社区对“Agent 技能包”“角色化 Agent 团队”“并行 Agent 编排”的需求爆发。
+- **模型层开始“变小、变专、变多模态”**：needle（14MB 端侧模型）、Kronos（金融领域模型）、LTX-2（音视频生成模型）同日登上 Trending，显示开源模型正在从通用大模型向细分场景与端侧部署扩散。
+- **RAG 正在从向量检索走向“图原生/可解释上下文”**：semantica 单日 +845，Graphify 维持高星，知识图谱路线与传统向量库并行升温。
+- **AI 基础层出现系统化趋势**：Rust 在 AI 工具链中高频出现，NVIDIA NeMo/Switchyard、rtk、macro 等让“AI 开发基础设施”更加工程化。
 
----
+## 2. 各维度热门项目
 
-## 🔧 AI 基础工具（框架、SDK、推理引擎、开发工具、CLI）
+### 🔧 AI 基础工具
 
 | 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
 | :--- | :--- | ---: | :--- |
-| [huggingface/transformers](https://github.com/huggingface/transformers) | Python | 164,018 | 开源模型生态基座，支持文本/视觉/音频/多模态模型训练与推理；长期是社区默认的模型工程入口。 |
-| [pytorch/pytorch](https://github.com/pytorch/pytorch) | Python | 102,351 | 主流深度学习框架，AI 研究与生产训练的事实标准之一；今日继续稳居最热 AI 基础设施。 |
-| [ollama/ollama](https://github.com/ollama/ollama) | Go | 178,369 | 一键运行本地 LLM 的极简工具，近期已支持 Kimi、GLM、MiniMax、DeepSeek 等；本地推理的首选入口。 |
-| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | HTML | —（+2,855） | 为 Claude Code 提供的 29 种编辑示意图类型，纯 HTML+SVG；今日热榜新增近 3k，显示 AI 编程对高质量设计素材的强烈需求。 |
-| [NVIDIA-NeMo/Switchyard](https://github.com/NVIDIA-NeMo/Switchyard) | Rust | —（+421） | NVIDIA NeMo 生态中的 Rust 新项目，暂无完整描述；NeMo 品牌背书使其有望成为 LLM 系统工程新组件。 |
-| [0xPlaygrounds/rig](https://github.com/0xPlaygrounds/rig) | Rust | 8,251 | 模块化可扩展的 Rust LLM 应用框架；Rust 在 AI 基础设施层的热度持续上升。 |
-| [open-compass/opencompass](https://github.com/open-compass/opencompass) | Python | 7,297 | 支持 100+ 数据集与主流模型的 LLM 评测平台；在模型迭代加速背景下评测工具价值凸显。 |
-| [skyzh/tiny-llm](https://github.com/skyzh/tiny-llm) | Python | 4,480 | 面向系统工程师的微型 vLLM 学习项目，演示在 Apple Silicon 上实现 LLM 推理；学习型基础设施项目受到开发者欢迎。 |
+| [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow) | C++ | 196,982 | 老牌机器学习框架，覆盖训练、推理与生产部署。仍是 AI 基础设施的重要基石。 |
+| [ollama/ollama](https://github.com/ollama/ollama) | Go | 178,369 | 本地运行 LLM 的轻量运行时，支持 DeepSeek、Qwen、Gemma 等模型。自托管推理的标准入口之一。 |
+| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | TypeScript | 166,456 | 面向 LLM 的网页搜索、抓取与交互 API。高 star 说明 Web 数据接入是 AI Agent 的刚需。 |
+| [huggingface/transformers](https://github.com/huggingface/transformers) | Python | 164,018 | 模型定义、推理与训练框架，支持文本、视觉、音频和多模态。社区获取 SOTA 模型的主要入口。 |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | Python | 144,097 | Agent 工程平台，提供工具调用、RAG、工作流编排等抽象。仍是 LLM 应用开发的核心框架。 |
+| [pytorch/pytorch](https://github.com/pytorch/pytorch) | Python | 102,351 | 深度学习核心框架，动态图与 GPU 加速能力突出。绝大多数开源模型依赖 PyTorch。 |
+| [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | Rust | 75,922 | CLI 代理，可将常见开发命令的 LLM token 消耗降低 60–90%，单 Rust 二进制零依赖。token 成本治理正成为开发者刚需。 |
+| [NVIDIA-NeMo/Switchyard](https://github.com/NVIDIA-NeMo/Switchyard) | Rust | 0（+421） | NVIDIA NeMo 出品的 Rust 项目，当前仓库描述缺失。今日 +421 登榜，显示 AI 基础设施层的 Rust 生态正在升温。 |
 
----
-
-## 🤖 AI 智能体/工作流（Agent 框架、自动化、多智能体）
+### 🤖 AI 智能体/工作流
 
 | 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
 | :--- | :--- | ---: | :--- |
-| [affaan-m/ECC](https://github.com/affaan-m/ECC) | JavaScript | 239,759 | Agent harness 性能优化系统，为 Claude Code、Codex、Cursor 等提供 skills/memory/security；总量最高，体现 agent 工程化需求。 |
-| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | Python | 186,563 | 最早引爆自主 Agent 概念的项目，现提供人人可用的 AI 工具与构建平台；仍是指标级 agent 项目。 |
-| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | Python | 144,097 | Agent 工程平台，提供统一工具调用、记忆与 RAG 抽象；企业级 LLM 应用基础设施。 |
-| [browser-use/browser-use](https://github.com/browser-use/browser-use) | Python | 108,970 | 让 AI Agent 直接操作浏览器完成任务；网页自动化 Agent 方向的代表作。 |
-| [Eigenwise/atomic-agents](https://github.com/Eigenwise/atomic-agents) | Python | 6,165 | 以“原子化”方式构建 AI Agent 的框架；模块化组合思路适合复杂工作流。 |
-| [stablyai/orca](https://github.com/stablyai/orca) | TypeScript | —（+1,235） | 面向并行 Agent 集群的 ADE，可叠加在自己订阅的编码 Agent 上；今日热榜 +1.2k，标志“管理 Agent 舰队”成为新需求。 |
-| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | Shell | —（+1,873） | “AI 代理公司”合集，每个角色都是带人格与流程的专家 Agent；今日新增近 1.9k，展示多智能体内容生产的趣味化方向。 |
-| [paperclipai/paperclip](https://github.com/paperclipai/paperclip) | TypeScript | —（+571） | 管理工作中各类 AI Agent 的开源应用；今日热榜增长明显，说明 agent 运维/治理需求开始出现。 |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | Python | 229,581 | 定位为“与你一起成长的 agent”，总星数领先。代表社区对长期记忆、可演进型 agent 的持续关注。 |
+| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | Python | 186,563 | 老牌通用 Agent 项目，目标是人人都能使用和构建 AI 自动化。仍是 Agent 领域的高星标杆。 |
+| [browser-use/browser-use](https://github.com/browser-use/browser-use) | Python | 108,973 | 让 AI Agent 操作网站、自动完成线上任务。网页交互自动化是 Agent 落地的重要方向。 |
+| [OpenHands/OpenHands](https://github.com/OpenHands/OpenHands) | TypeScript | 83,837 | AI 驱动开发平台，实现从 issue 到代码的自动化流程。是开发者工具型 Agent 的代表项目。 |
+| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | HTML | 0（+2,855） | 29 种面向 Claude Code 的 editorial 图表模板，纯 HTML+SVG，避免 Mermaid 渲染问题。今日 +2,855 领涨热榜，说明 Agent Skill 生态正扩展到高质量可视化输出。 |
+| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | Shell | 0（+1,873） | 用 Shell 脚本构建的“AI 代理公司”，包含前端、Reddit、内容等角色化 agent。今日 +1,873，显示 agent 角色化、团队化配置需求旺盛。 |
+| [stablyai/orca](https://github.com/stablyai/orca) | TypeScript | 0（+1,235） | 面向并行 agent 的 ADE（Agent Development Environment），可用自有订阅运行任意 coding agent，支持桌面/移动/VPS。今日 +1,235，标志着 Agent 开发从单实例走向“编队”管理。 |
+| [paperclipai/paperclip](https://github.com/paperclipai/paperclip) | TypeScript | 0（+571） | 开源 Agent 管理工作台，用于在团队中统一管理多个 agent。今日 +571，强调 agent 运维、权限与协作治理场景。 |
 
----
-
-## 📦 AI 应用（具体应用产品、垂直场景解决方案）
+### 📦 AI 应用
 
 | 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
 | :--- | :--- | ---: | :--- |
-| [langgenius/dify](https://github.com/langgenius/dify) | TypeScript | 152,249 | 构建 Agentic workflow 与 RAG pipeline 的协作平台；从原型到生产的一体化 AI 应用开发环境。 |
-| [open-webui/open-webui](https://github.com/open-webui/open-webui) | Python | 148,612 | 用户友好的自托管 AI 对话界面，兼容 Ollama、OpenAI API；本地化 AI 使用的标配应用。 |
-| [MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Python | 102,814 | 利用 AI 大模型与自动化工作流一键生成高清短视频；内容自动化生产方向的头部项目。 |
-| [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | JavaScript | 64,662 | 本地优先的全栈 AI 工作台，支持文档、知识库与 Agent 能力；强调“拥有自己的智能”。 |
-| [santifer/career-ops](https://github.com/santifer/career-ops) | JavaScript | 63,639 | 开源 AI 求职助手，可扫描职位、打分并定制简历；垂直场景 AI 应用的典型代表。 |
-| [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | TypeScript | 50,355 | AI 生产力工作室，集聊天、自主 Agent 与 300+ 助手于一体；统一接入前沿大模型。 |
-| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | Python | 45,575（+476） | 将文档或主题转化为原生 PowerPoint，支持动画、图表与配音；今日热榜 +476，办公垂直 AI 赛道持续升温。 |
-| [macro-inc/macro](https://github.com/macro-inc/macro) | Rust | —（+227） | 面向团队的统一 AI 工作空间，将邮件、聊天、文档、CRM 与 Agent 通过共享 AI 记忆连接；代表“AI-native 工作流”新产品形态。 |
+| [open-webui/open-webui](https://github.com/open-webui/open-webui) | Python | 148,613 | 自托管 AI 对话与管理界面，兼容 Ollama、OpenAI API 等。已是最流行的开源 LLM 前端之一。 |
+| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Python | 102,814 | AI 工作流一键生成高清短视频，面向内容创作者。star 超 10 万，是 AI 内容生成应用的头部项目。 |
+| [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | JavaScript | 64,662 | 本地优先的 All-in-One Agent 桌面/Web 应用，可接入知识库与多模型。强调“数据自有”，是私有化 AI 办公入口。 |
+| [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | Python | 62,572 | LLM 驱动的多市场股票分析系统，支持多源行情、实时新闻、决策看板与自动推送。展示 AI 在金融垂直场景的自动化落地。 |
+| [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | TypeScript | 50,355 | AI 生产力工作室，包含智能聊天、自主 Agent 和 300+ 助手。是“All-in-One AI 工作台”的代表。 |
+| [siyuan-note/siyuan](https://github.com/siyuan-note/siyuan) | TypeScript | 45,775 | 开源、隐私优先、自托管知识工作空间，支持人类与 AI Agent 协作。在知识管理赛道影响力较高。 |
+| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | Python | 45,583（+476） | AI 将文档或主题转成原生 PowerPoint，支持原生形状、动画、图表与音频旁白。今日 +476，AI 办公文档生成正成为热门场景。 |
+| [macro-inc/macro](https://github.com/macro-inc/macro) | Rust | 0（+227） | 统一团队工作空间：邮件、聊天、文档、任务、CRM、Agent，以共享 AI 记忆串联。今日 +227，代表“AI 原生协作软件”的新方向。 |
 
----
-
-## 🧠 大模型/训练（模型权重、训练框架、微调工具）
+### 🧠 大模型/训练
 
 | 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
 | :--- | :--- | ---: | :--- |
-| [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | Jupyter Notebook | 102,532 | 从零实现 ChatGPT 类 LLM 的经典教程；模型原理学习领域的高 star 常青树。 |
-| [Picovoice/picollm](https://github.com/Picovoice/picollm) | Python | 316 | 基于 X-Bit 量化的设备端 LLM 推理库；端侧模型部署工具链的重要拼图。 |
-| [Lightricks/LTX-2](https://github.com/Lightricks/LTX-2) | Python | —（+65） | LTX-2 音视频生成模型的官方推理与 LoRA 训练包；多模态生成模型开始开放训练生态。 |
-| [shiyu-coder/Kronos](https://github.com/shiyu-coder/Kronos) | Python | —（+266） | 面向金融市场的语言基础模型；垂直行业基础模型正在加速出现。 |
-| [cactus-compute/needle](https://github.com/cactus-compute/needle) | Python | —（+315） | 仅 14MB 的基础模型，目标设备为手机、穿戴、智能家居与机器人；端侧 AI 走向“极小模型”时代。 |
-| [AarambhDevHub/aarambh-studio](https://github.com/AarambhDevHub/aarambh-studio) | Rust | 75 | 纯 Rust + Candle 从零构建的 decoder-only LLM，支持 MoE 与量化训练；Rust 训练/推理一体化的实验项目。 |
+| [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | Jupyter Notebook | 102,532 | 从零实现 ChatGPT-like LLM 的 PyTorch 教程，逐步讲解训练细节。是学习大模型内部机制的高星资源。 |
+| [NVlabs/Sana](https://github.com/NVlabs/Sana) | Python | 8,751 | NVIDIA 出品的高效高分辨率图像生成 diffusion transformer。展示图像生成模型的效率优化方向。 |
+| [skyzh/tiny-llm](https://github.com/skyzh/tiny-llm) | Python | 4,480 | 在 Apple Silicon 上构建 tiny vLLM + Qwen，适合系统工程师学习 LLM 推理栈。 |
+| [kandinskylab/kandinsky-5](https://github.com/kandinskylab/kandinsky-5) | Python | 808 | Kandinsky 5.0 系列扩散模型，支持视频与图像生成。代表开源多模态生成模型的持续更新。 |
+| [cactus-compute/needle](https://github.com/cactus-compute/needle) | Python | 0（+315） | 仅 14MB 的端侧 foundation model，面向手机、可穿戴、智能家居与机器人。今日 +315，显示端侧小模型/具身智能赛道升温。 |
+| [shiyu-coder/Kronos](https://github.com/shiyu-coder/Kronos) | Python | 0（+266） | 面向金融市场的 foundation model，尝试建模金融数据的“语言”。今日 +266，垂直领域基础模型开始登榜。 |
+| [Lightricks/LTX-2](https://github.com/Lightricks/LTX-2) | Python | 0（+65） | LTX-2 音视频生成模型的官方 Python 推理与 LoRA 训练包。今日 +65，多模态生成模型持续有新版本释出。 |
 
----
-
-## 🔍 RAG/知识库（向量数据库、检索增强、知识管理）
+### 🔍 RAG/知识库
 
 | 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
 | :--- | :--- | ---: | :--- |
-| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Python | 105,685 | 将代码库、文档、SQL 与 PDF 转化为可查询知识图谱；无需向量库，AIAgent 可解释检索的代表。 |
-| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | Go | 87,550（+139） | 领先的开源 RAG 引擎，将 RAG 与 Agent 能力融合；今日继续出现在热榜，RAG 基建需求稳定。 |
-| [mem0ai/mem0](https://github.com/mem0ai/mem0) | Python | 63,136 | 面向 AI Agent 的通用记忆层，为跨会话长期记忆提供自托管方案；Agent 记忆与 RAG 正在融合。 |
-| [run-llama/llama_index](https://github.com/run-llama/llama_index) | Python | 51,600 | 领先的文档 Agent 与 RAG 框架，现也强化 OCR 与文档理解；企业知识检索核心依赖。 |
-| [milvus-io/milvus](https://github.com/milvus-io/milvus) | Go | 45,615 | 高性能云原生向量数据库，专为大规模向量 ANN 搜索构建；AI 数据基础设施标配。 |
-| [qdrant/qdrant](https://github.com/qdrant/qdrant) | Rust | 33,941 | 高性能向量数据库与搜索引擎；Rust 实现，支撑下一代 AI 应用。 |
-| [lancedb/lancedb](https://github.com/lancedb/lancedb) | Rust | 11,139 | 开发者友好的嵌入式向量检索库，面向多模态 AI；强调“少管理、多搜索”。 |
-| [semantica-agi/semantica](https://github.com/semantica-agi/semantica) | Python | —（+845） | Graph-Native 的上下文基础设施，面向“可问责 AI 系统”；今日 +845，知识图谱与 RAG 结合的新叙事正在升温。 |
+| [langgenius/dify](https://github.com/langgenius/dify) | TypeScript | 152,249 | 可视化构建 Agentic 工作流和 RAG 管道，支持丰富模型与工具。是 RAG/LLMOps 领域的高星平台。 |
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Python | 105,686 | 将代码库、文档、SQL schema 等转成可查询知识图谱，无需向量库，定位为 Claude Code/Cursor 等 agent 的技能。代表“知识图谱 + 可解释检索”路线。 |
+| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | Go | 87,550（+139） | 开源 RAG 引擎，融合 Agent 能力，为 LLM 提供上下文层。今日 +139，RAG 仍是企业落地 AI 的关键基础设施。 |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | Python | 63,136 | AI Agent 的通用记忆层，支持跨会话长期记忆。记忆与上下文管理正在成为 RAG 的重要延伸。 |
+| [run-llama/llama_index](https://github.com/run-llama/llama_index) | Python | 51,600 | 文档 Agent 与 OCR/RAG 平台，提供数据连接、索引和检索能力。是构建向量检索应用的主流框架。 |
+| [milvus-io/milvus](https://github.com/milvus-io/milvus) | Go | 45,615 | 云原生向量数据库，支持大规模向量 ANN 检索。是 AI 应用存储与检索层的核心组件。 |
+| [qdrant/qdrant](https://github.com/qdrant/qdrant) | Rust | 33,941 | 高性能大规模向量数据库，同时提供云服务。Rust 实现的向量检索性能受到社区关注。 |
+| [semantica-agi/semantica](https://github.com/semantica-agi/semantica) | Python | 0（+845） | 图原生上下文基础设施，面向“可问责 AI 系统”。今日 +845，知识图谱与可溯源上下文正成为 RAG 之后的新热点。 |
+
+## 3. 趋势信号分析
+
+今日最明显的信号是 **Agent 生态从单点走向工程化**。diagram-design、agency-agents、orca、paperclip 同时登榜且涨幅领先，说明社区已经不满足于单个 Agent demo，而是需要 skills/模板、角色化 Agent 团队，以及并行 Agent 的 IDE 与治理工具。
+
+第二个信号是 **模型层开始“变小、变专、变多模态”**。needle 主打 14MB 端侧模型，Kronos 面向金融市场，LTX-2 布局音视频生成。它们与通用 LLM 形成差异化，预示模型开源的重点将从通用底座转向细分场景与端侧部署。
+
+第三个信号是 **RAG 正在往“图原生/可解释上下文”演进**。semantica 单日 +845，Graphify 坚持 no vector store 的知识图谱路线，与经典向量库 Milvus、Qdrant 并存。同时，Rust 在 AI 基础设施层出现频率明显升高（Switchyard、macro、rtk），AI 开发栈的“系统化”趋势值得持续跟进。
+
+## 4. 社区关注热点
+
+- **Agent Skill 模板化输出**：diagram-design 单日 +2,855，证明“让 Claude Code 产出高质量 HTML/SVG 图表”这类 skill 有巨大需求，AI 编码代理正在从写代码延伸到交付完整文档与设计资产。
+- **并行 Agent 开发环境**：orca（+1,235）和 paperclip（+571）分别代表“并行 Agent 的 ADE”与“Agent 管理工作台”，这一层工具链可能成为下一个热门赛道。
+- **图原生上下文 / AI 可问责性**：semantica（+845）与 Graphify（105k stars）都押注知识图谱而非传统向量库，值得关注“可解释、可审计”的 AI 上下文层。
+- **端侧与领域小模型**：needle（14MB）与 Kronos（金融）同天登榜，说明开发者开始寻找更小、更专的模型，端侧 AI 和金融 AI 是明显落地方向。
+- **AI 原生办公内容生成**：ppt-master（+476）和 macro（+227）显示 AI 正在进入 PPT、团队协作等办公场景，并开始要求“原生格式”和“共享记忆”等高完成度体验。
 
 ---
-
-## 趋势信号分析
-
-今日热榜最明显的信号是 Agent 从“单助手”切换到“编队/生态”：orca 的并行 Agent ADE、agency-agents 的 Agent 团队、paperclip 的 Agent 管理，说明社区已开始解决规模化 Agent 的编排与治理问题。
-
-第二个信号是面向 AI 编程的“设计资产”成为独立品类：diagram-design 单日 +2,855，Claude Code 用户需要非 Mermaid 的编辑示意图，表明模型能力之外，输入结构质量正成为效率瓶颈。
-
-第三，RAG 继续向“graph-native / 知识图谱”演进，semantica 与 Graphify 同时被关注，向量数据库不再是唯一答案。第四，端侧与垂直模型并行：needle 以 14MB 模型进入 IoT，Kronos 专注金融语言，边缘 AI 与行业大模型落地趋势明显。最后，Rust 在 AI 基础设施层的占比继续提升，NVIDIA NeMo/Switchyard、rig、Qdrant、LanceDB 共同构成值得跟踪的 Rust AI 工具链。
-
----
-
-## 社区关注热点
-
-- **Agent 运维与编队管理**：[paperclipai/paperclip](https://github.com/paperclipai/paperclip)、[stablyai/orca](https://github.com/stablyai/orca) 等表明 Agent 数量增长后，“管理 Agent、调度 Agent、治理 Agent”正成为新刚需。
-- **AI 编程设计资产**：[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) 单日 +2,855，为 Claude Code 提供高质量 HTML/SVG 图表，预示“喂给模型的创作资产”将成为一个新开源品类。
-- **Graph-native RAG 新范式**：[semantica-agi/semantica](https://github.com/semantica-agi/semantica)、[Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) 以及 [VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex) 都在探索“绕过向量库、用推理和知识图谱做检索”的路线，值得重点观察。
-- **端侧与垂直基础模型**：[cactus-compute/needle](https://github.com/cactus-compute/needle) 的 14MB 模型与 [shiyu-coder/Kronos](https://github.com/shiyu-coder/Kronos) 金融模型，代表“超小模型”和“行业模型”两个极端方向。
-- **Rust AI 基础设施**：[NVIDIA-NeMo/Switchyard](https://github.com/NVIDIA-NeMo/Switchyard)、[0xPlaygrounds/rig](https://github.com/0xPlaygrounds/rig)、[qdrant/qdrant](https://github.com/qdrant/qdrant) 与 [lancedb/lancedb](https://github.com/lancedb/lancedb) 组成日益完整的 Rust AI 工具链，适合系统级开发者提前布局。
-
----
-*本日报由 [agents-radar](https://github.com/duanyytop/agents-radar) 自动生成。*
+*本日报由 [agents-radar](https://github.com/Neare-Design/agents-radar) 自动生成。*

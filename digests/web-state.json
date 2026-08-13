@@ -1,6 +1,6 @@
 {
   "anthropic": {
-    "lastChecked": "2026-08-13T01:00:24.532Z",
+    "lastChecked": "2026-08-13T01:04:12.187Z",
     "seenUrls": {
       "https://www.anthropic.com/news/responsible-scaling-policy-v3": "2026-02-25T23:57:06.000Z",
       "https://www.anthropic.com/research/deprecation-updates-opus-3": "2026-02-25T20:58:11.000Z",
@@ -442,7 +442,7 @@
     }
   },
   "openai": {
-    "lastChecked": "2026-08-13T01:00:26.277Z",
+    "lastChecked": "2026-08-13T01:04:14.278Z",
     "seenUrls": {
       "https://openai.com/index/arvind-kc-chief-people-officer/": "2026-07-25T07:19:31.944Z",
       "https://openai.com/index/put-ai-to-work-for-your-product-team/": "2026-07-29T03:13:44.572Z",
@@ -1200,11 +1200,11 @@
       "https://openai.com/index/how-the-world-is-putting-chatgpt-to-work/": "2026-08-12T22:00:03.461Z",
       "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/": "2026-08-12T21:21:09.298Z",
       "https://openai.com/index/openai-and-apa-partner-to-advance-responsible-ai/": "2026-08-12T21:40:46.035Z",
-      "https://openai.com/index/premium-seats-chatgpt-business/": "2026-08-12T21:59:47.647Z",
-      "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/": "2026-08-12T19:49:03.381Z",
-      "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/": "2026-08-12T23:58:09.599Z",
-      "https://openai.com/index/building-an-ai-native-finance-function/": "2026-08-12T12:03:15.606Z",
       "https://openai.com/index/daybreak-models-are-now-available-on-aws/": "2026-08-13T00:31:45.667Z",
+      "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/": "2026-08-12T23:58:09.599Z",
+      "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/": "2026-08-12T19:49:03.381Z",
+      "https://openai.com/index/building-an-ai-native-finance-function/": "2026-08-12T12:03:15.606Z",
+      "https://openai.com/index/premium-seats-chatgpt-business/": "2026-08-12T21:59:47.647Z",
       "https://openai.com/index/how-enterprises-put-ai-to-work/": "2026-08-12T21:48:02.656Z"
     }
   }

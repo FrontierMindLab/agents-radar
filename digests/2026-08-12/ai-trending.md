@@ -1,102 +1,119 @@
 # AI 开源趋势日报 2026-08-12
 
-> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-08-12 00:58 UTC
+> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-08-12 04:07 UTC
 
 ---
 
-# AI 开源趋势日报（2026-08-12）
+## 过滤说明
 
-> 数据来源：GitHub Trending + 主题搜索。已剔除 `nvm`、`manim`、`awesome-mac`、`project-based-learning` 等非 AI 项目。
+已从 Trending 中剔除与 AI/ML 无关项目：`nvm-sh/nvm`、`3b1b/manim`、`jaywcjlove/awesome-mac`、`practical-tutorials/project-based-learning` 等。
 
-## 一、今日速览
-
-- 今日 Trending 共 17 个仓库，其中 AI 相关 14 个；新增 stars 前列几乎被 Agent 项目包揽：`prime-agent` +1,138、`agency-agents` +958、`semantica` +893、`orca` +875。
-- Agent Skills 生态集中爆发：Anthropic 官方 `anthropics/skills` 与社区 `addyosmani/agent-skills` 同日登榜，大模型厂商正在亲自定义 Agent 技能层。
-- 图原生 / Graph-RAG 是新热点：`semantica` 与 `code-graph-rag` 双双进入 Trending，知识图谱与 Agent 上下文管理正在融合。
-- 垂直领域 AI 应用加速落地：教育（DeepTutor +812）、视频制作（OpenMontage +458）、金融（daily_stock_analysis +243）、法律（harvey-labs +28）均有代表项目。
-- 本地模型生态持续扩大：Ollama 已支持 Kimi-K2.6、GLM-5.2、DeepSeek、Qwen、Gemma 等模型，开源模型层正在快速标准化。
-
-## 二、各维度热门项目
-
-### 🔧 AI 基础工具
-
-| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
-| :--- | :--- | ---: | :--- |
-| [huggingface/transformers](https://github.com/huggingface/transformers) | Python | 163,808（+80） | 模型定义、训练与推理的统一框架；今日仍进入 Trending，生态基石地位稳固。 |
-| [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow) | C++ | 196,955 | 经典生产级机器学习框架，主题搜索 ml 分类中的最高星项目之一。 |
-| [pytorch/pytorch](https://github.com/pytorch/pytorch) | Python | 102,323 | 动态神经网络框架，学术研究与产业落地主力。 |
-| [ollama/ollama](https://github.com/ollama/ollama) | Go | 178,296 | 本地 LLM 运行与分发工具，支持 Kimi、GLM、DeepSeek、Qwen 等；私有化部署的重要入口。 |
-| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | Python | 144,003 | Agent 工程平台，统一 LLM、工具调用与 RAG 编排；7 天活跃主题中的核心框架。 |
-| [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics) | Python | 60,527 | YOLO 系列目标检测与训练框架，提供从训练到部署的完整 CV 工作流。 |
-| [langchain4j/langchain4j](https://github.com/langchain4j/langchain4j) | Java | 12,843 | JVM 生态的 LLM/RAG/Agent 开发库，与 Spring Boot、Quarkus 集成，企业 Java 团队常用。 |
-| [harveyai/harvey-labs](https://github.com/harveyai/harvey-labs) | Python | 0（+28） | 面向法律工作的 AI 智能体评测基准；今日登榜说明法律垂直 AI 评估开始形成独立方向。 |
-
-### 🤖 AI 智能体/工作流
-
-| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
-| :--- | :--- | ---: | :--- |
-| [PrimeIntellect-ai/prime-agent](https://github.com/PrimeIntellect-ai/prime-agent) | TypeScript | 0（+1,138） | 自改进的 RLM 编码智能体，支持长时自治任务；今日新增 stars 最高，代表“自我进化型 Agent”方向。 |
-| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | Shell | 0（+958） | 把多个专业 Agent 组合成完整“AI 代理公司”，覆盖前端、社区运营、内容等角色；多智能体团队化趋势明显。 |
-| [stablyai/orca](https://github.com/stablyai/orca) | TypeScript | 0（+875） | 面向并行 Agent 集群的 ADE（Agent 开发环境），可调度多个编码 agent，支持桌面、移动和 VPS。 |
-| [paperclipai/paperclip](https://github.com/paperclipai/paperclip) | TypeScript | 0（+748） | 开源的企业级 Agent 管理应用，用于在工作中管理多个 Agent；关注“Agent 治理”这一新问题。 |
-| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | JavaScript | 0（+578） | 面向 AI 编码 agent 的生产级工程 skills 集合；社区侧快速补充 Agent Skills 最佳实践。 |
-| [anthropics/skills](https://github.com/anthropics/skills) | Python | 0（+485） | Anthropic 官方 Agent Skills 仓库；厂商亲自下场定义技能生态，对 Agent 工程化影响深远。 |
-| [langgenius/dify](https://github.com/langgenius/dify) | TypeScript | 152,122 | Agentic Workflow 与 RAG Pipeline 一体化平台，支持云、VPC 和自托管部署。 |
-| [affaan-m/ECC](https://github.com/affaan-m/ECC) | JavaScript | 239,486 | Agent Harness 性能优化系统，覆盖 skills、memory、security 等；兼容 Claude Code、Codex、Cursor 等。 |
-
-### 📦 AI 应用
-
-| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
-| :--- | :--- | ---: | :--- |
-| [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | Python | 0（+812） | 终身个性化辅导 AI；教育领域 Agent 应用今日增长显著。 |
-| [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | Python | 0（+458） | 开源 agentic 视频制作系统，含 12 条生产流水线、100+ 工具和 700+ skill 文件。 |
-| [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | Python | 62,131（+243） | LLM 驱动的多市场股票分析系统，聚合行情、新闻、决策看板与自动推送；金融 Agent 典型应用。 |
-| [open-webui/open-webui](https://github.com/open-webui/open-webui) | Python | 148,508 | 用户友好的本地 AI 接口，兼容 Ollama 与 OpenAI API，是私有化部署中常见 Web UI。 |
-| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Python | 102,644 | 利用 AI 大模型和工作流一键生成高清短视频；AIGC 内容生产方向热门项目。 |
-| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | Python | 44,876 | 将文档或主题转为原生 PPT，支持动效、图表、数据看板与音频旁白；办公场景 AI Agent。 |
-| [santifer/career-ops](https://github.com/santifer/career-ops) | JavaScript | 63,533 | 开源 AI 求职助手：自动扫描职位、按结构化评分、定制简历并跟踪申请；本地 AI CLI 落地案例。 |
-| [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | JavaScript | 64,620 | 本地优先的 RAG/Agent 体验，支持私有知识库管理；适合想完全掌控数据的团队。 |
-
-### 🧠 大模型/训练
-
-| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
-| :--- | :--- | ---: | :--- |
-| [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | Jupyter Notebook | 102,436 | 从零用 PyTorch 实现 ChatGPT-like LLM 的经典教程；学习大模型原理的社区首选。 |
-| [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | Python | 54,564 | 2 小时从 0 训练 64M 参数小模型；大幅降低 LLM 训练入门门槛。 |
-| [thinkwee/AgentsMeetRL](https://github.com/thinkwee/AgentsMeetRL) | HTML | 1,774 | Agentic RL 资源列表；与今日 self-improving RLM agent 方向相互印证。 |
-| [skyzh/tiny-llm](https://github.com/skyzh/tiny-llm) | Python | 4,467 | 面向系统工程师的 LLM 推理学习项目，在 Apple Silicon 上构建微型 vLLM + Qwen。 |
-| [llm-jp/awesome-japanese-llm](https://github.com/llm-jp/awesome-japanese-llm) | TypeScript | 1,424 | 日语 LLM 生态汇总；反映多语言大模型社区活跃度。 |
-| [chrisliu298/awesome-llm-unlearning](https://github.com/chrisliu298/awesome-llm-unlearning) | — | 617 | LLM 机器遗忘（unlearning）资源仓库，关注模型安全与合规。 |
-| [SeekingDream/Static-to-Dynamic-LLMEval](https://github.com/SeekingDream/Static-to-Dynamic-LLMEval) | — | 500 | LLM 评测去污染与动态评测相关论文资源；评测方法学正在成为独立方向。 |
-
-### 🔍 RAG/知识库
-
-| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
-| :--- | :--- | ---: | :--- |
-| [semantica-agi/semantica](https://github.com/semantica-agi/semantica) | Python | 0（+893） | 图原生上下文与可问责 AI 基础设施；今日新增 893 stars，Graph-native Agent memory 受强关注。 |
-| [vitali87/code-graph-rag](https://github.com/vitali87/code-graph-rag) | Python | 0（+341） | 面向 monorepo 的 RAG 系统，用 AI + 知识图谱查询、理解和编辑多语言代码库。 |
-| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Python | 105,329 | 将代码库、文档、SQL Schema、PDF 转为可查询知识图谱；无向量库方案，可作 Claude Code/Cursor 等 skill 使用。 |
-| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | Go | 87,293 | 领先开源 RAG 引擎，融合 Agent 能力，为 LLM 提供上下文层。 |
-| [run-llama/llama_index](https://github.com/run-llama/llama_index) | Python | 51,566 | 文档 agent 与 OCR 平台，RAG/智能文档处理生态核心。 |
-| [milvus-io/milvus](https://github.com/milvus-io/milvus) | Go | 45,605 | 云原生向量数据库，支持大规模向量 ANN 检索。 |
-| [qdrant/qdrant](https://github.com/qdrant/qdrant) | Rust | 33,923 | 高性能向量数据库与搜索引擎，Rust 实现，适合生产级 AI 检索。 |
-| [mem0ai/mem0](https://github.com/mem0ai/mem0) | Python | 63,061 | AI Agent 通用记忆层，为跨会话提供持久上下文；与 RAG/长记忆趋势共振。 |
-
-## 三、趋势信号分析
-
-今日最明确的信号是：Agent 正从单点能力走向组织化。`prime-agent`、`agency-agents`、`orca`、`paperclip` 同时登榜，说明社区关注重点已从单一聊天/编码助手，转向多智能体并行调度、Agent 角色分工和企业级 Agent 治理。`anthropics/skills` 与 `addyosmani/agent-skills` 的出现，则表明 Agent Skills 正在成为官方与社区共同推动的新标准化层。
-
-第二，Graph-native RAG 是今日登榜的新兴技术栈。`semantica`、`code-graph-rag` 以及高星项目 `graphify` 都把知识图谱作为上下文与可问责性的核心，甚至出现“无向量库”路线；这正在与纯向量检索形成差异化竞争，可能重塑 Agent memory 与代码理解工具的设计。
-
-第三，垂直行业 Agent 应用集中爆发：教育、金融、视频、法律、求职等领域均有代表项目。模型层逐渐稳定后，Agent 层和垂直应用层正成为开源创新最密集的战场。
-
-## 四、社区关注热点
-
-- **Agent Skills 标准化**：关注 `anthropics/skills` 与 `addyosmani/agent-skills`；如果 skills 可跨 Claude Code、Codex、Cursor 复用，将成为类似 Plugin 的生态入口。
-- **并行 Agent 集群与管理**：`stablyai/orca`、`paperclipai/paperclip`、`agency-agents` 解决的不只是“能跑”，而是企业级多 Agent 的调度、权限与治理。
-- **Graph-native / 无向量 RAG**：`semantica` 今日 +893，`code-graph-rag` +341；知识图谱 + RAG + Agent memory 可能成为下一阶段上下文标准。
-- **自我改进编码 Agent**：`PrimeIntellect-ai/prime-agent` 今日 +1,138，可配合 `thinkwee/AgentsMeetRL` 理解 Agentic RL 方向。
-- **垂直行业 Agent 评估**：`harveyai/harvey-labs` 进入法律领域，`HKUDS/DeepTutor` 进入教育；行业评测基准和数据集将成为新的竞争壁垒。
+> 注：Trending 榜单原始数据仅提供“今日新增 stars”，未提供总量的项目以 `—` 表示；主题搜索项目无今日新增数据，以 `—` 表示。
 
 ---
-*本日报由 [agents-radar](https://github.com/duanyytop/agents-radar) 自动生成。*
+
+## 1. 今日速览
+
+- **Agent Skills 生态爆发**：Anthropic 官方 `anthropics/skills` 与社区 `addyosmani/agent-skills` 同登 Trending，`diagram-design` 单日 +1,616 stars，是今日最大黑马。
+- **多智能体从“单聊”走向“团队管理”**：`prime-agent`（+1,138）、`agency-agents`（+958）、`orca`（+875）、`paperclip`（+748）密集上榜，社区开始关注并行 Agent 的调度与治理。
+- **RAG 正在“图化”**：`semantica`（+893）、`code-graph-rag`（+341）以及 105k stars 的 `Graphify` 都在用知识图谱增强上下文，纯向量检索之外的新路线正在形成。
+- **垂直场景 AI 应用加速落地**：教育（`DeepTutor` +812）、视频生产（`OpenMontage` +458）、股票分析（`daily_stock_analysis` +243）、法律（`harvey-labs`）均有代表项目。
+- **基础模型框架仍是压舱石**：`huggingface/transformers` 今日 +80 stars，总量 163,863，生态地位稳固。
+
+---
+
+## 2. 各维度热门项目
+
+### 🔧 AI 基础工具（框架、SDK、推理引擎、开发工具、CLI）
+
+| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
+| :--- | :--- | ---: | :--- |
+| [huggingface/transformers](https://github.com/huggingface/transformers) | Python | 163,863（+80） | SOTA 机器学习模型的定义与训练/推理框架。今日仍保持稳定增长，是 AI 开源生态的“基础设施中的基础设施”。 |
+| [ollama/ollama](https://github.com/ollama/ollama) | Go | 178,308（—） | 本地跑 Llama、DeepSeek、Qwen 等模型的最简推理工具。178k stars 让它成为本地 LLM 部署的事实标准之一。 |
+| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | HTML | —（+1,616） | 面向 Claude Code 的 29 种可自包含 HTML/SVG 图表模板。今日新增 stars 全榜最高，是“Agent 技能包”快速走红的典型信号。 |
+| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | JavaScript | —（+578） | 为 AI 编码 Agent 准备的“生产级工程技能”集合。今日 +578 stars，说明开发者正在把工程经验固化为 Agent 可复用技能。 |
+| [anthropics/skills](https://github.com/anthropics/skills) | Python | —（+485） | Anthropic 官方开源的 Agent Skills 仓库。官方入局后，“技能”正成为 Agent 能力封装与分发的新标准。 |
+| [stablyai/orca](https://github.com/stablyai/orca) | TypeScript | —（+875） | 面向并行 Agent 的 ADE（Agent Development Environment），可用自己的订阅运行任意编码 Agent。今日 +875 stars，瞄准 Agent 工程化基础设施。 |
+| [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | Rust | 75,791（—） | 可降低常见开发命令 60-90% LLM token 消耗的 CLI 代理。单 Rust 二进制、零依赖，是 AI 编码工具链降本的代表。 |
+| [0xPlaygrounds/rig](https://github.com/0xPlaygrounds/rig) | Rust | 8,246（—） | Rust 生态的模块化、可扩展 LLM 应用框架。面向需要高性能与类型安全的 Agent/RAG 开发者。 |
+
+---
+
+### 🤖 AI 智能体/工作流（Agent 框架、自动化、多智能体）
+
+| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
+| :--- | :--- | ---: | :--- |
+| [PrimeIntellect-ai/prime-agent](https://github.com/PrimeIntellect-ai/prime-agent) | TypeScript | —（+1,138） | “自改进 RLM Agent”，面向编码工作流和长期自主任务。今日 +1,138 stars，是 Trending 中增速最高的 Agent 项目。 |
+| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | Shell | —（+958） | 一个“完整的 AI 代理机构”，包含前端专家、Reddit 运营等角色化 Agent。今日 +958 stars，展示多角色协作 Agent 的想象空间。 |
+| [paperclipai/paperclip](https://github.com/paperclipai/paperclip) | TypeScript | —（+748） | 开源应用，用于在工作中管理多个 AI Agent。今日 +748 stars，说明 Agent 治理与管理开始成为刚需。 |
+| [OpenHands/OpenHands](https://github.com/OpenHands/OpenHands) | TypeScript | 83,748（—） | AI 驱动开发的代表性平台。83k stars，是自主编码 Agent 方向最成熟的开源方案之一。 |
+| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | Python | 186,536（—） | 最早也最知名的开源自主 Agent 愿景项目。186k stars，仍是通用 Agent 开发的重要参照。 |
+| [shareAI-lab/learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) | Python | 73,897（—） | 从 0 到 1 实现一个 nano Claude Code 风格 Agent harness。73k stars，是学习 Agent 原理的热门教程。 |
+| [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | Go | 34,005（—） | DeepSeek 原生的终端 AI 编码 Agent，强调 prefix-cache 稳定性。34k stars，显示 DeepSeek 工具链正在崛起。 |
+| [agno-agi/agno](https://github.com/agno-agi/agno) | Python | 41,672（—） | 构建、运行、管理 Agent 平台的框架。41k stars，面向生产级 Agent 编排。 |
+
+---
+
+### 📦 AI 应用（具体应用产品、垂直场景解决方案）
+
+| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
+| :--- | :--- | ---: | :--- |
+| [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | Python | —（+812） | “终身个性化辅导”AI 教育应用。今日 +812 stars，说明教育场景对 Agent 化产品的关注度正在上升。 |
+| [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | Python | —（+458） | 自称首个开源 agentic 视频生产系统，含 12 条生产流水线、100+ 工具。今日 +458 stars，视频制作是最热门的垂直应用之一。 |
+| [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | Python | 62,262（+243） | LLM 驱动的多市场股票智能分析系统，覆盖行情、新闻、决策看板与自动推送。今日 +243 stars，是个人投资者 AI 工具的代表。 |
+| [harveyai/harvey-labs](https://github.com/harveyai/harvey-labs) | Python | —（+28） | 法律 AI 公司 Harvey 开源的 Agent 能力评估基准。今日 +28 stars，代表法律垂直 AI 开始建立评价体系。 |
+| [open-webui/open-webui](https://github.com/open-webui/open-webui) | Python | 148,523（—） | 友好、可自托管的 AI 对话/Agent 界面，支持 Ollama、OpenAI API 等。148k stars，是本地 AI 使用入口的明星项目。 |
+| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Python | 102,667（—） | 输入主题/关键词，自动生成高清短视频。102k stars，是 AI 短视频生产赛道代表作。 |
+
+---
+
+### 🧠 大模型/训练（模型权重、训练框架、微调工具）
+
+| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
+| :--- | :--- | ---: | :--- |
+| [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | Jupyter Notebook | 102,448（—） | 从零实现 ChatGPT-like LLM 的经典教程。102k stars，是学习 LLM 内部机制的首选资料。 |
+| [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | Python | 54,576（—） | 2 小时从 0 训练 64M 参数小 LLM。54k stars，极大降低了 LLM 训练实验的入门门槛。 |
+| [skyzh/tiny-llm](https://github.com/skyzh/tiny-llm) | Python | 4,468（—） | 面向系统工程师，在 Apple Silicon 上构建微型 vLLM + Qwen。4.4k stars，帮助理解 LLM 推理系统实现。 |
+| [thinkwee/AgentsMeetRL](https://github.com/thinkwee/AgentsMeetRL) | HTML | 1,776（—） | Agentic RL 的精选资源列表。1.7k stars，反映了“强化学习 + Agent”这一前沿交叉方向。 |
+| [NVlabs/Sana](https://github.com/NVlabs/Sana) | Python | 8,746（—） | NVIDIA 开源的高效高分辨率图像合成扩散模型。面向图像生成任务，是高效生成模型的重要参考。 |
+| [kandinskylab/kandinsky-5](https://github.com/kandinskylab/kandinsky-5) | Python | 808（—） | Kandinsky 5.0 扩散模型家族，支持视频与图像生成。新兴多模态生成模型，值得持续跟踪。 |
+| [chrisliu298/awesome-llm-unlearning](https://github.com/chrisliu298/awesome-llm-unlearning) | — | 617（—） | LLM 机器遗忘（unlearning）资源仓库。关注模型删除记忆、隐私合规等正在兴起的治理问题。 |
+
+---
+
+### 🔍 RAG/知识库（向量数据库、检索增强、知识管理）
+
+| 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
+| :--- | :--- | ---: | :--- |
+| [semantica-agi/semantica](https://github.com/semantica-agi/semantica) | Python | —（+893） | 图原生的 AI 上下文与可问责系统基础设施。今日 +893 stars，说明“图结构”正成为 Agent 上下文管理的重要范式。 |
+| [vitali87/code-graph-rag](https://github.com/vitali87/code-graph-rag) | Python | —（+341） | 面向 monorepo 的 RAG，用知识图谱查询、理解、编辑多语言代码。今日 +341 stars，解决代码库级检索痛点。 |
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Python | 105,363（—） | 把代码库、文档、SQL schema、PDF 变成可查询知识图谱，且无需向量库。105k stars，是“无向量 RAG”路线的代表性项目。 |
+| [VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex) | Python | 35,146（—） | 定位为“Vectorless、Reasoning-based RAG”的文档索引系统。35k stars，是反向量数据库路线中的黑马。 |
+| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | Go | 87,310（—） | 领先的开源 RAG 引擎，深度融合 Agent 上下文层。87k stars，适合企业级知识库落地。 |
+| [run-llama/llama_index](https://github.com/run-llama/llama_index) | Python | 51,570（—） | 文档 Agent 与 OCR 平台，也是 RAG 生态最核心的框架之一。51k stars，长期占据检索增强领域重要位置。 |
+| [milvus-io/milvus](https://github.com/milvus-io/milvus) | Go | 45,606（—） | 云原生向量数据库，用于大规模向量 ANN 检索。45k stars，是 RAG/向量检索基础设施的重要选择。 |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | Python | 63,076（—） | AI Agent 的通用记忆层。63k stars，帮助 Agent 实现跨会话长期记忆，是 RAG 之外的另一条上下文补充路线。 |
+
+---
+
+## 3. 趋势信号分析
+
+今日 Trending 呈现明显的 **Agent 工程化**信号。  
+第一，**Agent Skills 正在成为新的能力分发单元**：Anthropic 官方仓库 `anthropics/skills` 与社区 `addyosmani/agent-skills`、`diagram-design` 同时上榜，说明编码助手正从“长 Prompt 注入”转向“可复用、可组合的技能文件”。  
+第二，**多智能体从演示走向生产**：`prime-agent`、`orca`、`paperclip` 解决的都是“多个 Agent 如何并行、调度、管理”的工程问题，而不是单任务能力。  
+第三，**RAG 出现“去向量化 / 图谱化”支线**：`semantica` 与 `code-graph-rag` 用图结构建模代码仓库上下文，`PageIndex` 则直接主张 Vectorless RAG。这可能是对纯向量检索在代码/复杂知识场景中不足的补位。  
+第四，**RLM（Reinforcement Learning for Models/Agents）方向开始登榜**：`prime-agent` 自带“self-improving RLM”标签，与 `thinkwee/AgentsMeetRL` 等资源互相印证，强化学习正重新回到 Agent 训练视野。  
+整体来看，社区关注点正在从“能对话”转向“能干活、能协作、能自我改进”，并与 Claude Code、Codex 等编码 Agent 生态紧密结合。
+
+---
+
+## 4. 社区关注热点
+
+- **Agent Skills 成为新一代“插件”**：`anthropics/skills`、`addyosmani/agent-skills`、`cathrynlavery/diagram-design`（+1,616）值得重点关注。官方与社区齐推，技能文件可能替代长 prompt，成为编码 Agent 的能力分发格式。
+- **图/RAG 与“无向量”路线异军突起**：`semantica`（+893）、`code-graph-rag`（+341）、`Graphify`（105k stars）值得关注。用知识图谱和确定性解析补纯向量检索，尤其适合代码库理解与长上下文管理。
+- **多 Agent 并行与治理**：`orca`（+875）、`paperclip`（+748）、`prime-agent`（+1,138）说明 Agent 数量变多后，身份、调度、监控与治理将成为新的基础设施问题。
+- **Agent 自我改进与 RLM**：`prime-agent` 自称 self-improving RLM Agent，结合 `thinkwee/AgentsMeetRL`，强化学习驱动的 Agent 自我进化可能成为下一阶段热点。
+- **垂直场景 AI 应用加速落地**：`DeepTutor`（+812）、`OpenMontage`（+458）、`daily_stock_analysis`（+243）分别代表教育、视频、金融等赛道的“AI 员工级”产品，应用层创新正在快速增多。
+
+---
+*本日报由 [agents-radar](https://github.com/Neare-Design/agents-radar) 自动生成。*
