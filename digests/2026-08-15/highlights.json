@@ -1,0 +1,150 @@
+{
+  "zh": {
+    "ai-cli": [
+      "OpenAI Codex 单日发 5 个 alpha，Windows 冻结问题 100 评论。",
+      "Claude Code v2.1.233 发布，CJK 输入法问题获 147 赞。",
+      "Gemini CLI 子代理误报 GOAL，P1 稳定性问题密集。",
+      "Copilot CLI MCP OAuth 回归，1.0 后生态磨合期。",
+      "Qwen Code 单日 3 版本，图片读取崩溃成焦点。",
+      "OpenCode 发生 ID 回绕事故；Pi 讨论 Windows 玩法。"
+    ],
+    "ai-agents": [
+      "OpenClaw 今日 500 issue/PR 更新，无新版本发布。",
+      "静默回复失败复发登顶，94 评论全库最高。",
+      "3 个 P0 缺陷悬置：内存泄漏、网关无法启动、路径解析错误。",
+      "PR #116489 合入安装策略警告确认机制。",
+      "PR #123869 修复节点 worker 结果一致性。",
+      "PR #123874 合入聊天侧栏统一标签面板。"
+    ],
+    "ai-infra": [
+      "vLLM 适配 DeepSeek-V4/Kimi-K3，修复 ROCm 与 Blackwell 正确性。",
+      "SGLang 推进 NPU/ROCm/Metal 后端，Router GEMM 精度修复。",
+      "llama.cpp 单日 11 个版本，Jinja 模板性能修复。",
+      "Ollama v0.32.11→v0.32.13，全面接入 Qwen3.8 27B。",
+      "LiteLLM 集中 20 个 PR，Auto Router 影子评估拓展。",
+      "Unsloth v0.1.800-beta 支持 Qwen3.8-27B，AMD 短板爆发。"
+    ],
+    "ai-trending": [
+      "diagram-design 登顶 Trending，今日 +3,651 stars。",
+      "github/spec-kit 官方 Spec-Driven 工具包，+1,147 stars。",
+      "semantica +1,183，上下文/记忆层热度上升。",
+      "needle 以 14MB 基础模型登榜，边缘 AI 升温。",
+      "ollama 178k stars，本地运行大模型事实入口。",
+      "rtk-ai/rtk 可减少 60-90% LLM Token 消耗。"
+    ],
+    "ai-web": [
+      "Anthropic 发布文本水印技术说明，回应欧盟 AI 法案合规。",
+      "水印不携带身份信息、不增 token 成本，面向全行业互操作。",
+      "Anthropic 经济团队发布再培训综述，基于 56 项随机对照实验。",
+      "再培训每人成本约 1.3 万美元，就业率仅提高 2~3 个百分点。",
+      "未发布版 Claude 将黎曼猜想零点比例下界从 41.6% 提升至 67.2%。",
+      "OpenAI 官网当日零更新，Anthropic 三篇新增。"
+    ],
+    "ai-hn": [
+      "DeepSeek V4 Pro 0813 登 HN 榜首，1027 分 446 评论。",
+      "GLM-5.3 宣称具备新兴网络能力，1015 分 500 评论。",
+      "Gemini 3.7 Flash 发布，946 分，热议编码与 API 定价。",
+      "Mistral OCR 4.1 发布，聚焦文档解析与版面还原。",
+      "Google 同态加密实用化引热议，但开销仍受质疑。",
+      "11 模型同一 prompt 评测结果差异大，工具链关注度高。"
+    ],
+    "ai-arxiv": [
+      "Synthetic Persona Pretraining 提出预训练阶段注入对齐，挑战主流范式。",
+      "LittleLearner 发布 88B token 课程化预训练语料。",
+      "OmniScientist 全模态全学科 AI 科学家，覆盖完整科研流程。",
+      "Intern-S2-Preview 发布科学智能体基础模型。",
+      "SAEVerbalizer 用表示语言化自动生成 SAE 特征解释。",
+      "DARTree/RMM/Bagging 推理效率与鲁棒学习理论有新进展。"
+    ],
+    "ai-hf": [
+      "Kimi-K3 以 10,669 赞登顶 Hugging Face 今日榜。",
+      "Qwen3.8 系列放出多模态 27B、2.4T MoE 及 FP8/GGUF 版本。",
+      "MiniMax-H3 ComfyUI 单文件版下载超 1,176 万。",
+      "DeepSeek V4 Flash 下载量突破 160 万。",
+      "NVIDIA Nemotron 3.5 Lightning 30B-A3B 入榜，双版本。",
+      "LiquidAI LFM2.5-2.6B 下载 12.4 万，轻量模型走热。"
+    ],
+    "ai-community": [
+      "Dev.to 热议 AI 记忆：向量数据库不够，需更丰富架构。",
+      "Graviton2 上跑 Gemma 4，瓶颈在 64 KiB 共享内存。",
+      "「没人审计 OpenAI 账单」：LLM 生产浪费被忽略。",
+      "观点：编码 Agent 不需要记忆 SaaS，单文件即可。",
+      "警示：评估框架污染会让人把软件 bug 当成模型人格。",
+      "Lobste.rs 聚焦 OpenAI–Hugging Face 安全事件。"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "8 of 10 AI CLI tools shipped code in 24h",
+      "17 releases across 7 tools; 72+ PRs",
+      "Users demand reverts for Codex and CodeWhale",
+      "Session persistence and MCP reliability are key battlegrounds",
+      "Claude Code and Copilot CLI focus on governance",
+      "Grok Build saw zero activity; Kimi dormant"
+    ],
+    "ai-agents": [
+      "OpenClaw merged 100 PRs but shipped no release",
+      "Reliability bugs dominate: silent reply failures, memory growth",
+      "P0/P1 session-state corruption under maintainer review",
+      "Fixes target Matrix, Slack, and MS Teams channels",
+      "Security install-policy warning acknowledgements added",
+      "Gateway session recovery work in progress"
+    ],
+    "ai-infra": [
+      "llama.cpp shipped 11 releases (b10425–b10435)",
+      "AMD/ROCm issues plague every project on MI300",
+      "vLLM targets DeepSeek-V4-Flash on Blackwell SM120",
+      "SGLang adds Kimi-K3 SiTU and AMD MI350 MXFP4",
+      "Speculative decoding is now table stakes in serving",
+      "LiteLLM consolidates API correctness and proxy reliability"
+    ],
+    "ai-trending": [
+      "diagram-design Claude skill hits +3,651 stars in a day",
+      "github/spec-kit surges +1,147 stars for spec-driven dev",
+      "semantica graph-native context rises +1,183 stars",
+      "Agent memory tools holaOS, macro, claude-mem trending",
+      "needle ships 14MB edge foundation model",
+      "unsloth launches local training UI"
+    ],
+    "ai-web": [
+      "Anthropic details Claude text watermarking for EU AI Act",
+      "Anthropic meta-analyzes 56 worker retraining studies",
+      "Claude proof raises Riemann zero bound to 67.2%",
+      "Anthropic first to disclose watermarking approach",
+      "OpenAI publishes no new content in crawl window",
+      "Watermarking marks AI-generated text per EU law"
+    ],
+    "ai-hn": [
+      "GLM-5.3 sparks safety debate over cyber capabilities",
+      "Gemini 3.7 Flash targets low-latency agentic workloads",
+      "DeepSeek V4 Pro thread draws hundreds of comments",
+      "Cerebras accelerates GPT-5.6, draws skepticism",
+      "Codex on Linux and homomorphic encryption discussed",
+      "HN demands reproducible evals before trusting models"
+    ],
+    "ai-arxiv": [
+      "LittleLearner enables pedagogically controlled pretraining data",
+      "SAEVerbalizer verbalizes sparse autoencoder features",
+      "OmniScientist and Intern-S2-Preview push autonomous science",
+      "Vero targets verified code generation",
+      "Synthetic Persona Pretraining embeds alignment in pretraining",
+      "DARTree and Reduced Matrix Multiplication cut inference costs"
+    ],
+    "ai-hf": [
+      "Kimi-K3 tops HF with 10.7K weekly likes",
+      "Qwen3.8-27B draws 8.9K likes despite zero downloads",
+      "DeepSeek-V4-Flash hits 1.6M downloads",
+      "MiniMax-H3 derivatives pass 11.7M ComfyUI downloads",
+      "Unsloth GGUF conversions drive local adoption",
+      "Qwen and Nvidia release FP8/NVFP4 variants"
+    ],
+    "ai-community": [
+      "Devs debate vector DBs vs durable memory stacks",
+      "Argued coding agents can use Git and files for memory",
+      "Teams question who audits OpenAI invoices",
+      "How to benchmark the model, not the harness",
+      "Checkpointing long LLM jobs before timeouts discussed",
+      "Investigation tests OpenAI verified defenders access claim"
+    ]
+  }
+}
