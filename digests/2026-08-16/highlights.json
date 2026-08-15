@@ -1,0 +1,134 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code OAuth 刷新 400 与瞬时 5xx 损坏凭据，成最大痛点",
+      "OpenAI Codex 在 Windows 遭遇信任危机，issue 评论破百",
+      "Gemini CLI 现 3 个 P1 级 Agent 可靠性 bug，evals 快速扩张",
+      "GitHub Copilot CLI 出现 MCP OAuth 回归，NixOS 兼容受关注",
+      "Kimi Code CLI 记忆系统 40 评论未落地，配额缩水遭投诉",
+      "OpenCode 订阅计费争议集中，V2 架构 PR 密集"
+    ],
+    "ai-agents": [
+      "OpenClaw 发布 v2026.8.1-beta.2，新增 Secret 出口主机绑定",
+      "新版本支持 GPT-5.6 Ultra 模型与运行时动态切换",
+      "24 小时合并或关闭 53 个 PR，项目保持高位活跃",
+      "Secret 未绑定目标主机将在明文出口前 fail closed",
+      "修复会话侧栏排序选择在页面刷新后丢失问题",
+      "社区聚焦 Codex 集成稳定性与数据库迁移数据丢失缺陷"
+    ],
+    "ai-infra": [
+      "vLLM 修复 DeepSeek-V4 三平台 P0 崩溃，预研 CUDA 13.4",
+      "SGLang 推 KDA 原生 kernels，DSA 超长 prefill 静默失效",
+      "llama.cpp 日更 7 tag，Kimi-K3 文本模型合入主线",
+      "Ollama v0.32.14-rc0 修复 Qwen3.8 系统消息 500 错误",
+      "KDA/稀疏 MLA 成下一代长上下文主线，三引擎并行推进",
+      "Unsloth max_steps 训练预处理提速 6 倍，修复串流"
+    ],
+    "ai-trending": [
+      "diagram-design 单日涨星 1619，为 Claude Code 提供 29 种模板",
+      "cursor/plugins 官方插件规范发布，单日新增 152 stars",
+      "needle 以 14MB 端侧模型登热榜，主打本地化部署",
+      "Soup 实现在 4GB 笔记本 GPU 上微调 8B 模型",
+      "Agent 记忆与 token 压缩成新基础层，claude-mem 等受关注",
+      "视频生成 agentic 工作台密集涌现，OpenMontage 等亮相"
+    ],
+    "ai-web": [
+      "Anthropic 前沿红队发布多智能体系统模式与问题研究报告",
+      "研究警告现有制度基于人类速度监督，系统性失败风险被低估",
+      "个体行为怪癖可能在多智能体环境中被放大为全局失败",
+      "Anthropic 详解 Claude 文本水印机制，旨在遵守 EU AI Act",
+      "水印不损害输出质量、不增加成本、不携带个人身份信息",
+      "未来 Claude 生成文本将含水印，可判断 AI 参与生成可能性"
+    ],
+    "ai-hn": [
+      "GLM-5.3 登顶 HN，1134 分，讨论涌现网络能力真假",
+      "Gemini 3.7 Flash 发布，960 分，聚焦 agent 场景性价比",
+      "Cerebras 展示 GPT-5.6 超快推理，705 分，挑战 NVIDIA",
+      "Google 推进同态加密，让 AI 可在加密数据上推理",
+      "OpenAI IPO 前人才流失成风险讨论焦点",
+      "法庭提示注入与 AI 舆论操纵案例加剧社区警惕"
+    ],
+    "ai-hf": [
+      "Kimi-K3 周点赞 10722 登顶，下载超 210 万",
+      "DeepSeek-V4-Flash 下载量达 179.8 万，轻量需求旺",
+      "Qwen3.8-27B 点赞 9760，成为 Qwen 生态基石模型",
+      "Qwen3.8 系列 GGUF、FP8、NVFP4 多版本齐上榜",
+      "MiniMax-H3 视频生成社区衍生 Turbo、LoRA、ComfyUI 适配",
+      "音频、图像生成模型持续上榜，多模态全面扩展"
+    ],
+    "ai-community": [
+      "Dev.to 热议 AI Agent 可靠性，4200 次试验发现其不自知",
+      "AI 徽章文章剖析 AI 内容标识与公众认知错位",
+      "OpenAI 对抗测试续篇揭示未定义措辞决定安全边界",
+      "实战：用 vLLM 部署 Qwen3.8-2.4T-A95B，含量化方案",
+      "跳出更大模型叙事，提出数据质量与推理时计算路线图",
+      "自注意力机制无数学版科普，适合团队 AI 入门"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "CLI ecosystem shifts from features to stability and hardening",
+      "Memory/context management is the new competitive frontier",
+      "Windows remains the weakest platform across most tools",
+      "Agentic trust issues: false successes, model downgrades",
+      "Claude Code tops activity with 10 hot issues and 3 PRs",
+      "Grok Build shows no activity in latest community digest"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.8.1-beta.2: secret-egress hardening",
+      "Beta adds GPT-5.6 Ultra and runtime switching",
+      "OpenClaw backlog: 480 issues, 447 PRs still open",
+      "P1: Codex CPU stalls, DeepSeek cron stalls",
+      "State-migration data-loss bugs among top OpenClaw concerns",
+      "Maintainer bandwidth is main bottleneck for backlog closure"
+    ],
+    "ai-infra": [
+      "DeepSeek-V4-Flash crashes span vLLM, SGLang, llama.cpp",
+      "Silent failures: skipped kernels, dropped reasoning fields",
+      "llama.cpp shipped two new model families in 24 hours",
+      "Ollama is patching tool-loop breakage in local serving",
+      "Unsloth Studio converges on local-first serving model",
+      "LiteLLM surfaces security and cost-accounting issues"
+    ],
+    "ai-trending": [
+      "diagram-design is fastest AI repo today at +1,619 stars",
+      "github/spec-kit surges +901 for Spec-Driven Development",
+      "ego-lite adds +546 for shared browser state for agents",
+      "needle's 14MB foundation model gains +551 stars",
+      "Soup layer-streams a fine-tune on 4GB laptop GPU (+303)",
+      "Unsloth local training/runtime UI gains +435 stars"
+    ],
+    "ai-web": [
+      "Anthropic publishes multiagent safety paper",
+      "Claude text watermarking announced for EU AI Act compliance",
+      "Watermarking guarantees output quality, cost, and privacy",
+      "Red Team warns agent-agent interactions may outpace human",
+      "OpenAI published no new content in this crawl",
+      "Two Anthropic releases: multiagent safety and watermarking"
+    ],
+    "ai-hn": [
+      "GLM-5.3 tops HN at 1,134 points and 558 comments",
+      "Gemini 3.7 Flash draws 960 points and 486 comments",
+      "Cerebras GPT-5.6 acceleration: speed is the battleground",
+      "AI working memory vs human reasoning essays draw hundreds",
+      "Homomorphic encryption and Claude watermarks draw debate",
+      "Prompt-injected court filings spark security discussion"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B tops Hugging Face trending this week",
+      "MiniMax-H3 video ecosystem expands via ComfyUI, LoRAs, GGUF",
+      "DeepSeek-V4-Flash-0731 surpasses 1.79M downloads",
+      "Kimi-K3 hits 10,722 likes and 2.1M downloads",
+      "Quantization now first-class: FP8, NVFP4, GGUF variants",
+      "DeepSeek two-tier V4 release strategy is paying off"
+    ],
+    "ai-community": [
+      "AI badge measures narrow compliance, not real understanding",
+      "Anthropic signs EU AI Act Code of Practice",
+      "4,200-trial study tests LLM agent reliability at scale",
+      "RAG systems confidently touch emails they shouldn't",
+      "Voice AI for Bharat: finance, scam, disaster, farmer apps",
+      "Lobste.rs: latent reasoning, AI scientists, OpenAI-HF video"
+    ]
+  }
+}
