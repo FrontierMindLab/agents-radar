@@ -1,0 +1,118 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code发布v2.1.234，GPU崩溃问题引39条评论热议",
+      "OpenAI Codex发布rust-v0.148.0-alpha.21，获195个点赞",
+      "Gemini CLI发布v0.56.0，5个p1级bug成焦点",
+      "Qwen Code v0.21.13正式版，SWE-bench 500条全通过",
+      "DeepSeek TUI发布v0.9.9，8个PR已合并",
+      "GitHub Copilot CLI的MCP回归引发信任危机"
+    ],
+    "ai-agents": [
+      "OpenClaw 500条Issue更新，但修复产出率偏低",
+      "插件安装策略警告确认功能PR已关闭落地",
+      "Git worktree选项优化：仅Git仓库目录显示",
+      "消息丢失、编码Agent不工作成社区焦点",
+      "Codex集成CPU占用异常引关注",
+      "多通道能力配置问题持续讨论活跃"
+    ],
+    "ai-infra": [
+      "llama.cpp连发三版本b10472/b10470/b10456",
+      "DeepSeek-V4成引擎必答题，占PR/Issue三成",
+      "SGLang PR密度最高，Kimi-K3性能提升18.49%",
+      "vLLM率先发布CUDA 13.4/Rubin预发布镜像",
+      "api_key明文日志、/health泄露等安全事件集中暴露",
+      "Ollama cloud输出污染导致agent死循环"
+    ],
+    "ai-trending": [
+      "MoneyPrinterTurbo今日新增1275星登顶Trending",
+      "ollama总量178,807星，成私有化部署事实标准",
+      "vllm总量89,275星，推理服务重要底座",
+      "rtk可降低60-90% token消耗，单二进制零依赖",
+      "llmfit一条命令匹配模型与本地硬件",
+      "Anthropic 817个安全技能标准化为skill包"
+    ],
+    "ai-hn": [
+      "Claude系统提示词公开、文本水印争议进高分榜",
+      "GPT-5.6 Sol被实测为OpenAI最强视觉模型",
+      "Qwen3.8 27B得52分，开源效率引热议",
+      "Anthropic多智能体系统研究获192分137评论",
+      "Stripe被曝收购OpenRouter，引资本关注",
+      "Nvidia缩减OpenAI基建融资担保"
+    ],
+    "ai-hf": [
+      "Kimi-K3以10,800点赞领跑，下载超216万",
+      "Qwen3.8-27B周点赞破万，成最热多模态模型",
+      "DeepSeek-V4-Flash下载量近200万",
+      "MiniMax H3视频生成家族多格式快速扩张",
+      "Qwen3.8-2.4T-A95B旗舰MoE模型上榜",
+      "DeepSeek-V4-Pro-0813专注高难度推理任务"
+    ],
+    "ai-community": [
+      "社区聚焦AI生成代码的可信度与验证",
+      "MCP Eval揭示服务器测试通过仍失败的困境",
+      "开发者指出AI编码核心风险在于不理解交付",
+      "Docker提出五条AI时代供应链安全控制项",
+      "Codex与Claude Code玩'撒谎骰子'游戏实测对比",
+      "CI中可捕获Agent忽略失败工具调用的问题"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Claude Code, Codex, Gemini, Qwen all shipped updates in 24h",
+      "CLI tools fixing multi-GB memory leaks and runaway processes",
+      "MCP OAuth refresh failures top interoperability pain point",
+      "Agents now maintain agents via automated SSR/autofix PRs",
+      "Users demand cost, subagent truth, approval controls",
+      "Windows ARM64, Wayland, Cygwin platform gaps still annoy"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 issues and 500 PRs updated in 24h",
+      "96 PRs merged/closed but no new releases",
+      "Top issues: message loss, session corruption, crash loops",
+      "ClawSweeper bot hits human-maintainer bottleneck",
+      "Install-policy warning review completes security hardening",
+      "Teams multi-bot support and workboard sync progressing"
+    ],
+    "ai-infra": [
+      "No major releases; llama.cpp rolled patches b10455-b10472",
+      "DeepSeek V4, Kimi K3, GLM-5.2, Qwen3.8 integration underway",
+      "Speculative-decoding and distributed deadlocks dominate",
+      "KV-cache design is the optimization battleground",
+      "LiteLLM, Unsloth harden for agentic/multimodal",
+      "Budget and credential redaction patches land as urgent fixes"
+    ],
+    "ai-trending": [
+      "MoneyPrinterTurbo adds +1,275 stars today",
+      "Agentic video pipelines like OpenMontage mature",
+      "Security playbooks enter agents via strix and Anthropic",
+      "ai-memory targets persistent context across coding agents",
+      "llmfit solves hardware-model compatibility for local LLMs",
+      "omlx brings continuous-batching inference to Apple Silicon"
+    ],
+    "ai-hn": [
+      "Claude watermark adulteration sparks 666-comment backlash",
+      "Claude system prompts surface on HN with 738 points",
+      "Stripe reportedly buys OpenRouter for $7B+",
+      "GPT 5.6 Sol called best OpenAI vision model yet",
+      "Qwen3.8 27B scores 52, closing gap with closed models",
+      "Copilot autofixes demoed compromising Snowflake Jira"
+    ],
+    "ai-hf": [
+      "Qwen3.8 27B and quantizations dominate Hugging Face",
+      "unsloth Qwen3.8 GGUF hits 2.7M downloads",
+      "Moonshot Kimi-K3 collects 10.8K likes",
+      "MiniMax-H3 ComfyUI ecosystem surpasses 14M downloads",
+      "DeepSeek-V4-Flash amasses ~2M downloads",
+      "Nvidia Nemotron Lightning MoE and uncensored LoRAs trending"
+    ],
+    "ai-community": [
+      "Dev.to focuses on trusting but verifying AI-generated code",
+      "MCP evals expose servers passing tests but failing tasks",
+      "CI gates urged for silent agent failures",
+      "Lobste.rs revisits 1985 video on AI limits",
+      "Rare books end up at Amazon AI training facility",
+      "Nvidia cuts OpenAI infra guarantee, sparking concern"
+    ]
+  }
+}
