@@ -1,0 +1,150 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code 发布 v2.1.235，聚焦合规与记忆持久化",
+      "OpenAI Codex 关注度第一，token 争议发酵 630 评论",
+      "Gemini CLI 多代理可靠性讨论集中，发布 v0.56.0-nightly",
+      "Copilot CLI 遭遇 MCP 痛点密集反馈，发布 v1.0.81-1",
+      "Pi 项目更新超 70 条，压缩与 TUI 渲染成焦点",
+      "Qwen Code 多智能体话题升温，发布 v0.21.11-nightly"
+    ],
+    "ai-agents": [
+      "OpenClaw 24小时关闭 38 issue、合并 166 PR",
+      "安全策略确认链路从 CLI 到 Control UI 全线打通",
+      "修复 claude-cli 后端上下文无限增长静默失败问题",
+      "助手草稿锚定问题修复，mid-turn 新消息不再被忽略",
+      "自动化合并 PR 加入，机器人协同维护流程成型",
+      "P1 级历史 Bug 仍有积压，健康度总体良好"
+    ],
+    "ai-infra": [
+      "Kimi-K3、DeepSeek V4 牵引 vLLM/SGLang 快速迭代",
+      "投机解码在 CUDA/ROCm 多节点现崩溃死锁，成最大隐患",
+      "llama.cpp 连发 v0.1.2、b10485、b10488 三个版本",
+      "LiteLLM 全平台 292 PRs，聚焦网关与成本治理",
+      "vLLM 合入 FlashInfer GEMM+AllReduce 融合",
+      "GLM-5.2 在 llama.cpp 支持请求被关闭，状态不稳"
+    ],
+    "ai-trending": [
+      "MoneyPrinterTurbo 今日新增 2306 stars 领跑热榜",
+      "ai-memory 与 OpenViking 登榜，Agent 记忆成新基建",
+      "Anthropic 网络安全技能包 817 个技能快速走红",
+      "omlx 登榜，Apple Silicon 本地推理工具受关注",
+      "langchain 144k stars 仍是 Agent 工程化核心框架",
+      "rtk 用 Rust 实现减少 60-90% token 消耗"
+    ],
+    "ai-web": [
+      "Claude 蛋白质设计 15 靶点命中 14，成功率翻倍",
+      "Claude Opus 5 凭两句话提示分分钟完成化学分析",
+      "Anthropic 文章暗示 Opus 5 与 Mythos Preview 迭代",
+      "OpenAI 新增页面含与 Codeai 合作、青少年 ChatGPT",
+      "OpenAI 内容仅元数据无正文，无法判断实质",
+      "Claude 将科研自动化叙事推向生命科学企业场景"
+    ],
+    "ai-hn": [
+      "AI;DR 讽刺 AI 内容套娃获 1056 分登顶",
+      "以色列被曝创建假智库操纵 AI 议题，1009 分热议",
+      "Daring Fireball 抨击 Claude 水印篡改文本得 811 分",
+      "GPT-5.6 Sol 被评最强视觉模型，OpenRouter 降价 50%",
+      "AI 生成 Copilot Autofix 成攻破 Snowflake Jira 入口",
+      "OpenAI 官方宣布放缓前沿模型训练引行业关注"
+    ],
+    "ai-arxiv": [
+      "模型催眠：微弱线索可强力控制模型行为引安全担忧",
+      "Proteus 提出增量记忆激活，突破长上下文静态瓶颈",
+      "语义先验偏置揭示 LLM 并非理性决策代理",
+      "BATON 让 VLA 模型实现长视野机器人可靠链式操作",
+      "状态语义注入攻击可劫持 LLM 驱动具身代理",
+      "AlphaEvolve 用于优化矩阵乘法指数，AI 驱动理论突破"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B 周赞 11,108 登顶热门榜",
+      "DeepSeek-V4-Flash 下载量超 212 万",
+      "Kimi-K3 周赞 10,827、下载 222 万成黑马",
+      "MiniMax-H3 视频模型下载超 285 万",
+      "GGUF、FP8、NVFP4 量化变体密集，本地部署需求旺",
+      "DeepSeek-V4-Pro-0813 正式发布上榜"
+    ],
+    "ai-community": [
+      "COSP 技巧让 LLM 自己批改作业，低成本做评估",
+      "Nuxt+AI SDK 7 构建先问权限的 Agent 教程热",
+      "五国政府联合发布 Agentic AI 安全指南",
+      "珍本书物流流入 Amazon AI 训练设施引发伦理讨论",
+      "开发者批评 Agent 运行时仍是 while(true) 盲目循环",
+      "按任务而非 token 计价，coding agent 成本被误读"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.235 adds spellchecker, prompt-cache fix",
+      "Codex, Gemini CLI, Qwen Code lead PR throughput",
+      "Cross-tool pain: Windows/WSL regressions, MCP leaks",
+      "Subagent false-success reporting recurring across tools",
+      "Grok Build dormant; Kimi Code minimal activity",
+      "Six of nine tools shipped or advanced releases"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 issues and 500 PRs in 24h",
+      "38 issues closed, 166 PRs merged/closed today",
+      "No new release; work on 2026.8.x beta",
+      "Control-UI polish: collapsible rosters, Plugins hub",
+      "Fixes: Matrix v12 rooms, Codex OOM, doctor recovery",
+      "P1 bugs open; triage outpacing maintainer review"
+    ],
+    "ai-infra": [
+      "llama.cpp released v0.1.2 plus nightlies b10483–b10488",
+      "No stable OSS releases from vLLM, SGLang, Ollama, LiteLLM, Unsloth",
+      "Kimi K3, DeepSeek-V4, GLM-5.2 enabled across stack",
+      "MTP/speculative decoding and CUDA graph risks noted",
+      "Agentic workloads are primary bug stress test",
+      "vLLM has largest open-issue surface, speculative decoding"
+    ],
+    "ai-trending": [
+      "ai-memory and OpenViking target persistent agent context",
+      "MoneyPrinterTurbo +2,306 stars leads AI video wave",
+      "omlx brings continuous batching to Apple Silicon",
+      "Anthropic-Cybersecurity-Skills pack +726 stars",
+      "Ollama now lists Kimi-K2.6, GLM-5.2 and more",
+      "Agent memory, context, and reusable skills converge"
+    ],
+    "ai-web": [
+      "Claude designed successful protein binders on 14/15 targets",
+      "Claude binder designs beat field's 10–15% hit rate",
+      "Claude Opus 5 analyzed NMR/LC-MS in 19–23 minutes",
+      "Opus 5 matched lab purity within 0.07 points",
+      "Anthropic debuts Mythos Preview model name",
+      "OpenAI posts Codeai partnership, ChatGPT for Teens"
+    ],
+    "ai-hn": [
+      "Essay on 'AI; Didn't Read' habits tops at 1,056 points",
+      "Fake Israeli think tank allegedly targets AI chatbots",
+      "Gruber calls Anthropic watermarking textual adulteration",
+      "GPT-5.6 Sol gets 50% price cut, strong vision",
+      "Wiz: Copilot Autofix introduced Snowflake Jira vuln",
+      "Claude Code autonomously hacked macOS printer driver"
+    ],
+    "ai-arxiv": [
+      "AlphaEvolve attacks core matrix multiplication exponent optimization",
+      "Model Hypnosis: weak prompt cues combine into strong control",
+      "Policy Iteration with Human Feedback adapts models in-context",
+      "Le Critique uses privileged value functions for LLM RL",
+      "Robotics work targets long-horizon and whole-body control",
+      "Calibration and counterfactual interpretability central to trust"
+    ],
+    "ai-hf": [
+      "Qwen3.8 27B multimodal base is most-liked release",
+      "MiniMax-H3 ComfyUI pack surpasses 14.6M downloads",
+      "DeepSeek-V4-Flash-0731 hits 2.1M downloads",
+      "Qwen3.8-2.4T-A95B is 2.4T-parameter MoE model",
+      "Kimi-K3 and DeepSeek V4 Flash/Pro lead open LLMs",
+      "Quantized and community variants out-download originals"
+    ],
+    "ai-community": [
+      "AI agents dominate Dev.to and Lobste.rs feeds",
+      "Developers measure MCP servers' context-window costs",
+      "Five governments issue joint agentic-AI security guidance",
+      "COSP lets LLMs grade their own output",
+      "Nuxt + AI SDK 7 agent asks permission first",
+      "8,664 AI-generated SEO pages produced nine clicks"
+    ]
+  }
+}
